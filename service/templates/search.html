@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Search · Clipper</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  * { box-sizing: border-box; }
+  body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+         margin: 0; color: #222; background: #fafafa; }
+  header { background: white; border-bottom: 1px solid #e1e1e1; padding: 14px 24px;
+           display: flex; gap: 12px; align-items: center; }
+  header h1 { margin: 0; font-size: 18px; }
+  header a { color: #06c; text-decoration: none; font-size: 14px; }
+  main { max-width: 980px; margin: 0 auto; padding: 20px; }
+  .qbar { display: flex; gap: 8px; }
+  .qbar input[type=text] { flex: 1; padding: 10px 12px; font-size: 15px;
+           border: 1px solid #ccc; border-radius: 4px; font-family: ui-monospace, monospace; }
+  button { padding: 10px 16px; background: #06c; color: white; border: none;
+           border-radius: 4px; cursor: pointer; font-size: 14px; }
+  button.secondary { background: #888; }
+  .opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+          gap: 10px; margin: 12px 0; padding: 12px; background: white;
+          border: 1px solid #e1e1e1; border-radius: 6px; }
+  .opts label { font-size: 12px; color: #666; display: block; }
+  .opts input, .opts select { width: 100%; padding: 6px; border: 1px solid #ccc;
+          border-radius: 4px; font-size: 13px; }
+  .help { font-size: 12px; color: #777; background: #f4f4f8; border-radius: 6px;
+          padding: 10px 14px; margin: 12px 0; }
+  .help code { background: #fff; padding: 1px 5px; border-radius: 3px; border: 1px solid #ddd; }
+  .status { font-size: 13px; color: #666; margin: 10px 0; min-height: 18px; }
+  .report { background: white; border: 1px solid #e1e1e1; border-radius: 6px;
+            padding: 20px; white-space: pre-wrap; font-family: ui-monospace, monospace;
+            font-size: 13px; line-height: 1.55; overflow-x: auto; }
+  .report-rendered { background: white; border: 1px solid #e1e1e1; border-radius: 6px;
+            padding: 20px 28px; }
+  .report-rendered blockquote { border-left: 3px solid #cdd; margin: 4px 0;
+            padding: 2px 12px; color: #444; background: #fbfbfd; }
+  .report-rendered table { border-collapse: collapse; margin: 8px 0; }
+  .report-rendered th, .report-rendered td { border: 1px solid #ccc; padding: 4px 10px; }
+  .report-rendered h2 { font-size: 16px; margin: 18px 0 4px; }
+  .report-rendered hr { border: none; border-top: 1px solid #eee; margin: 14px 0; }
+  mark { background: #ffe9a8; }
+  .toolbar { display: flex; gap: 8px; align-items: center; margin: 10px 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🔍 Search</h1>
+  <a href="/">← library</a>
+</header>
+<main>
+  <div class="qbar">
+    <input type="text" id="q" placeholder='e.g.  ("machine learning" %20 model) AND tag:research NOT deprecated'
+           autofocus>
+    <button id="go">Search</button>
+  </div>
+
+  <div class="opts">
+    <div><label>Default operator (bare terms)</label>
+      <select id="default_op"><option value="OR">OR</option><option value="AND">AND</option></select></div>
+    <div><label>Context words around each hit</label>
+      <input type="number" id="context" value="30" min="0" max="500"></div>
+    <div><label>Added from</label><input type="date" id="added_from"></div>
+    <div><label>Added to</label><input type="date" id="added_to"></div>
+    <div><label>Published from</label><input type="date" id="published_from"></div>
+    <div><label>Published to</label><input type="date" id="published_to"></div>
+    <div><label>Output format</label>
+      <select id="format"><option value="md">Markdown</option><option value="txt">Plain text</option></select></div>
+  </div>
+
+  <div class="help">
+    <strong>Query syntax:</strong>
+    Boolean <code>AND</code> <code>OR</code> <code>NOT</code> (or <code>&amp;</code> <code>|</code> <code>-</code>) ·
+    grouping <code>( )</code> ·
+    phrases <code>"exact phrase"</code> ·
+    unordered proximity <code>a %20 b</code> (within 20 words) ·
+    fields <code>title:</code> <code>tag:</code> <code>source:</code> <code>url:</code>
+    <code>added:&gt;2024-01-01</code> <code>published:2024-01-01..2025-01-01</code>.
+    Searches clip text <em>and</em> the contents of attached PDFs, Word docs, and text files.
+  </div>
+
+  <div class="toolbar">
+    <button class="secondary" id="download">Download report</button>
+    <button class="secondary" id="toggle-view">Toggle raw/rendered</button>
+  </div>
+  <div class="status" id="status"></div>
+  <div id="out"></div>
+</main>
+
+<script>
+  const $ = s => document.querySelector(s);
+  let lastReport = '';
+  let rawView = false;
+
+  function params(forDownload) {
+    const p = new URLSearchParams();
+    p.set('q', $('#q').value);
+    p.set('default_op', $('#default_op').value);
+    p.set('context', $('#context').value);
+    for (const f of ['added_from','added_to','published_from','published_to']) {
+      if ($('#'+f).value) p.set(f, $('#'+f).value);
+    }
+    p.set('format', $('#format').value);
+    if (forDownload) p.set('download', '1');
+    return p;
+  }
+
+  // Minimal markdown -> HTML for the rendered view (headings, hr, blockquote,
+  // tables, bold). Not a full parser; just enough for our report shape.
+  function renderMd(md) {
+    const lines = md.split('\n');
+    let html = '', inTable = false, tableBuf = [];
+    function flushTable() {
+      if (!tableBuf.length) return;
+      const rows = tableBuf.filter(r => !/^\s*\|[\s:|-]+\|\s*$/.test(r));
+      html += '<table>';
+      rows.forEach((r, i) => {
+        const cells = r.replace(/^\||\|$/g,'').split('|').map(c=>c.trim());
+        const tag = i === 0 ? 'th' : 'td';
+        html += '<tr>' + cells.map(c=>`<${tag}>${esc(c)}</${tag}>`).join('') + '</tr>';
+      });
+      html += '</table>';
+      tableBuf = []; inTable = false;
+    }
+    for (const ln of lines) {
+      if (/^\s*\|.*\|\s*$/.test(ln)) { inTable = true; tableBuf.push(ln); continue; }
+      if (inTable) flushTable();
+      if (/^# /.test(ln)) html += `<h1>${esc(ln.slice(2))}</h1>`;
+      else if (/^## /.test(ln)) html += `<h2>${inline(ln.slice(3))}</h2>`;
+      else if (/^---$/.test(ln)) html += '<hr>';
+      else if (/^> /.test(ln)) html += `<blockquote>${esc(ln.slice(2))}</blockquote>`;
+      else if (ln.trim() === '') html += '';
+      else html += `<p>${inline(ln)}</p>`;
+    }
+    if (inTable) flushTable();
+    return html;
+  }
+  function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+  function inline(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+      .replace(/`(.+?)`/g,'<code>$1</code>').replace(/^\*(.+)\*$/,'<em>$1</em>');}
+
+  function showReport() {
+    if (rawView) {
+      $('#out').className = 'report';
+      $('#out').textContent = lastReport;
+    } else {
+      $('#out').className = 'report-rendered';
+      $('#out').innerHTML = renderMd(lastReport);
+    }
+  }
+
+  async function run() {
+    if (!$('#q').value.trim()) { $('#status').textContent = 'Enter a query.'; return; }
+    $('#status').textContent = 'Searching…';
+    try {
+      const r = await fetch('/api/search?' + params(false).toString());
+      const j = await r.json();
+      if (!r.ok) { $('#status').textContent = j.error || 'Error'; return; }
+      lastReport = j.report;
+      $('#status').textContent = `${j.count} document(s) matched. Terms: ${(j.terms||[]).join(', ')}`;
+      showReport();
+    } catch (e) {
+      $('#status').textContent = String(e);
+    }
+  }
+
+  $('#go').addEventListener('click', run);
+  $('#q').addEventListener('keydown', e => { if (e.key === 'Enter') run(); });
+  $('#toggle-view').addEventListener('click', () => { rawView = !rawView; showReport(); });
+  $('#download').addEventListener('click', () => {
+    if (!$('#q').value.trim()) return;
+    window.location = '/api/search?' + params(true).toString();
+  });
+</script>
+</body>
+</html>

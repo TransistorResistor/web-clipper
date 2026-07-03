@@ -1,0 +1,46 @@
+# ---------------------------------------------------------------------------
+# The library database is the user's private data, not source. It's also large
+# and WAL-mode (the -wal/-shm siblings can't be copied consistently while the
+# service runs). Back it up with the /health VACUUM path or a file copy while
+# stopped - never commit it.
+# ---------------------------------------------------------------------------
+clipper.db
+clipper.db-wal
+clipper.db-shm
+service/clipper.db
+service/clipper.db-wal
+service/clipper.db-shm
+
+# Python bytecode / test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# ---------------------------------------------------------------------------
+# Generated ranker artifacts (all re-derivable from the corpus builders /
+# model weights; see EMBEDDING_ROADMAP.md and the eval_*.py scripts).
+# ---------------------------------------------------------------------------
+service/*.npy
+service/*.npy.meta
+service/corpus*.json
+
+# ---------------------------------------------------------------------------
+# Large / redundant model binaries.
+#   - gte-small/ (the active bundled ranker) IS tracked: the app loads it and
+#     the semantic tag suggestions depend on it.
+#   - all-MiniLM-L6-v2/ is kept only for offline A/B experiments (see
+#     embed.py); it's ~88 MB and not needed to run, so it's ignored.
+#   - gte.zip is a redundant packed copy of the bundled weights.
+# ---------------------------------------------------------------------------
+service/models/all-MiniLM-L6-v2/
+gte.zip
+
+# Ad-hoc runtime experiments (harness scripts + a 62 MB restored archive +
+# probe PDFs). Scratch, not part of the program.
+rt_test/
+
+# OS cruft
+.DS_Store
+Thumbs.db

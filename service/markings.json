@@ -1,0 +1,116 @@
+{
+  "_comment": [
+    "================================================================",
+    "Marking vocabulary + equivalence rules for normalize.py.",
+    "================================================================",
+    "This is a UK HMG Government Security Classifications scheme (current +",
+    "legacy GPMS), plus the descriptors, national caveats and common allied",
+    "control markings seen in mixed defence/government corpora. Adapt freely:",
+    "the canonical KEYS are your standard output set - rename, add or remove",
+    "them to match your environment.",
+    "",
+    "HOW MATCHING WORKS",
+    "  * Case-insensitive, and '-', '/' and ':' are flattened to spaces, so one",
+    "    spelling covers 'OFFICIAL SENSITIVE' / 'OFFICIAL-SENSITIVE' /",
+    "    'OFFICIAL: SENSITIVE'. You only list genuinely different spellings.",
+    "  * Per-word aliases are matched greedily, longest phrase first, and",
+    "    COMPOSE automatically - define building blocks and any combination",
+    "    works ('SECRET // NOFORN', 'OS NC LS', ...).",
+    "  * 'equivalents' (below) are whole-string rules checked FIRST; use them",
+    "    for glued shorthand that can't be parsed token-by-token ('OS NCLS').",
+    "  * Tokens that match nothing are preserved in the result's 'unknown'",
+    "    list (never dropped) - a handy way to find formats you haven't mapped.",
+    "",
+    "APPLYING CHANGES",
+    "  Restart the service (the file is read at startup), or call",
+    "  normalize.reload_markings() in a long-running process. Then run",
+    "  backfill_norm.py once to re-project existing clips.",
+    "",
+    "TO TEST A STRING",
+    "  python normalize.py \"OS NCLS\"  \"Privileged data: LS NC\"  \"FOUO\"",
+    "",
+    "Single-letter abbreviations are deliberately avoided (a stray 'S'/'C'",
+    "would match too eagerly). If this file is missing or invalid, normalize.py",
+    "falls back to its built-in defaults."
+  ],
+
+  "_comment_classifications": [
+    "canonical level -> accepted spellings. ORDER MATTERS: when a marker",
+    "carries more than one level, the one listed FIRST wins. List MOST",
+    "SENSITIVE first. The key (left side) is the standard form stored in the",
+    "marking_class column and shown in the 'LEVEL // CAVEAT' display string.",
+    "Rows 3-4 + PROTECT are pre-2014 legacy GPMS markings, kept so older",
+    "documents still resolve; delete them if your corpus is all post-2014."
+  ],
+  "classifications": {
+    "TOP SECRET":         ["TOP SECRET", "TOPSECRET", "TS"],
+    "SECRET":             ["SECRET"],
+    "CONFIDENTIAL":       ["CONFIDENTIAL"],
+    "RESTRICTED":         ["RESTRICTED"],
+    "OFFICIAL-SENSITIVE": ["OFFICIAL SENSITIVE", "OFFSEN", "OFF-SEN", "O-S", "OS"],
+    "OFFICIAL":           ["OFFICIAL"],
+    "PROTECT":            ["PROTECT", "PROTECTED"],
+    "UNCLASSIFIED":       ["UNCLASSIFIED", "UNCLAS", "NOT PROTECTIVELY MARKED", "NPM"],
+    "PUBLIC":             ["PUBLIC", "UNOFFICIAL"]
+  },
+
+  "_comment_caveats": [
+    "canonical caveat/descriptor -> accepted spellings. Caveats compose with",
+    "a level and with each other and are de-duplicated, order-preserving. The",
+    "first group are UK OFFICIAL-SENSITIVE descriptors; the second are national",
+    "/ handling caveats; the last are common allied (US/NATO) control markings",
+    "that turn up in mixed corpora - drop the ones you never see.",
+    "Note: free-form releasability lists ('REL TO USA, GBR, AUS') can't be",
+    "enumerated here; only fixed forms like FIVE EYES are mapped, the rest land",
+    "in 'unknown' (add an equivalents rule for any you want to pin down)."
+  ],
+  "caveats": {
+    "LEGAL SENSITIVE":       ["LEGAL SENSITIVE", "LEGAL PRIVILEGE", "LEGAL PROFESSIONAL PRIVILEGE", "LPP", "LS"],
+    "COMMERCIAL":            ["COMMERCIAL", "COMMERCIAL IN CONFIDENCE"],
+    "PERSONAL DATA":         ["PERSONAL DATA", "PERSONAL"],
+    "MEDICAL IN CONFIDENCE": ["MEDICAL IN CONFIDENCE"],
+    "STAFF IN CONFIDENCE":   ["STAFF IN CONFIDENCE"],
+
+    "NO CONTRACTORS":        ["NO CONTRACTORS", "NOCON", "NC"],
+    "RECIPIENTS ONLY":       ["RECIPIENTS ONLY", "ADDRESSEES ONLY", "FOR ADDRESSEES ONLY"],
+    "ORCON":                 ["ORCON", "ORIGINATOR CONTROLLED", "ORIGINATOR CONTROL"],
+    "UK EYES ONLY":          ["UK EYES ONLY", "UKEO"],
+    "UK/US EYES ONLY":       ["UK US EYES ONLY"],
+    "FIVE EYES":             ["FIVE EYES", "5 EYES", "FVEY", "REL FVEY", "REL TO FVEY"],
+
+    "NOFORN":                ["NOFORN", "NO FOREIGN NATIONALS", "NOT RELEASABLE TO FOREIGN NATIONALS"],
+    "FOR OFFICIAL USE ONLY": ["FOR OFFICIAL USE ONLY", "FOUO"],
+    "CONTROLLED UNCLASSIFIED INFORMATION": ["CONTROLLED UNCLASSIFIED INFORMATION", "CUI"]
+  },
+
+  "_comment_equivalents": [
+    "Whole-marker rules, checked BEFORE the per-word vocabulary, so they always",
+    "win. 'match' (string or list) is compared case/separator-insensitively, so",
+    "list only genuinely different spellings. Use these for glued shorthand the",
+    "token matcher can't split ('OS NCLS' -> the abbreviations are fused).",
+    "",
+    "You can also use a rule to REMAP a whole legacy marking to your standard",
+    "set, e.g. fold legacy RESTRICTED into OFFICIAL-SENSITIVE:",
+    "    { \"match\": \"RESTRICTED\", \"classification\": \"OFFICIAL-SENSITIVE\",",
+    "      \"caveats\": [] }",
+    "(left commented/out here - the example assumes you keep RESTRICTED as its",
+    "own level above; enable it only if your policy maps the legacy scheme)."
+  ],
+  "equivalents": [
+    {
+      "match": ["O:S NC-LS", "OS NCLS"],
+      "classification": "OFFICIAL-SENSITIVE",
+      "caveats": ["NO CONTRACTORS", "LEGAL SENSITIVE"]
+    },
+    {
+      "match": ["OS-COMM", "OS COMM"],
+      "classification": "OFFICIAL-SENSITIVE",
+      "caveats": ["COMMERCIAL"]
+    },
+    {
+      "match": ["OS-PERS", "OS PERS"],
+      "classification": "OFFICIAL-SENSITIVE",
+      "caveats": ["PERSONAL DATA"]
+    }
+  ]
+}

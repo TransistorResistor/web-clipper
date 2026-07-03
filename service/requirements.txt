@@ -1,0 +1,27 @@
+# Core — required to run the Clipper service (app.py).
+flask>=3.0
+pymupdf>=1.21          # PDF text extraction + metadata (imported as `fitz`)
+
+# Semantic (embedding) tag ranker — recommended for the best tag suggestions.
+# The gte-small model weights are bundled under service/models/, so there is no
+# download; these libraries just run them. If they (or the weights) are absent,
+# the suggester transparently falls back to the lexical FTS ranker and nothing
+# else is required to run. CPU-only torch is fine. See embed.py / models/README.md.
+torch>=2.0
+transformers>=4.30
+numpy>=1.23
+
+# --- Optional extras (uncomment if you use the matching feature) ------------
+
+# Packaging tools (archive.py, tools/b64_docx.py) that write project source /
+# zip payloads into .docx files. Lightweight; only needed to run those scripts.
+python-docx>=1.0
+
+# Windows COM integration: OneNote import (`migrate.py com`) and Outlook .msg
+# ingest. Windows-only — skip on macOS/Linux. Folder-mode OneNote import and
+# everything else work without it.
+# pywin32>=300
+
+# Experimental learned tag adapter (tag_adapter.py / eval_adapter.py). Not used
+# by the running service; only for offline ranker experiments.
+# scikit-learn>=1.0

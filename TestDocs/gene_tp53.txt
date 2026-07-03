@@ -1,0 +1,179 @@
+TP53 (TP53)
+
+p53, also known as tumor protein p53, TP53, cellular tumor antigen p53 (UniProt name), or transformation-related protein 53 (TRP53) is a regulatory transcription factor protein that is often mutated in human cancers. The p53 proteins (originally thought to be, and often spoken of as, a single protein) are crucial in vertebrates, where they prevent cancer formation. As such, p53 has been described as "the guardian of the genome" because of its role in conserving stability by preventing genome mutation. Hence TP53 is classified as a tumor suppressor gene.
+The TP53 gene is the most frequently mutated gene (>50%) in human cancer, indicating that the TP53 gene plays a crucial role in preventing cancer formation. TP53 gene encodes proteins that bind to DNA and regulate gene expression to prevent mutations of the genome. In addition to the full-length protein, the human TP53 gene encodes at least 12 protein isoforms.
+Comparative genomic studies found pathogenic mutations absent in some Neanderthal populations, while modern humans exhibit an expansion of over 1,000 mutated variations. Evidence suggests that the vast majority of these protein-coding variants arose very recently in human history, specifically concentrated within a window of 5,000 to 10,000 years ago. 
+
+
+== Gene ==
+In humans, the TP53 gene is located on the short arm of chromosome 17 (17p13.1). The gene spans 20 kb, with a non-coding exon 1 and a very long first intron of 10 kb, overlapping the Hp53int1 gene. The coding sequence contains five regions showing a high degree of conservation in vertebrates, predominantly in exons 2, 5, 6, 7 and 8, but the sequences found in invertebrates show only distant resemblance to mammalian TP53. TP53 orthologs have been identified in most mammals for which complete genome data are available. Elephants, with 20 genes for TP53, rarely get cancer.
+
+
+== Structure ==
+
+The full-length p53 protein (p53α) comprises seven distinct protein domains:
+
+An acidic N-terminus transactivation domain (TAD), including activation domains 1 and 2 (AD1: residues 1–42; AD2: residues 43–63), which regulate transcription of several pro-apoptotic genes.
+A proline-rich domain (residues 64–92), involved in apoptotic function and nuclear export via MAPK signaling.
+A central DNA-binding domain (DBD; residues 102–292), containing a zinc atom and multiple arginine residues, essential for sequence-specific DNA interaction and co-repressor binding such as LMO3.
+A nuclear localization sequence (NLS; residues 316–325), required for nuclear import.
+A homo-oligomerization domain (OD; residues 307–355), which mediates tetramerization—essential for p53 activity in vivo.
+A C-terminal regulatory domain (residues 356–393), which modulates the DNA-binding activity of the central domain.
+Most cancer-associated mutations in TP53 occur in the DBD, impairing DNA binding and transcriptional activation. These are typically recessive loss-of-function mutations. By contrast, mutations in the OD can exert dominant negative effects by forming inactive complexes with wild-type p53.
+Wild-type p53 is a labile protein containing both folded and intrinsically disordered regions that act synergistically.
+Although designated as a 53 kDa protein by SDS-PAGE, the actual molecular weight of p53α is 43.7 kDa. The discrepancy is due to its high proline content, which slows electrophoretic migration.
+
+
+== Tetramerization ==
+p53 initially forms dimers cotranslationally during protein synthesis on ribosomes. Each dimer consists of two p53 monomers joined through their oligomerization domains.
+The dimerization interface spans residues 325–356 and includes a beta-strand (residues 325–333), a alpha-helix (residues 335–356), and a sharp turn at the conserved hinge residue Gly334. This configuration links the beta-strand and alpha-helix to form a V-shaped monomer topology. The beta-strand contributes to the formation of an antiparallel intermolecular beta-sheet between two p53 monomers, stabilized by hydrophobic interactions involving Phe328, Leu330, and Ile332. The alpha-helix forms an antiparallel coiled-coil between the two monomers, with a packing angle of 156°. Helix–helix interactions are stabilized by hydrophobic contacts (e.g., Phe338, Phe341, Leu344) and electrostatic interactions, such as the Arg337–Asp352 salt bridge.
+Following dimer formation, p53 dimers associate posttranslationally to form tetramers (dimers of dimers). The tetramerization domain (residues 325–356) plays a central role in stabilizing the tetrameric structure.
+In the tetramer, the two primary dimers associate at an angle described as "roughly orthogonal," with a helix bundle packing angle (θ) of approximately 80°.
+Tetramers represent the active form of p53 for DNA binding and transcriptional regulation.
+
+
+== Isoforms ==
+Like 95% of human genes, TP53 encodes multiple proteins, collectively known as the p53 isoforms. These vary in size from 3.5 to 43.7 kDa. Since their initial discovery in 2005, 12 human p53 isoforms have been identified: p53α, p53β, p53γ, ∆40p53α, ∆40p53β, ∆40p53γ, ∆133p53α, ∆133p53β, ∆133p53γ, ∆160p53α, ∆160p53β, and ∆160p53γ. Isoform expression is tissue-dependent, and p53α is never expressed alone.
+The isoforms differ by the inclusion or exclusion of specific domains. Some, such as Δ133p53β/γ and Δ160p53α/β/γ, lack the transactivation or proline-rich domains and are deficient in apoptosis induction, illustrating the functional diversity of TP53.
+Isoforms are generated through multiple mechanisms:
+
+Alternative splicing of intron 9 creates the β and γ isoforms with altered C-termini.
+An internal promoter in intron 4 produces the ∆133 and ∆160 isoforms, which lack part of the TAD and DBD.
+Alternative translation initiation at codons 40 or 160 results in ∆40p53 and ∆160p53 isoforms, respectively.
+
+
+== Function ==
+
+
+=== DNA damage and repair ===
+
+p53 regulates cell cycle progression, apoptosis, and genomic stability through multiple mechanisms:
+
+Activates DNA repair proteins in response to DNA damage, suggesting a potential role in aging.
+Arrests the cell cycle at the G1/S checkpoint upon DNA damage, allowing time for repair before progression.
+Initiates apoptosis if the damage is beyond repair.
+Essential for the senescence response triggered by short telomeres.
+p53 functions as a transcription factor by binding DNA as a tetramer, a structure that is essential for its stability and effective DNA binding activity. Once bound to DNA, p53 induces the transcription of numerous genes involved in DNA repair pathways. This includes components of base excision repair (BER) such as OGG1 and MUTYH, nucleotide excision repair (NER) factors like DDB2 and XPC, mismatch repair (MMR) genes such as MSH2 and MLH1, and elements of homologous recombination (HR) and non-homologous end-joining (NHEJ) repair. These transcriptional responses are crucial for the DNA damage response (DDR), allowing cells to efficiently repair damaged DNA and maintain genomic integrity. While p53's role is most clearly defined in transcriptional activation of repair genes, it also participates in non-transcriptional regulation of DNA repair processes, particularly in HR and NHEJ, by modulating protein interactions and chromatin accessibility.
+p53 binds specific elements in the promoter of target genes, including CDKN1A, which encodes p21. Upon activation by p53, p21 inhibits cyclin-dependent kinases, leading to cell cycle arrest and contributing to tumor suppression. However, p21 can also be induced independently of p53 during processes such as differentiation, development, and in response to serum stimulation.
+p21 (WAF1) binds to cyclin-CDK complexes (notably CDK2, CDK1, CDK4, and CDK6), inhibiting their activity and blocking the G1/S transition. This inhibition enforces a cell cycle pause that allows DNA repair to occur. In cells with functional p53, p21 is upregulated in response to DNA damage, ensuring this checkpoint control. In contrast, p53 mutations impair p21 induction and compromise this control.
+In human embryonic stem cells (hESCs), although p21 mRNA is upregulated following DNA damage, the protein is not detectable. This reflects a nonfunctional p53-p21 axis at the G1/S checkpoint. This discrepancy is largely due to post-transcriptional repression, particularly by the miR-302 family of microRNAs, which inhibit p21 translation. Although p53 binds the CDKN1A promoter in hESCs, it does not regulate miR-302, which is constitutively expressed and suppresses p21 expression.
+The p53 pathway is interconnected with the RB1 pathway via p14^ARF, which links the regulation of these key tumor suppressors.
+p53 expression can be induced by UV radiation, which also causes DNA damage. In this context, p53 activation can initiate processes that lead to melanin production and tanning.
+
+
+=== Stem cells ===
+Levels of p53 play an important role in the maintenance of stem cells throughout development and the rest of human life.
+In human embryonic stem cells (hESCs)s, p53 is maintained at low inactive levels. This is because activation of p53 leads to rapid differentiation of hESCs. Studies have shown that knocking out p53 delays differentiation and that adding p53 causes spontaneous differentiation, showing how p53 promotes differentiation of hESCs and plays a key role in cell cycle as a differentiation regulator. When p53 becomes stabilized and activated in hESCs, it increases p21 to establish a longer G1. This typically leads to abolition of S-phase entry, which stops the cell cycle in G1, leading to differentiation. Work in mouse embryonic stem cells has recently shown however that the expression of P53 does not necessarily lead to differentiation.  p53 also activates miR-34a and miR-145, which then repress the hESCs pluripotency factors, further instigating differentiation.
+In adult stem cells, p53 regulation is important for maintenance of stemness in adult stem cell niches. Mechanical signals such as hypoxia affect levels of p53 in these niche cells through the hypoxia inducible factors, HIF-1α and HIF-2α. While HIF-1α stabilizes p53, HIF-2α suppresses it. Suppression of p53 plays important roles in cancer stem cell phenotype, induced pluripotent stem cells and other stem cell roles and behaviors, such as blastema formation. Cells with decreased levels of p53 have been shown to reprogram into stem cells with a much greater efficiency than normal cells. Papers suggest that the lack of cell cycle arrest and apoptosis gives more cells the chance to be reprogrammed. Decreased levels of p53 were also shown to be a crucial aspect of blastema formation in the legs of salamanders. p53 regulation is very important in acting as a barrier between stem cells and a differentiated stem cell state, as well as a barrier between stem cells being functional and being cancerous.
+
+
+=== Other ===
+
+Apart from the cellular and molecular effects above, p53 has a tissue-level anticancer effect that works by inhibiting angiogenesis. As tumors grow they need to recruit new blood vessels to supply them, and p53 inhibits that by (i) interfering with regulators of tumor hypoxia that also affect angiogenesis, such as HIF1 and HIF2, (ii) inhibiting the production of angiogenic promoting factors, and (iii) directly increasing the production of angiogenesis inhibitors, such as arresten.
+p53 by regulating Leukemia Inhibitory Factor has been shown to facilitate implantation in the mouse and possibly human reproduction.
+The immune response to infection also involves p53 and NF-κB. Checkpoint control of the cell cycle and of apoptosis by p53 is inhibited by some infections such as Mycoplasma bacteria, raising the specter of oncogenic infection.
+
+
+== Regulation ==
+
+
+=== Basal regulation ===
+Under normal, unstressed conditions, p53 is maintained at low levels through continuous degradation mediated by the E3 ubiquitin ligase MDM2 (HDM2 in humans). MDM2 binds p53, exports it from the nucleus, and targets it for proteasomal degradation. Notably, p53 transcriptionally activates MDM2, establishing a classic negative feedback loop.
+This feedback loop gives rise to damped oscillations in p53 levels, as demonstrated both experimentally and in mathematical models. These oscillations may determine cell fate decisions between survival and apoptosis.
+
+
+=== Activation by cellular stress ===
+p53 is activated in response to a range of cellular stressors, including DNA damage (for example from ultraviolet or ionizing radiation), osmotic shock, ribonucleotide depletion, oncogene activation, and some viral infections.
+Activation involves stabilization of the p53 protein, resulting in its accumulation in the nucleus, and regulatory changes that promote sequence-specific DNA binding and transcriptional activation of target genes. These processes are initiated in part by phosphorylation of residues in the N-terminal transactivation domain by stress-activated kinases. Phosphorylation of sites within the Mdm2-binding region (for example Ser20) can reduce binding to MDM2 and thereby decrease ubiquitin-mediated degradation of p53.
+
+
+=== Stress-responsive kinases ===
+Kinases that regulate p53 phosphorylation can be divided into two broad groups. One group includes members of the MAPK pathways, including JNK1–3, ERK1/2 and p38 MAPK, which are activated by diverse cellular stresses such as oxidative stress and heat shock. A second group comprises DNA damage response kinases, including ATM, ATR and DNA-PK, together with downstream checkpoint kinases such as CHK1 and CHK2, which are activated by DNA damage and replication stress and contribute to p53 regulation through phosphorylation-dependent signalling.
+Additional kinases implicated in p53 phosphorylation include the CDK-activating kinase (CAK; CDK7–cyclin H–MAT1), which has been shown to phosphorylate p53 (for example at Ser33) in vitro and in vivo, and TP53RK (PRPK), which has been reported to phosphorylate p53 at Ser15.
+Oncogene-induced activation of p53 can also occur via p14ARF (ARF), which inhibits the p53 antagonist MDM2 and thereby stabilizes p53.
+
+
+=== Deubiquitination ===
+Several deubiquitinating enzymes (DUBs) modulate p53 stability by removing ubiquitin chains. USP7, also known as HAUSP, can deubiquitinate both p53 and MDM2. In unstressed cells, HAUSP preferentially stabilizes MDM2, and its depletion may paradoxically increase p53 levels. USP42 is another DUB that stabilizes p53 and enhances its ability to respond to stress. USP10 operates primarily in the cytoplasm, where it counteracts MDM2 by directly deubiquitinating p53. After DNA damage, USP10 translocates to the nucleus and further stabilizes p53. It does not interact with MDM2.
+
+
+=== Post-translational modifications and cofactors ===
+Phosphorylation of the N-terminus not only prevents MDM2 binding but also facilitates the recruitment of cofactors. Pin1 enhances conformational changes in p53, while p300 and PCAF acetylate the C-terminus, exposing the DNA-binding domain and enhancing transcriptional activation. Conversely, deacetylases such as Sirt1 and Sirt7 remove these modifications, suppressing apoptosis and promoting cell survival. Some oncogenes can also activate p53 indirectly by inhibiting MDM2.
+
+
+=== Dynamics ===
+Both experimental evidence and mathematical modeling indicate that p53 levels oscillate over time in response to cellular signals. These oscillations become more pronounced in the presence of DNA damage, such as double-stranded breaks or UV exposure. Modeling approaches also help illustrate how mutations in p53 isoforms affect oscillatory behavior, potentially informing tissue-specific therapeutic development.
+
+
+=== Epigenetics ===
+p53 function is also influenced by chromatin environment. The corepressor TRIM24 restricts p53 binding to epigenetically repressed loci by recognizing methylated histones. This interaction enables p53 to interpret local chromatin context and regulate gene expression in a locus-specific manner.
+
+
+== Role in disease ==
+
+If the TP53 gene is damaged, its ability to suppress tumors is severely compromised. Individuals who inherit only one functional copy of TP53 are predisposed to developing tumors in early adulthood, a condition known as Li–Fraumeni syndrome.
+The TP53 gene can also be altered by mutagens—such as chemicals, radiation, or certain viruses—thereby increasing the likelihood of uncontrolled cell division. More than 50 percent of human tumors harbor a mutation or deletion of the TP53 gene. Loss of p53 function leads to genomic instability, frequently resulting in an aneuploidy phenotype.
+Certain pathogens can also disrupt p53 activity. For example, human papillomavirus (HPV) produces the viral protein E6, which binds to and inactivates p53. In conjunction with the HPV protein E7, which inactivates the cell cycle regulator pRb, this promotes repeated cell division, clinically presenting as warts. High-risk HPV types, particularly types 16 and 18, can drive the progression from benign warts to low- or high-grade cervical dysplasia, reversible precancerous lesions. Persistent cervical infection can lead to irreversible changes, including carcinoma in situ and invasive cervical cancer. These outcomes are primarily driven by viral integration into the host genome and the continued expression of the E6 and E7 oncoproteins.
+
+
+=== Mutations ===
+Most p53 mutations are detected by DNA sequencing. However, it is known that single missense mutations can have a large spectrum from rather mild to very severe functional effects.
+
+The large spectrum of cancer phenotypes due to mutations in the TP53 gene is also supported by the fact that different isoforms of p53 proteins have different cellular mechanisms for prevention against cancer. Mutations in TP53 can give rise to different isoforms, preventing their overall functionality in different cellular mechanisms and thereby extending the cancer phenotype from mild to severe. Recent studies show that p53 isoforms are differentially expressed in different human tissues, and the loss-of-function or gain-of-function mutations within the isoforms can cause tissue-specific cancer or provide cancer stem cell potential in different tissues. TP53 mutation also hits energy metabolism and increases glycolysis in breast cancer cells.
+
+
+==== Codon 72 variations ====
+A common human polymorphism in TP53 involves a substitution of arginine for proline at codon 72 of exon 4. Numerous studies have explored the relationship between this variation and cancer susceptibility, yielding mixed results. For instance, a 2009 meta-analysis found no association between the codon 72 polymorphism and cervical cancer risk.
+Other studies have identified possible associations between the codon 72 polymorphism and various cancers. A 2011 study reported that the proline variant significantly increased pancreatic cancer risk in males. Another study found that proline homozygosity was associated with decreased breast cancer risk in Arab women. Additional research suggested that TP53 codon 72 polymorphisms, in combination with MDM2 SNP309 and A2164G, may affect susceptibility and age of onset for non-oropharyngeal cancers in women. A separate 2011 study linked the polymorphism to an increased risk of lung cancer in a Korean population.
+However, meta-analyses published in 2011 found no significant associations between the codon 72 variant and risks of either colorectal or endometrial cancer. A study of a Brazilian birth cohort found an association between the arginine variant and individuals without a family history of cancer. Meanwhile, another study reported that individuals with the homozygous Pro/Pro genotype had a significantly increased risk of renal cell carcinoma.
+
+
+=== Therapeutic reactivation and gene therapy ===
+While increasing p53 levels might appear beneficial for treating cancer, sustained p53 activation can cause premature aging. A more promising approach involves restoring normal, endogenous p53 function. In some tumor types, this leads to regression via apoptosis or normalization of cell growth.
+The first commercial gene therapy, Gendicine, was approved in China in 2003 for head and neck squamous cell carcinoma. It delivers a functional copy of the TP53 gene using a modified adenovirus.
+The small-molecule inhibitor MI-63 can bind to MDM2, blocking its interaction with p53 and reactivating p53 in cancers where its function is suppressed.
+A p53 reactivator rezatapopt is in clinical trials in patients whose tumors show the common Y220C mutation of p53, and restores anti-cancer effectiveness to the mutated protein.
+
+
+=== Diagnostic and prognostic significance ===
+
+
+== Discovery ==
+p53 was identified in 1979 by Lionel Crawford, David P. Lane, Arnold Levine, and Lloyd Old, working at Imperial Cancer Research Fund (UK), Princeton University/UMDNJ (Cancer Institute of New Jersey), and Memorial Sloan Kettering Cancer Center, respectively. It had been hypothesized to exist before as the target of the SV40 virus, a strain that induced development of tumors. The name p53 is in fact a misnomer, as it describes the apparent molecular mass measured when it was first discovered, though it was later realised this was an overestimate: the correct molecular mass is only 43.7 kDa.
+The TP53 gene from the mouse was first cloned by Peter Chumakov of the Academy of Sciences of the USSR in 1982, and independently in 1983 by Moshe Oren in collaboration with David Givol (Weizmann Institute of Science). The human TP53 gene was cloned in 1984 and the full length clone in 1985.
+It was initially presumed to be an oncogene due to the use of mutated cDNA following purification of tumor cell mRNA. Its role as a tumor suppressor gene was revealed in 1989 by Bert Vogelstein at the Johns Hopkins School of Medicine and Arnold Levine at Princeton University. p53 went on to be identified as a transcription factor by Guillermina Lozano working at MD Anderson Cancer Center.
+Warren Maltzman, of the Waksman Institute of Rutgers University first demonstrated that TP53 was responsive to DNA damage in the form of ultraviolet radiation. In a series of publications in 1991–92, Michael Kastan of Johns Hopkins University, reported that TP53 was a critical part of a signal transduction pathway that helped cells respond to DNA damage.
+In 1993, p53 was voted molecule of the year by Science magazine.
+
+
+== Interactions ==
+p53 has been shown to interact with:
+
+
+== See also ==
+Eprenetapopt, a reactivator of some mutant forms of p53
+Pifithrin, an inhibitor of p53
+
+
+== Notes ==
+
+
+== References ==
+
+
+== External links ==
+
+"p53 Knowledgebase". Lane Group at the Institute of Molecular and Cell Biology (IMCB), Singapore. Archived from the original on 2006-01-03. Retrieved 2008-04-06.
+GeneReviews/NCBI/NIH/UW entry on Li-Fraumeni Syndrome
+TUMOR PROTEIN p53 @ OMIM
+p53 restoration of function
+p53 @ The Atlas of Genetics and Cytogenetics in Oncology and Haematology
+TP53 Gene @ GeneCards
+p53 News provided by insciences organisation
+Goodsel DS (2002-07-01). "p53 Tumor Suppressor". Molecule of the Month. RCSB Protein Data Bank. Retrieved 2008-04-06.
+Soussi T. "p53 Web Site". Retrieved 2008-04-06.
+Living LFS A non-profit Li-Fraumeni Syndrome patient support organization
+The George Pantziarka TP53 Trust A support group from the UK for people with Li-Fraumeni Syndrome or other TP53-related disorders
+IARC TP53 Somatic Mutations database maintained at IARC, Lyon, by Magali Olivier
+PDBe-KB provides an overview of all the structure information available in the PDB for Human P53.
+scientific animation conformational changes of p53 upon binding to DNA

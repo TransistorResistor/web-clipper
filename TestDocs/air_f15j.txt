@@ -1,0 +1,191 @@
+Mitsubishi F-15J (F-15J)
+
+The McDonnell Douglas - Mitsubishi F-15J/DJ Eagle is a twin-engine, all-weather air superiority fighter based on the McDonnell Douglas F-15 Eagle in use by the Japan Air Self-Defense Force (JASDF). The F-15J was produced under license by Mitsubishi Heavy Industries along with McDonnell Douglas. The subsequent F-15DJ and F-15J J-MSIP (MSIP Configuration II Aircraft) variants were also produced. Japan is the largest customer of the F-15 Eagle outside the United States. In addition to combat, F-15DJ roles include training. The F-15J Kai is a modernized version of the F-15J. Kai was an early designation that has gradually subdivided; nowadays, Japan no longer uses 'kai' to refer to newly upgraded F-15Js. Instead, Japanese predominantly use J-MSIP or F-15MJ.
+
+
+== Development ==
+In June–July 1975, the Japan Defense Agency (JDA, now Ministry of Defense) examined the McDonnell Douglas F-15 Eagle as one of the 13 candidates for the replacement of the F-104J/DJ Starfighter and F-4EJ Phantom II. A single-seat F-15C and a twin-seat F-15D were evaluated at Edwards Air Force Base, and in December 1975, the F-15 was announced the winner, with the government intending to purchase 187 F-15J/DJs. By April 1978, Mitsubishi Heavy Industries was designated as the primary contractor and licensing for the F-15C/D was achieved.
+After congressional review, the Department of Defense (DoD) withheld the aircraft's electronic warfare and engine systems from the licensing. Initially, the aircraft were produced in the U.S. and exported to Japan. This initial export production contributed to aircraft development under the defense industry of Japan while facilitating base production of aircraft, achieving the goal of producing a fighter to Japan's requirements.
+The Japan Air Self-Defense Force (JASDF) acquired 203 F-15Js and 20 F-15DJs, of which 2 F-15Js and 12 F-15DJs were built by McDonnell Douglas in St. Louis, Missouri. Dubbed the "Peace Eagle" by the DoD FMS program, the first F-15J built in St. Louis was delivered to the United States Air Force for its first flight on 4 June 1980, and a subsequent cruise on 15 July to Japan. Additionally, 8 F-15Js were manufactured in large components and shipped to Japan for final assembly by Komaki of Mitsubishi, the first of these (serial number 12–8803) making its maiden flight on 26 August 1981. Companies divided the remainder share and produced it under license from 1981, with final assembly of aircraft performed by Mitsubishi.
+
+In the latter period of 1981, the first F-15J/DJ aircraft were sent to 202nd Tactical Fighter Squadron, which was reorganized as an Eagle FTU and renamed the 23 Flying Training Squadron at Nyutabaru base on 21 December 1982. The JASDF developed a plan to form the first squadron after the KAL007 shootdown by a Soviet Su-15 on 1 September 1983. In March 1984, new F-15Js began replacing the 203rd Tactical Fighter Squadron's F-104Js at Chitose Air Base, located across the La Pérouse Strait from the Soviet fighter base on Sakhalin Island.
+On 24 December 2018, it was announced that Japan is considering selling their F-15s to the U.S. in order to acquire funds to purchase F-35s.
+The Japanese Ministry of Defense confirmed on February 4, 2022 that 68 F-15Js will be upgraded through the Japan Super Interceptor (JSI) programme under a cost of JPY646.5 billion (USD5.6 billion). Boeing was awarded an undefinitized contract not-to-exceed $24,550,000 for the F-15 Japan Super Interceptor program.
+
+
+== Design ==
+
+F-15J/DJs are identical to F-15C/Ds aside from the ECM, radar warning system, and nuclear equipment. The AN/ALQ-135 Internal Countermeasures System is replaced by the indigenous J/ALQ-8 and the AN/ALR-56 Radar warning receiver is replaced by the J/APR-4. The engine is the Pratt & Whitney F100 turbofan, produced under license by IHI Corporation. Some aircraft still have an inertial measurement unit, an old type of the inertial navigation system. All F-15J/DJs have two UHF radios, which are also VHF capable.
+The F-15J is characterized by an indigenous data link, but they do not support Link 16 FDL mounted by USAF F-15Cs. It works as a basic bidirectional link with the Japanese ground-controlled intercept network, and it is limited because it is not a true network.
+Mitsubishi received the F-15C/D Multistage Improvement Program (MSIP) and in 1987 began upgrading the F-15J/DJs. Improvements included an uprated central computer, engines, armament control set and added the J/APQ-1 countermeasures set. The F100-PW-220 (IHI-220) was upgraded to the F100-PW-220E (IHI-220E) with a digital engine electronic control retrofit. Differences in appearance from earlier F-15Js include the J/ALQ-8 ICS with an ICS antenna mounted under the intake. The J/APQ-4 RWR antenna position on the F-15J/DJs is the same as F-15C/Ds, but the lens of F-15J/DJ MSIPs is black rather than white for F-15C/Ds.
+
+
+=== Improvements and upgrades ===
+
+F-15Js have been equipped with the Japanese-built AAM-3 missile, a Japanese successor to the AIM-9 Sidewinder follow-on with distinctive "barbed" forward fins. Japan has been investigating an advanced fighter to replace the F-15, meanwhile the F-15J fleet is being modernized. On 28 July 2003, the first upgraded F-15J (#928) made its first flight, and it was delivered to the JASDF Air Development Test Wing on 21 October 2003.
+On 10 December 2004, the Japanese Government approved a Mid-Term Defense Program (MTDP) to modernize the F-15J MSIPs over five years in accordance with new National Defense Program Guidelines. The upgrade is being implemented in phases, but ultimately the upgrade will include a new ejection seat; replaced IHI-220E engines; more powerful processor; uprated electrical generation and cooling capabilities to support more avionics and the Raytheon AN/APG-63(V)1 radar. which has been produced under license by Mitsubishi Electric since 1997. Raytheon expects the radar will ultimately be installed in 80 F-15Js. The new radar will support the AAM-4 missile, the Japanese answer to the AMRAAM.
+The Ministry of Defense (MoD) requested the modernization and deployment of reconnaissance aircraft in June 2007, and it was planned to upgrade some F-15Js with synthetic aperture radar pods; these aircraft would replace the RF-4 Phantom IIs currently in service.
+On 17 December 2009, the reconnaissance upgrade disappeared from the budget after the Democratic Party of Japan took power following the 2009 general election, and priority was given instead to improvement of the F-15J and the Mitsubishi F-2. The number of F-15J upgrades was increased from 26 to 48, and the MoD purchased part of the modernization for 38 fighters.  However, the full budget for modernization is incomplete. 48 F-15Js would get a Link 16 datalink and helmet-mounted sight under this upgrade program. The helmet-mounted sight will support the AAM-5 dogfighting missile, which will replace the AAM-3.
+On 17 December 2010, modernization was funded for 16 F-15Js but the MoD reduced this to 10 F-15Js.
+In late October 2019, the US Defense Security Cooperation Agency approved a possible sale to Japan of up to 103 APG-82(V)1 Active Electronically Scanned Array (AESA) Radars, 116 Advanced Display Core Processor II Mission System Computers and 101 AN/ALQ-239 Digital Electronic Warfare Systems for the upgrade of 98 F-15Js to a "Japanese Super Interceptor" (JSI) configuration for an estimated cost of $4.5 billion. It can also carry a large air-to-surface weapon on its centerline weapon station, such as an AGM-158B JASSM-ER or AGM-158C LRASM, giving the aircraft an air-to-ground and anti-ship capability. In July 2020, Boeing signed an agreement with MHI to provide assistance and support to the program. Work on this program was set to start in 2022.
+
+
+== Variants ==
+F-15J
+Single-seat all-weather air-superiority fighter version for the Japan Air Self-Defense Force 139 built under license in Japan by Mitsubishi Heavy Industries in 1981–97, two built in St. Louis.
+F-15DJ
+Two-seat training version for the Japan Air Self-Defense Force. 12 built in St. Louis, and 25 built under license in Japan by Mitsubishi in the period 1981–1997.
+
+
+=== The rough differences caused by procurement lead time. ===
+Mitsubishi Heavy Industries has made multiple changes to the specifications and details of their aircraft models during the production process to accommodate their upgrade plans. These changes can be categorized into different batches, each with specific improvements and added equipment. Below are the specific changes for each batch:
+
+Batches C1 - C3:
+Equipped only with the J/APR-4 radar warning device.
+C4 Batch onwards (from aircraft 62-8869 onwards):
+Added AN/ALE-45(J) chaff/flare dispenser.
+C6 Batch onwards (from aircraft 82-8899 onwards):
+J-MSIP standard.
+C7 Batch onwards (from aircraft 92-8909 onwards):
+Added J/ALQ-8 onboard electronic warfare system (J variant only) and replaced the radio with AN/ARC-182 U/VHF.
+C8 Batch onwards (from aircraft 02-8917 onwards):
+Upgraded radar warning device to J/APR-4A.
+C12 Batch onwards (from aircraft 42-8945 onwards):
+Engine replaced with F100-IHI-220E.
+C14 Batch onwards (from aircraft 62-8958 onwards):
+Added J/APQ-1 rear warning device (J variant only) and upgraded radar warning device to J/APR-4B.
+
+
+=== Pre-MSIP（F-15J） ===
+C1 ～ C5 lots delivered from 1981 (Showa 56) to 1984 (Showa 59) are colloquially referred to as Pre-MSIP aircraft. This includes 98 F-15J aircraft (from 02-8801 to 82-8898) and 12 F-15DJ aircraft (from 12-8051 to 52-8062). F-15J aircraft 42-8832 suffered damage to the nose section during a ground runaway incident in 1991 (Heisei 3). After being transported to Mitsubishi Heavy Industries, it was repaired and refurbished as a J-MSIP aircraft (resulting in modernization and refurbishment), then deployed to the 303rd Squadron at Komatsu Airport.
+
+
+=== J-MSIP (Japan-Multi-Stage Improvement Program, F-15J) ===
+The Japan Multi-Stage Improvement Program, akin to the US MSIP, involved implementing unique capability enhancements during procurement. It was applied to 103 aircraft delivered from the C-6 to C-17 batches since 1985 (Showa 60), including J models (serial numbers 82-8899 to 82-8965) and DJ models (serial numbers 52-8063 to 92-8098). Aircraft 42-8832, a J model, underwent refurbishment from a Pre-MSIP configuration to J-MSIP after sustaining nose damage in a ground taxi mishap in 1991 (Heisei 3). Currently, there are 101 J-MSIP aircraft in service (68 J models and 33 DJ models, excluding three lost).
+Key differences from Pre-MSIP include:
+
+Installation of MIL-STD-1553B data bus (with temporary retention of H009 for AIM-7 operations)
+Upgrade to enhanced processing central computer (CP-1075/AYK→ CP-1075A/AYK）
+Additional electrical wiring to improve the performance of fire control systems for AAM-4 air-to-air missiles
+Replacement of analog armament control panels with Multi-Purpose Color Displays (MPCD)
+Conversion of fire control sets to AN/AWG-20 PACS
+Replacement of voice radios from AN/ARC-164 → AN/ARC-182
+Transition of engines on F-15J 42-8945 and later, and F-15DJ 52-8088 and later, to F100-IHI-220E for enhanced electronic control and durability (with retrofitting of Pre-MSIP -100 equipped aircraft to equivalent -220E standards)
+Addition of J/APQ-1 Rear Warning System to F-15J 62-8958 and later models
+
+
+=== Upgrade for F-15J/DJ to Support New Air-to-Air Missiles (F-15J/DJ J-MSIP MRM) ===
+Initially, these upgrades were performed during the periodic maintenance (IRAN) of the F-15J/DJ J-MSIP aircraft. Recently, however, they have been incorporated into a modernization plan targeting J-MSIP aircraft.
+The upgrades include the addition of operational capabilities for both the AAM-4 and AIM-120 missiles, as well as the AAM-5 missile. The exact number of aircraft undergoing these upgrades has not been disclosed.
+
+
+==== The modification items are as follows ====
+Reprogramming of the central computer and radar's OFP (Operational Flight Program), based on the program created during the test operation of the AIM-120B.
+Replacement of the launcher from LAU-106/A to the modified LAU-106A/A. The LAU-106A/A retains the umbilical connector for the AIM-7, allowing the AIM-7 to remain operational after the modification.
+Replacement of the fire control set (from AN/AWG-20 to AN/AWG-27).
+Installation of the J/ARG-1 command guidance system.
+Modification of the J/APR-4A radar warning receiver and the J/ALQ-8 electronic countermeasure system.
+Modification of the AAI interrogate antenna on the plate antenna of the AN/APG-63.  The identification points on the modified aircraft's external appearance are as follows, although confirming these without close inspection of the LAU-106A/A makes identification challenging:
+Moving the manufacturer's nameplate from the central part of the LAU-106/A missile launchers at Stations 3, 4, 6, and 7 forward and adding a connector slightly behind the original nameplate position.
+Removing the wire from the central part of the missile attachment ring.
+
+
+== Operators ==
+
+ Japan
+Japan Air Self Defense Force has 155 F-15J and 45 F-15DJ aircraft in service as of 2020.
+2nd Air Wing Chitose Air Base
+201st Tactical Fighter Squadron (1986–)
+203rd Tactical Fighter Squadron (1983–)
+6th Air Wing Komatsu Air Base
+303rd Tactical Fighter Squadron (1987–)
+306th Tactical Fighter Squadron (1997–)
+5th Air Wing Nyutabaru Air Base
+202nd Tactical Fighter Squadron (1981–2000)
+305th Tactical Fighter Squadron (1993–)
+9th Air Wing Naha Air Base
+204th Tactical Fighter Squadron (1984–)
+304th Tactical Fighter Squadron (1990–)
+Air Development and Test Wing - Gifu Airbase
+23rd Flying Training Squadron (2000–) - Nyutabaru Air Base
+
+
+== Specifications (F-15J) ==
+
+Data from General characteristics
+Crew: 1
+Length: 19.43 m (63 ft 9 in)
+Wingspan: 13.05 m (42 ft 10 in)
+Height: 5.63 m (18 ft 6 in)
+Wing area: 56.5 m2 (608 sq ft)
+Airfoil: root: NACA 64A006.6; tip: NACA 64A203
+Empty weight: 12,700 kg (27,999 lb)
+Gross weight: 20,200 kg (44,533 lb)
+Max takeoff weight: 30,845 kg (68,002 lb)
+Fuel capacity: 6,100 kg (13,448 lb) internal
+Powerplant: 2 × Pratt & Whitney F100-220 (or −100)The engine is a Pratt & Whitney F100 built under licence by IHI Corporation . afterburning turbofan engine, 77.62 kN (17,450 lbf) thrust  each dry, 111.2 kN (25,000 lbf) with afterburner
+Performance
+
+Maximum speed: 2,650 km/h (1,650 mph, 1,430 kn) / M2.5+ at high altitude
+1,450 km/h (900 mph; 780 kn) / M1.2 at low altitude
+Service ceiling: 20,000 m (66,000 ft)
+Rate of climb: 254 m/s (50,000 ft/min)
+Wing loading: 358 kg/m2 (73 lb/sq ft)
+Thrust/weight: 1.12
+Armament
+
+Guns: 1× 20 mm M61 Vulcan 940 shells.
+Hardpoints: 10 , with provisions to carry combinations of:
+Missiles: 
+Air-to-air missiles
+Mitsubishi AAM-3
+Mitsubishi AAM-4
+Mitsubishi AAM-5
+AIM-9 Sidewinder
+AIM-7 Sparrow
+Air-to-ground missiles
+AGM-158 JASSM
+Bombs
+Mk 82 General-Purpose Bomb
+CBU-87 Cluster bomb
+
+
+== See also ==
+
+Fighter units of the Japan Air Self-Defense Force
+List of F-15 losses, Japan
+
+Aircraft of comparable role, configuration, and era
+
+Grumman F-14 Tomcat
+McDonnell Douglas F/A-18 Hornet
+Panavia Tornado ADV
+Sukhoi Su-27/Shenyang J-11
+
+Related lists
+
+List of military aircraft of Japan
+
+
+== References ==
+
+
+=== Citations ===
+
+
+=== Bibliography ===
+Lorell, Mark A. Troubled partnership: a history of U.S.-Japan collaboration on the FS-X fighter. Transaction Publishers, 1996. ISBN 978-1-56000-891-0.
+Davies, Steve (2002). Combat Legend, F-15 Eagle and Strike Eagle. London: Airlife Publishing, 2002. ISBN 1-84037-377-6.
+Davies, Steve and Doug Dildy (23 October 2007). F-15 Eagle Engaged: The World's Most Successful Jet Fighter. Osprey Publishing, 2007. ISBN 978-1-84603-169-4.
+Jenkins, Dennis R. McDonnell Douglas F-15 Eagle, Supreme Heavy-Weight Fighter. Hinckley, UK: Midland Publishing, 1998. ISBN 1-85780-081-8.
+Rininger, Tyson (18 January 2009). F-15 Eagle at War. Zenith Imprint, 2009. ISBN 978-0-7603-3350-1.
+
+
+== External links ==
+
+Official website 
+F-15J at Globalsecurity.org
+Brendan Sobie. "Japan Seeks To Replace Phantoms". FlightGlobal. Relx Group. Archived from the original on 10 March 2016. Retrieved 22 October 2016.
+Sobie, Brendan (26 October 2004). "F-15J radar upgrade in production". Flight International.
+Flight International (17 April 2001). "Japanese outline aircraft purchase plans for 2002-7". Flight International.
+Flight International (4 July 2000). "Japan integrates XAAM-5 on F-15J". Flight International.

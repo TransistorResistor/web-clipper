@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tag review · Clipper</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  * { box-sizing: border-box; }
+  body { font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+         margin: 0; color: #222; background: #fafafa; }
+  header { background: white; border-bottom: 1px solid #e1e1e1; padding: 10px 16px;
+           position: sticky; top: 0; z-index: 10; display: flex; gap: 10px; align-items: center; }
+  header h1 { margin: 0; font-size: 15px; }
+  header .count { color: #777; font-size: 12px; }
+  main { padding: 12px 16px; }
+  .card { background: white; border: 1px solid #e1e1e1; border-radius: 6px;
+          padding: 12px 14px; margin-bottom: 12px; }
+  .card h2 { margin: 0 0 2px; font-size: 14px; }
+  .card .meta { font-size: 11px; color: #888; margin-bottom: 4px; }
+  .card .badge { display: inline-block; background: #f4a261; color: white;
+                 padding: 0 5px; border-radius: 3px; font-size: 10px; margin-left: 4px; }
+  .card .excerpt { color: #666; font-size: 12px; margin: 4px 0 8px;
+                   max-height: 48px; overflow: hidden; }
+  .actions { display: flex; gap: 8px; margin-top: 8px; align-items: center; }
+  .btn { padding: 5px 12px; border: 1px solid #cfe0f5; background: white; color: #06c;
+         border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .btn:hover { background: #f0f6ff; }
+  .btn.primary { background: #06c; color: white; border-color: #06c; }
+  .btn.primary:hover { background: #05b; }
+  .btn.skip { color: #777; border-color: #ddd; }
+  .btn a, a.open { color: #06c; font-size: 12px; text-decoration: none; margin-left: auto; }
+  .empty { text-align: center; color: #999; padding: 48px 16px; }
+  .empty a { color: #06c; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🏷️ Tag review</h1>
+  <span class="count" id="count"></span>
+  <span style="flex:1"></span>
+  <a class="open" href="/" target="_blank">Open library ↗</a>
+</header>
+<main id="main"></main>
+
+<script src="/static/tags.js"></script>
+<script>
+  const $ = sel => document.querySelector(sel);
+  const widgets = new Map();   // clipId -> widget
+  let skipped = 0;             // deferred this session (still pending server-side)
+
+  function escapeHtml(s) {
+    return (s || '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+  }
+
+  async function load() {
+    const r = await fetch('/api/review/pending');
+    const { pending } = await r.json();
+    const main = $('#main');
+    widgets.clear();
+    if (!pending || !pending.length) {
+      main.innerHTML = '<div class="empty">Nothing to review. '
+        + '<a href="#" id="close-link">Close</a></div>';
+      $('#count').textContent = '';
+      const cl = $('#close-link');
+      if (cl) cl.addEventListener('click', e => { e.preventDefault(); window.close(); });
+      return;
+    }
+    $('#count').textContent = pending.length + ' to review';
+    main.innerHTML = '';
+    for (const c of pending) {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.dataset.id = c.id;
+      const from = c.from ? ' · from ' + escapeHtml(c.from) : '';
+      const pdf = c.has_pdf ? '<span class="badge">PDF</span>' : '';
+      card.innerHTML = `
+        <h2>${escapeHtml(c.title || 'Untitled')}${pdf}</h2>
+        <div class="meta">${escapeHtml(c.source || '')}${from}</div>
+        ${c.excerpt ? `<div class="excerpt">${escapeHtml(c.excerpt)}</div>` : ''}
+        <div class="tagw"></div>
+        <div class="actions">
+          <button class="btn primary save">Save &amp; done</button>
+          <button class="btn skip">Skip</button>
+          <a class="open" href="/clip/${c.id}" target="_blank">Full view ↗</a>
+        </div>`;
+      main.appendChild(card);
+
+      // Suggestion-backed tag widget. excludeClipId lets the server assemble
+      // the suggestion context from the stored clip (incl. cached PDF text).
+      const w = ClipperTags.create(card.querySelector('.tagw'), {
+        initial: c.tags || [],
+        context: { title: c.title || '', excludeClipId: c.id },
+      });
+      widgets.set(c.id, w);
+
+      card.querySelector('.save').addEventListener('click', () => saveCard(c.id, card));
+      card.querySelector('.skip').addEventListener('click', () => skipCard(c.id, card));
+    }
+  }
+
+  async function saveCard(id, card) {
+    const w = widgets.get(id);
+    const tags = w ? w.getTags() : [];
+    // Persist tags, then clear the review flag so it leaves the queue.
+    await fetch(`/api/clips/${id}`, {
+      method: 'PATCH', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tags }),
+    });
+    await fetch(`/api/clips/${id}/reviewed`, { method: 'POST' });
+    removeCard(id, card);
+  }
+
+  // Skip: defer for later. Purely hides the card from this session - the clip
+  // keeps its review_pending flag, so it reappears next time /review opens.
+  function skipCard(id, card) {
+    skipped++;
+    removeCard(id, card);
+  }
+
+  function removeCard(id, card) {
+    widgets.delete(id);
+    card.remove();
+    const left = document.querySelectorAll('.card').length;
+    $('#count').textContent = left ? left + ' to review' : '';
+    if (!left) {
+      const msg = skipped
+        ? `Done for now — ${skipped} skipped item${skipped > 1 ? 's' : ''} will be back next time. `
+        : 'All done ✓ ';
+      $('#main').innerHTML = '<div class="empty">' + msg
+        + '<a href="#" id="close-link">Close</a></div>';
+      const cl = $('#close-link');
+      if (cl) cl.addEventListener('click', e => { e.preventDefault(); window.close(); });
+    }
+  }
+
+  load();
+</script>
+</body>
+</html>

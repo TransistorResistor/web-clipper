@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Clipper</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  * { box-sizing: border-box; }
+  body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+         margin: 0; color: #222; background: #fafafa; }
+  header { background: white; border-bottom: 1px solid #e1e1e1; padding: 14px 24px;
+           position: sticky; top: 0; z-index: 10; display: flex; gap: 12px; align-items: center; }
+  header h1 { margin: 0; font-size: 18px; }
+  header input[type="search"] { flex: 1; padding: 8px 12px; font-size: 14px;
+           border: 1px solid #ccc; border-radius: 4px; }
+  main { max-width: 1100px; margin: 0 auto; padding: 20px; display: grid;
+         grid-template-columns: 220px 1fr; gap: 24px; }
+  aside h3 { font-size: 12px; text-transform: uppercase; color: #777; margin: 18px 0 6px; }
+  .tag { display: inline-block; background: #eef; color: #335; padding: 2px 8px;
+         margin: 2px; border-radius: 10px; font-size: 12px; cursor: pointer;
+         text-decoration: none; }
+  .tag:hover { background: #dde; }
+  .tag .count { color: #779; margin-left: 4px; }
+  .tags-head { display: flex; align-items: center; justify-content: space-between; }
+  .tags-head a { font-size: 11px; color: #06c; text-decoration: none; font-weight: normal; }
+  .manage-bar { background: #eef6ff; border: 1px solid #cfe0f5; border-radius: 6px;
+                padding: 8px; margin-bottom: 8px; font-size: 12px; }
+  .manage-bar input { width: 100%; padding: 5px 7px; border: 1px solid #ccc;
+                      border-radius: 4px; font-size: 12px; margin: 4px 0; }
+  .manage-bar button { padding: 4px 8px; font-size: 12px; }
+  .block-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 12px;
+                background: #fdeeee; color: #8a3a3a; border: 1px solid #f0cccc;
+                border-radius: 10px; padding: 2px 4px 2px 9px; margin: 2px; }
+  .block-chip .bx { cursor: pointer; font-weight: 600; color: #b66; padding: 0 4px; border-radius: 8px; }
+  .block-chip .bx:hover { background: #f0cccc; color: #7a1f1f; }
+  .tag-row { display: flex; align-items: center; gap: 6px; padding: 3px 0; font-size: 13px; }
+  .tag-row input[type=checkbox] { cursor: pointer; }
+  .tag-row .tname { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis;
+                    white-space: nowrap; }
+  .tag-row .tn { color: #999; font-size: 11px; }
+  .tag-row .act { cursor: pointer; color: #06c; font-size: 12px; padding: 0 3px; user-select: none; }
+  .tag-row .act.del { color: #c0392b; }
+  .filter-row { margin-bottom: 12px; font-size: 13px; color: #666; }
+  .filter-row a { color: #06c; }
+  .clip { background: white; border: 1px solid #e1e1e1; border-radius: 6px;
+          padding: 14px 18px; margin-bottom: 12px; display: flex; gap: 12px; align-items: flex-start; }
+  .clip .sel { padding-top: 2px; }
+  .clip .sel-box { width: 16px; height: 16px; cursor: pointer; }
+  .clip .clip-body { flex: 1; min-width: 0; }
+  .clip h2 { margin: 0 0 4px; font-size: 16px; }
+  .clip h2 a { color: #222; text-decoration: none; }
+  .clip h2 a:hover { color: #06c; }
+  .clip .meta { font-size: 12px; color: #888; margin-bottom: 6px; }
+  .clip .snippet { color: #555; font-size: 13px; }
+  .clip mark { background: #ffe; padding: 0 2px; }
+  .badge { display: inline-block; background: #f4a261; color: white;
+           padding: 1px 6px; border-radius: 3px; font-size: 11px; margin-left: 4px; }
+  .bulk-btn { padding: 5px 10px; border: 1px solid #cfe0f5; background: white; color: #06c;
+              border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .bulk-btn:hover { background: #f0f6ff; }
+  .bulk-btn.danger { color: #c0392b; border-color: #f0c8c2; }
+  .bulk-btn.danger:hover { background: #fdf0ee; }
+  .empty { padding: 40px; text-align: center; color: #999; }
+</style>
+</head>
+<body>
+<header>
+  <h1>📎 Clipper</h1>
+  <input type="search" id="q" placeholder="Search title, text, tags…" autofocus>
+  <a href="/search" style="color:#06c;text-decoration:none;font-size:14px;white-space:nowrap;">Advanced ⌕</a>
+  <a href="/upload" style="color:#06c;text-decoration:none;font-size:14px;white-space:nowrap;">Upload ⬆️</a>
+  <select id="filter-extra">
+    <option value="">All clips</option>
+    <option value="has_pdf=1">PDFs only</option>
+  </select>
+  <select id="filter-marking" title="Filter by classification marking">
+    <option value="">Any marking</option>
+    <option value="*">Any classification</option>
+  </select>
+  <input type="date" id="pub-from" title="Published from" style="font-size:13px; padding:6px; border:1px solid #ccc; border-radius:4px;">
+  <input type="date" id="pub-to" title="Published to" style="font-size:13px; padding:6px; border:1px solid #ccc; border-radius:4px;">
+</header>
+<main>
+  <aside>
+    <h3 class="tags-head">Tags <a href="#" id="manage-toggle">manage</a></h3>
+    <div class="manage-bar" id="manage-bar" style="display:none;">
+      <div id="merge-area" style="display:none;">
+        <span id="merge-count"></span>
+        <input id="merge-target" placeholder="merge selected into… (existing or new)">
+        <button class="bulk-btn" id="merge-go">Merge</button>
+        <button class="bulk-btn" id="merge-clear">Clear</button>
+      </div>
+      <div id="manage-hint" style="color:#667;">Tick tags to merge, or use ✎ / ✕ on a row.</div>
+      <div id="blocklist-area" style="margin-top:8px; border-top:1px solid #cfe0f5; padding-top:8px;">
+        <div style="font-weight:600; color:#445; margin-bottom:4px;">Suggestion blocklist</div>
+        <div style="color:#778; margin-bottom:4px;">Keywords never proposed as tag suggestions (variants too). Existing tags are unaffected.</div>
+        <input id="block-add" placeholder="block a keyword… (Enter)">
+        <div id="block-list" style="margin-top:4px;"></div>
+      </div>
+      <div id="settings-area" style="margin-top:8px; border-top:1px solid #cfe0f5; padding-top:8px;">
+        <div style="font-weight:600; color:#445; margin-bottom:4px;">Outlook import</div>
+        <label style="display:flex; gap:6px; align-items:flex-start; cursor:pointer; color:#556;">
+          <input type="checkbox" id="set-outlook-review" style="margin-top:2px;">
+          <span>Open a tagging review window after importing emails. When off,
+                imports are tagged silently (PDF keywords only).</span>
+        </label>
+      </div>
+      <div id="floor-area" style="margin-top:8px; border-top:1px solid #cfe0f5; padding-top:8px;">
+        <div style="font-weight:600; color:#445; margin-bottom:4px;">Suggestion topic-strictness</div>
+        <div style="color:#778; margin-bottom:6px;">Higher = only very-similar clips
+          lend their tags (fewer, more on-topic suggestions). Lower = broader.</div>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <input type="range" id="floor-slider" min="0.80" max="0.99" step="0.01" style="flex:1;">
+          <span id="floor-val" style="font-variant-numeric:tabular-nums; min-width:32px; text-align:right;"></span>
+          <button class="bulk-btn" id="floor-auto" title="Pick a floor automatically from your library">Auto</button>
+        </div>
+        <div id="floor-status" style="color:#778; margin-top:4px; min-height:14px;"></div>
+      </div>
+      <div id="cleanup-area" style="margin-top:8px; border-top:1px solid #cfe0f5; padding-top:8px;">
+        <div style="font-weight:600; color:#445; margin-bottom:4px;">Tag cleanup
+          <a href="#" id="cleanup-refresh" style="font-weight:400; font-size:11px;">refresh</a></div>
+        <div style="color:#778; margin-bottom:4px;">Consolidate sub-tags and fix
+          malformed designations. Merges/renames apply across all clips.</div>
+        <div id="cleanup-body" style="color:#778;">…</div>
+      </div>
+    </div>
+    <div id="tags"></div>
+  </aside>
+  <section>
+    <div class="filter-row" id="filter-row"></div>
+    <div id="bulk-bar" style="display:none; align-items:center; gap:8px; padding:8px 10px;
+         background:#eef6ff; border:1px solid #cfe0f5; border-radius:6px; margin-bottom:10px; flex-wrap:wrap;">
+      <span id="bulk-count" style="font-size:13px; font-weight:600;"></span>
+      <button id="bulk-selall" class="bulk-btn">Select all</button>
+      <button id="bulk-clear" class="bulk-btn">Clear</button>
+      <span style="flex:1"></span>
+      <input id="bulk-tags" placeholder="tags to add/remove" style="padding:5px 8px; border:1px solid #ccc; border-radius:4px; font-size:13px;">
+      <button id="bulk-addtags" class="bulk-btn">Add tags</button>
+      <button id="bulk-removetags" class="bulk-btn">Remove tags</button>
+      <button id="bulk-delete" class="bulk-btn danger">Delete</button>
+    </div>
+    <div id="results"></div>
+    <div style="text-align:center; margin:12px 0;">
+      <button id="load-more" class="bulk-btn" style="display:none;">Load more</button>
+    </div>
+  </section>
+</main>
+
+<script src="/static/tags.js"></script>
+<script>
+  const $ = sel => document.querySelector(sel);
+  const state = { q: '', tag: '', extra: '', marking: '', pubFrom: '', pubTo: '', manage: false };
+
+  function debounce(fn, ms) {
+    let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+  }
+
+  let allTagList = [];
+  const mergeSel = new Set();
+
+  async function loadTags() {
+    const r = await fetch('/api/tags');
+    const { tags } = await r.json();
+    allTagList = tags || [];
+    // Drop any selections for tags that no longer exist.
+    const live = new Set(allTagList.map(t => t.name.toLowerCase()));
+    [...mergeSel].forEach(n => { if (!live.has(n.toLowerCase())) mergeSel.delete(n); });
+    renderTags();
+  }
+
+  function renderTags() {
+    const host = $('#tags');
+    if (!allTagList.length) {
+      host.innerHTML = '<i style="color:#999;font-size:12px">none yet</i>';
+      updateMergeArea();
+      return;
+    }
+    if (!state.manage) {
+      host.innerHTML = allTagList.map(t =>
+        `<a class="tag" href="#" data-tag="${escapeHtml(t.name)}">${escapeHtml(t.name)}<span class="count">${t.n}</span></a>`
+      ).join('');
+      host.querySelectorAll('.tag').forEach(el => {
+        el.addEventListener('click', e => {
+          e.preventDefault();
+          state.tag = state.tag === el.dataset.tag ? '' : el.dataset.tag;
+          load();
+        });
+      });
+    } else {
+      host.innerHTML = allTagList.map(t => {
+        const checked = mergeSel.has(t.name) ? ' checked' : '';
+        return `<div class="tag-row">
+          <input type="checkbox" data-tag="${escapeHtml(t.name)}"${checked}>
+          <span class="tname" title="${escapeHtml(t.name)}">${escapeHtml(t.name)}<span class="tn"> ${t.n}</span></span>
+          <span class="act ren" data-tag="${escapeHtml(t.name)}" title="Rename">✎</span>
+          <span class="act del" data-tag="${escapeHtml(t.name)}" title="Delete from all clips">✕</span>
+        </div>`;
+      }).join('');
+      host.querySelectorAll('.tag-row input[type=checkbox]').forEach(box => {
+        box.addEventListener('change', () => {
+          if (box.checked) mergeSel.add(box.dataset.tag); else mergeSel.delete(box.dataset.tag);
+          updateMergeArea();
+        });
+      });
+      host.querySelectorAll('.act.ren').forEach(el =>
+        el.addEventListener('click', () => renameTag(el.dataset.tag)));
+      host.querySelectorAll('.act.del').forEach(el =>
+        el.addEventListener('click', () => deleteTag(el.dataset.tag)));
+    }
+    updateMergeArea();
+  }
+
+  function updateMergeArea() {
+    const area = $('#merge-area'), hint = $('#manage-hint');
+    if (!state.manage) return;
+    if (mergeSel.size) {
+      area.style.display = ''; hint.style.display = 'none';
+      $('#merge-count').textContent = `${mergeSel.size} selected → `;
+    } else {
+      area.style.display = 'none'; hint.style.display = '';
+    }
+  }
+
+  async function tagsBulk(payload) {
+    const r = await fetch('/api/tags/bulk', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const j = await r.json();
+    if (!r.ok) { alert(j.error || 'Tag operation failed'); return null; }
+    ClipperTags && ClipperTags.invalidateTagCache && ClipperTags.invalidateTagCache();
+    return j;
+  }
+
+  async function renameTag(name) {
+    const to = prompt(`Rename tag "${name}" to:`, name);
+    if (to === null) return;
+    const t = to.trim();
+    if (!t || t === name) return;
+    const j = await tagsBulk({ op: 'rename', from: name, to: t });
+    if (!j) return;
+    if (state.tag === name) state.tag = (j.status === 'merged' ? (j.target || '') : t);
+    await refreshAfterTagChange();
+  }
+
+  async function deleteTag(name) {
+    if (!confirm(`Remove tag "${name}" from all clips? The tag itself is deleted.`)) return;
+    const j = await tagsBulk({ op: 'delete', names: [name] });
+    if (!j) return;
+    if (state.tag === name) state.tag = '';
+    mergeSel.delete(name);
+    await refreshAfterTagChange();
+  }
+
+  async function mergeSelected() {
+    const into = $('#merge-target').value.trim();
+    if (!mergeSel.size || !into) return;
+    const names = [...mergeSel];
+    if (!confirm(`Merge ${names.length} tag(s) into "${into}"?`)) return;
+    const j = await tagsBulk({ op: 'merge', names, into });
+    if (!j) return;
+    if (state.tag && names.some(n => n.toLowerCase() === state.tag.toLowerCase()))
+      state.tag = j.target || '';
+    mergeSel.clear();
+    $('#merge-target').value = '';
+    await refreshAfterTagChange();
+  }
+
+  async function refreshAfterTagChange() {
+    await loadTags();
+    await load();
+  }
+
+  // Paged loading: the API caps a page at PAGE clips; "Load more" appends the
+  // next page (without it, anything past the first page was unreachable
+  // outside search/tag filters).
+  const PAGE = 50;
+  let nextOffset = 0;
+
+  async function load(append = false) {
+    if (!append) nextOffset = 0;
+    const params = new URLSearchParams();
+    if (state.q)    params.set('q', state.q);
+    if (state.tag)  params.set('tag', state.tag);
+    if (state.extra) {
+      const [k, v] = state.extra.split('=');
+      params.set(k, v);
+    }
+    if (state.marking) params.set('marking', state.marking);
+    if (state.pubFrom) params.set('published_from', state.pubFrom);
+    if (state.pubTo)   params.set('published_to', state.pubTo);
+    params.set('limit', PAGE);
+    params.set('offset', nextOffset);
+    const filterBits = [];
+    if (state.tag)     filterBits.push(`tag: <strong>${escapeHtml(state.tag)}</strong> <a href="#" id="clear-tag">×</a>`);
+    if (state.q)       filterBits.push(`search: <strong>${escapeHtml(state.q)}</strong>`);
+    if (state.marking) filterBits.push(`marking: <strong>${escapeHtml(state.marking === '*' ? 'any' : state.marking)}</strong>`);
+    if (state.pubFrom || state.pubTo)
+      filterBits.push(`published: <strong>${escapeHtml(state.pubFrom || '…')} → ${escapeHtml(state.pubTo || '…')}</strong>`);
+    $('#filter-row').innerHTML = filterBits.join(' · ');
+    if ($('#clear-tag')) $('#clear-tag').addEventListener('click', e => {
+      e.preventDefault(); state.tag = ''; load();
+    });
+
+    const r = await fetch('/api/clips?' + params.toString());
+    const { clips } = await r.json();
+    // A full page means there may be more; an underfull one is the end.
+    $('#load-more').style.display = clips.length === PAGE ? '' : 'none';
+    nextOffset += clips.length;
+    if (!append && !clips.length) {
+      $('#results').innerHTML = '<div class="empty">No clips found. Use the userscript to make one.</div>';
+      return;
+    }
+    const html = clips.map(c => {
+      const when = new Date(c.captured_at * 1000).toLocaleDateString();
+      const host = hostOf(c.url);
+      const tags = (c.tags || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join(' ');
+      const pdfBadge = c.has_pdf ? '<span class="badge">PDF</span>' : '';
+      // Escape the snippet but keep the FTS <mark> highlight tags.
+      const snippet = c.snippet
+        ? `<div class="snippet">${escapeHtml(c.snippet)
+            .replace(/&lt;mark&gt;/g, '<mark>').replace(/&lt;\/mark&gt;/g, '</mark>')}</div>`
+        : '';
+      const checked = selected.has(c.id) ? ' checked' : '';
+      return `<div class="clip">
+        <label class="sel"><input type="checkbox" class="sel-box" data-id="${c.id}"${checked}></label>
+        <div class="clip-body">
+          <h2><a href="/clip/${c.id}">${escapeHtml(c.title)}</a>${pdfBadge}</h2>
+          <div class="meta">${when} · ${host} · ${c.word_count || 0} words · ${c.reading_minutes || 0} min ${tags}</div>
+          ${snippet}
+        </div>
+      </div>`;
+    }).join('');
+    if (append) $('#results').insertAdjacentHTML('beforeend', html);
+    else $('#results').innerHTML = html;
+
+    // Wire selection checkboxes. Assignment (not addEventListener) so
+    // re-wiring after an append can't stack duplicate handlers.
+    $('#results').querySelectorAll('.sel-box').forEach(box => {
+      box.onchange = () => {
+        const id = parseInt(box.dataset.id, 10);
+        if (box.checked) selected.add(id); else selected.delete(id);
+        updateBulkBar();
+      };
+    });
+  }
+
+  // ---- Bulk selection ----
+  const selected = new Set();
+  function updateBulkBar() {
+    const bar = $('#bulk-bar');
+    if (selected.size === 0) { bar.style.display = 'none'; return; }
+    bar.style.display = 'flex';
+    $('#bulk-count').textContent = `${selected.size} selected`;
+  }
+  async function bulkOp(op, tags) {
+    const ids = [...selected];
+    if (!ids.length) return;
+    if (op === 'delete' && !confirm(`Delete ${ids.length} clip(s)? This cannot be undone.`)) return;
+    const r = await fetch('/api/clips/bulk', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ ids, op, tags: tags || [] }),
+    });
+    const j = await r.json();
+    if (!r.ok) { alert(j.error || 'Bulk operation failed'); return; }
+    selected.clear();
+    $('#bulk-tags').value = '';
+    await loadTags();
+    await load();
+    updateBulkBar();
+  }
+
+  function escapeHtml(s) {
+    return (s || '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+  }
+
+  function hostOf(u) {
+    try { return u ? new URL(u).hostname : ''; } catch (_) { return ''; }
+  }
+
+  $('#q').addEventListener('input', debounce(e => { state.q = e.target.value.trim(); load(); }, 200));
+  $('#filter-extra').addEventListener('change', e => { state.extra = e.target.value; load(); });
+  $('#filter-marking').addEventListener('change', e => { state.marking = e.target.value; load(); });
+  $('#pub-from').addEventListener('change', e => { state.pubFrom = e.target.value; load(); });
+  $('#pub-to').addEventListener('change', e => { state.pubTo = e.target.value; load(); });
+  $('#load-more').addEventListener('click', () => load(true));
+
+  // Populate the marking filter from the library's actual classifications.
+  async function loadMarkings() {
+    let markings = [];
+    try { markings = (await (await fetch('/api/markings')).json()).markings || []; }
+    catch (_) { return; }
+    const sel = $('#filter-marking');
+    for (const m of markings) {
+      const opt = document.createElement('option');
+      opt.value = m.name;
+      opt.textContent = `${m.name} (${m.n})`;
+      sel.appendChild(opt);
+    }
+  }
+
+  // Bulk bar actions
+  $('#bulk-selall').onclick = () => {
+    $('#results').querySelectorAll('.sel-box').forEach(b => { b.checked = true; selected.add(parseInt(b.dataset.id,10)); });
+    updateBulkBar();
+  };
+  $('#bulk-clear').onclick = () => {
+    selected.clear();
+    $('#results').querySelectorAll('.sel-box').forEach(b => { b.checked = false; });
+    updateBulkBar();
+  };
+  $('#bulk-delete').onclick = () => bulkOp('delete');
+  $('#bulk-addtags').onclick = () => {
+    const tags = $('#bulk-tags').value.split(',').map(s=>s.trim()).filter(Boolean);
+    if (tags.length) bulkOp('add_tags', tags); else alert('Enter tags first');
+  };
+  $('#bulk-removetags').onclick = () => {
+    const tags = $('#bulk-tags').value.split(',').map(s=>s.trim()).filter(Boolean);
+    if (tags.length) bulkOp('remove_tags', tags); else alert('Enter tags first');
+  };
+
+  $('#manage-toggle').addEventListener('click', e => {
+    e.preventDefault();
+    state.manage = !state.manage;
+    $('#manage-toggle').textContent = state.manage ? 'done' : 'manage';
+    $('#manage-bar').style.display = state.manage ? '' : 'none';
+    if (!state.manage) mergeSel.clear();
+    else { loadBlocklist(); loadSettings(); loadFloor(); loadCleanup(); }
+    renderTags();
+  });
+  // ---- Suggestion blocklist ----
+  async function loadBlocklist() {
+    const r = await fetch('/api/suggest/blocklist');
+    const { keywords } = await r.json();
+    const host = $('#block-list');
+    if (!keywords || !keywords.length) {
+      host.innerHTML = '<i style="color:#999;">nothing blocked</i>';
+      return;
+    }
+    host.innerHTML = keywords.map(k =>
+      `<span class="block-chip">${escapeHtml(k.keyword)}<span class="bx" data-kw="${escapeHtml(k.keyword)}" title="Unblock">×</span></span>`
+    ).join('');
+    host.querySelectorAll('.bx').forEach(el =>
+      el.addEventListener('click', () => blocklistOp('DELETE', el.dataset.kw)));
+  }
+  async function blocklistOp(method, keyword) {
+    const r = await fetch('/api/suggest/blocklist', {
+      method, headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ keyword }),
+    });
+    const j = await r.json();
+    if (!r.ok) { alert(j.error || 'Blocklist operation failed'); return; }
+    await loadBlocklist();
+  }
+  $('#block-add').addEventListener('keydown', e => {
+    if (e.key !== 'Enter') return;
+    const kw = e.target.value.trim();
+    if (!kw) return;
+    e.target.value = '';
+    blocklistOp('POST', kw);
+  });
+
+  // ---- Settings (Outlook review toggle) ----
+  async function loadSettings() {
+    const r = await fetch('/api/settings');
+    const j = await r.json();
+    $('#set-outlook-review').checked = !!j.outlook_review;
+  }
+  $('#set-outlook-review').addEventListener('change', async e => {
+    await fetch('/api/settings', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ outlook_review: e.target.checked }),
+    });
+  });
+
+  // ---- Suggestion topic-strictness (min_embed_sim) slider ----
+  function showFloor(j) {
+    $('#floor-slider').value = j.floor;
+    $('#floor-val').textContent = Number(j.floor).toFixed(2);
+    $('#floor-slider').min = j.min; $('#floor-slider').max = j.max;
+  }
+  async function loadFloor() {
+    try { showFloor(await (await fetch('/api/settings/embed-floor')).json()); }
+    catch (_) { /* service down */ }
+  }
+  async function postFloor(payload, msg) {
+    $('#floor-status').textContent = msg || '';
+    const j = await (await fetch('/api/settings/embed-floor', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })).json();
+    showFloor(j);
+    if (j.source === 'autotune') {
+      const t = (j.autotune && j.autotune.table || [])
+        .map(r => `${r.floor}: clean ${Math.round(r.precision*100)}%`).join('  ·  ');
+      $('#floor-status').textContent = `Auto → ${Number(j.floor).toFixed(2)}` + (t ? `  (${t})` : '');
+    } else {
+      $('#floor-status').textContent = `Saved ${Number(j.floor).toFixed(2)}`;
+    }
+  }
+  // Live label while dragging; persist on release (input vs change).
+  $('#floor-slider').addEventListener('input', e => {
+    $('#floor-val').textContent = Number(e.target.value).toFixed(2);
+  });
+  $('#floor-slider').addEventListener('change', e =>
+    postFloor({ floor: parseFloat(e.target.value) }));
+  $('#floor-auto').addEventListener('click', () =>
+    postFloor({ autotune: true }, 'Tuning…'));
+
+  // ---- Tag cleanup (merge sub-tags, fix malformed designations) ----
+  const esc = escapeHtml;
+  async function loadCleanup() {
+    const body = $('#cleanup-body');
+    body.textContent = 'Scanning…';
+    let rep;
+    try { rep = await (await fetch('/api/tags/cleanup')).json(); }
+    catch (_) { body.textContent = 'unavailable'; return; }
+    const rows = [];
+    for (const m of (rep.merge || [])) {
+      const [child, parent] = m.tags;
+      rows.push(`<div class="cl-row" data-sig="${esc(m.sig)}">
+        <span title="${esc(m.detail)} (${esc(m.reason)})">merge <b>${esc(child)}</b> → <b>${esc(parent)}</b></span>
+        <button class="bulk-btn cl-merge" data-from="${esc(child)}" data-into="${esc(parent)}">Merge</button>
+        <button class="bulk-btn cl-dismiss">Dismiss</button></div>`);
+    }
+    for (const f of (rep.format || [])) {
+      rows.push(`<div class="cl-row" data-sig="${esc(f.sig)}">
+        <span title="${esc(f.detail)}">rename <b>${esc(f.tag)}</b> → <b>${esc(f.suggest)}</b></span>
+        <button class="bulk-btn cl-rename" data-from="${esc(f.tag)}" data-to="${esc(f.suggest)}">Rename</button>
+        <button class="bulk-btn cl-dismiss">Dismiss</button></div>`);
+    }
+    body.innerHTML = rows.length
+      ? rows.join('') : '<span>Nothing to clean up — vocabulary looks tidy.</span>';
+  }
+  $('#cleanup-refresh').addEventListener('click', e => { e.preventDefault(); loadCleanup(); });
+  $('#cleanup-body').addEventListener('click', async e => {
+    const btn = e.target.closest('button'); if (!btn) return;
+    const row = btn.closest('.cl-row');
+    // tagsBulk (shared with the manage bar) alerts on failure and invalidates
+    // the autocomplete cache - the old local copy here did neither.
+    let changed = null;
+    if (btn.classList.contains('cl-merge'))
+      changed = await tagsBulk({ op: 'merge', names: [btn.dataset.from], into: btn.dataset.into });
+    else if (btn.classList.contains('cl-rename'))
+      changed = await tagsBulk({ op: 'rename', from: btn.dataset.from, to: btn.dataset.to });
+    else if (btn.classList.contains('cl-dismiss'))
+      await fetch('/api/tags/cleanup', { method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dismiss: row.dataset.sig }) });
+    await loadCleanup();
+    // Re-fetch the sidebar + list after a merge/rename: names and counts
+    // changed server-side, and re-rendering the stale in-memory tag list
+    // left them wrong until a full page reload.
+    if (changed) await refreshAfterTagChange();
+  });
+
+  $('#merge-go').addEventListener('click', mergeSelected);
+  $('#merge-clear').addEventListener('click', () => {
+    mergeSel.clear(); renderTags();
+  });
+  // Existing-tag autocomplete as you type in the management + bulk inputs.
+  // Attached before the merge-on-Enter handler below so that accepting a
+  // suggestion with Enter suppresses the merge (stopImmediatePropagation
+  // only blocks listeners registered after it).
+  ClipperTags.attachAutocomplete($('#merge-target'));
+  ClipperTags.attachAutocomplete($('#bulk-tags'), { multi: true });
+  $('#merge-target').addEventListener('keydown', e => {
+    if (e.key === 'Enter') mergeSelected();
+  });
+
+  loadTags();
+  loadMarkings();
+  load();
+</script>
+</body>
+</html>

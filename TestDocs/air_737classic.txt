@@ -1,0 +1,173 @@
+Boeing 737 Classic (737 Classic)
+
+The Boeing 737 Classic is a series of narrow-body airliners produced by Boeing Commercial Airplanes, the second generation of the Boeing 737 series of aircraft.
+Development began in 1979 and the first variant, the 737-300, first flew in February 1984 and entered service that December.
+The stretched 737-400 first flew in February 1988 and entered service later that year. The shortest variant, the 737-500, first flew in June 1989 and entered service in 1990.
+Compared to the original series, the classic series was re-engined with the CFM56, a high-bypass turbofan, for better fuel economy and had upgraded avionics.
+With a 133,500–150,000 lb (60.6–68.0 t) MTOW, it has a range of 2,060 to 2,375 nautical miles [nmi] (3,815 to 4,398 km; 2,371 to 2,733 mi).
+At 102 feet (31 m) the -500 is similar in length to the original 737-200 and can fly 110 to 132 passengers.
+The 110-foot-long (34 m) -300 can seat 126 to 149 passengers while the 120-foot-long (37 m) -400 accommodates 147 to 168 seats.
+It competed with the McDonnell Douglas MD-80 series, then with the Airbus A320 family which prompted Boeing to update its offer with the 737 Next Generation, thus designating the -300/400/500 variants as the 737 Classic.
+In total, 1,988 aircraft were delivered from 1984 until production ended in the year 2000: 1,113 -300s, 486 -400s and 389 -500s.
+
+
+== Development and design ==
+
+
+=== Background ===
+
+Following the success of the Boeing 737-200 Advanced, Boeing wanted to increase capacity and range, incorporating improvements to upgrade the plane to modern specifications, while also retaining commonality with previous 737 variants. Development began in 1979, and in 1980, preliminary aircraft specifications were released at the Farnborough Airshow. The new series featured CFM56 turbofan engines, yielding significant gains in fuel economy and a reduction in noise, but also posing an engineering challenge given the low ground clearance of the 737 – a trait of its 707-derived fuselage. Boeing and engine supplier CFM International solved the problem by placing the engine ahead of (rather than below) the wing, and by moving engine accessories to the sides (rather than the bottom) of the engine pod, giving the 737 a distinctive noncircular air intake.
+The wing incorporated a number of changes for improved aerodynamics. The wing tip was extended 9 inches (23 cm). The leading-edge slats and trailing-edge flaps were adjusted. The flight deck was improved with the optional electronic flight instrumentation system, and the passenger cabin incorporated improvements similar to those on the Boeing 757. The family also featured a redesigned vertical stabilizer with a dorsal fin at the base.
+
+
+=== Model developments ===
+In March 1981, USAir and Southwest Airlines each ordered 10 aircraft of the 737-300 series, with an option for 20 more. That aircraft, the initial model of the 737 Classic series, first flew in February 1984 and entered service in December of that year with Southwest Airlines. A further stretched model, the 737-400, was launched with an order for 25 aircraft with 30 options from Piedmont Airlines in June 1986. That aircraft first flew in February 1988 and entered service later that year with Piedmont Airlines. The final model of the series, the 737-500, was launched with an order for 30 aircraft from Southwest Airlines in May 1987. That aircraft, which was designed as a replacement for the 737-200 and had similar passenger capacity and dimensions, as well as the longest range of any member of the 737 Classic family, first flew in June 1989 and entered service with Southwest Airlines in 1990.
+
+
+=== Engines ===
+
+Boeing selected the CFM56-3 exclusively to power the 737-300 variant. The 737 wings were closer to the ground than previous applications for the CFM56, necessitating several modifications to the engine. The fan diameter was reduced, which reduced the bypass ratio, and the engine accessory gearbox was moved from the bottom of the engine (the 6 o'clock position) to the 9 o'clock position, giving the engine nacelle its distinctive flat-bottomed shape, which is often nicknamed the "hamster pouch". The overall thrust was also reduced, from 24,000 to 20,000 lbf (107 to 89 kN), mostly due to the reduction in bypass ratio.
+
+
+=== Speed Trim System ===
+The 737 Classic saw introduction of Speed Trim System (STS), a flight augmentation system that adjusts the stabilizer automatically at low speed, low weight, aft center of gravity and high thrust with autopilot disengaged. Most frequently it can be observed during takeoffs and go-arounds. The system relies on most of the same hardware and software used in autopilot mode. STS is not fail-safe in that it uses only one of each sensor types required for its functionality and a single computer. Such a single-channel design is not common for augmentation systems that have full control of the stabilizer. This design was considered acceptable because of the ability for the aft and forward column cutout switches as well as center console cutout switches to constrain its malfunction. The limited flight envelope protections on the 737 Next Generation series, as well as MCAS on the 737 MAX, are later extensions of this system.
+
+
+=== Further developments ===
+
+Throughout the 1980s, the 737 Classic series attracted large orders from airlines in the United States and Europe, with its order totals exceeding those of preceding 737 models. By far, the most successful model was the 737-300, with deliveries totaling 1,113 aircraft (the 737-400 and -500 reached 486 and 389 deliveries, respectively). Major operators included US carriers, small national airlines, and charter carriers.
+By the 1990s, when regular Boeing customer United Airlines bought the Airbus A320, this prompted Boeing to update the slower, shorter-range 737 Classic -400 into the rewinged, updated, more efficient, longer 737NG-800.
+Production of the 737 Classic continued alongside that of the Next Generation for a period of time; the first 737-700 was completed in December 1996; the last 737 Classic was completed in February 2000.
+
+
+=== Modifications ===
+Six former Southwest Airlines 737-300s are modified and operated for aerial firefighting by British Columbia-based Coulson Group, supported by a loan by the Canadian government for CA$3.4 million (2018) which is equivalent to CA$4.1 Million (or US$2.9 million) in 2024. The converted 737 FireLiner can carry 4,000 US gal (15 m3) with a flow rate of 3,000 US gal (11 m3)/s, and retains 66 seats. The first was completed in 2018 and deployed to Australia.
+
+
+== Variants ==
+
+
+=== 737-300 ===
+
+The prototype of the -300 rolled out of the Renton plant on January 17, 1984, and first flew on February 24, 1984. After it received its flight certification on November 14, 1984, USAir received the first aircraft on November 28. It proved a very popular aircraft: Boeing received 252 orders in 1985, and over 1,000 throughout its production. The 300 series remained in production until the last aircraft was delivered to Air New Zealand on December 17, 1999, registration ZK-NGJ. By then, 1,113 Boeing 737-300s had been produced over more than 15 years.
+In December 2008, Southwest Airlines selected Boeing to retrofit the 737-300 with a new set of instruments, hardware, and software, to improve commonality with the 737-700, as well as to support the Required Navigation Performance initiative, but that order was later cancelled and the retrofits never took place.
+
+The 737-300 can be retrofitted with Aviation Partners Boeing winglets. The 737-300 retrofitted with winglets is designated the -300SP (Special Performance) first entered service in June 2003. Used passenger -300 aircraft have also been converted to freighter versions. The 737-300 has been replaced by the 737-700 in the Boeing 737 Next Generation family.
+
+
+=== 737-400 ===
+
+The 737-400 design was launched in 1985 to fill the gap between the 737-300 and the 757-200, and competed with the Airbus A320 and McDonnell Douglas MD-80. It stretched the 737-300 another 10 ft (3.05 m) to carry up to 188 passengers. It included a tail bumper to prevent tailscrapes during take-off (an early issue with the 757), and a strengthened wing spar. The prototype rolled out on January 26, 1988, and flew for the first time on February 19, 1988.
+The aircraft entered service on September 15, 1988, with launch customer Piedmont Airlines (25 aircraft ordered).
+The last two Boeing 737-400s, the last Boeing 737 Classics, were delivered to CSA Czech Airlines on February 28, 2000.
+The 737-400 was replaced by the 737-800 in the Boeing 737 Next Generation family.
+
+
+==== 737-400SF ====
+
+The 737-400SF (Special Freighter) is a 737-400 that has been converted to haul cargo. Alaska Airlines was the first to convert one of their 400s from regular service to an aircraft with the ability to handle 10 pallets. The airline has also converted five more into fixed combi aircraft for half passenger and freight. These 737-400 Combi aircraft were retired in 2017 and replaced with 737-700Fs.
+In November 2018, VX Capital launched an ABS secured on 35 737-400 freighters valued at $250 million (an average of $7.1 million), to be leased for $100,000 per month each.
+
+
+=== 737-500 ===
+
+The -500 series has the smallest dimensions of the 737 Classic. The -500 was offered, due to customer demand, as a modern and direct replacement of the 737-200, incorporating the improvements of the 737 Classic series in a model that allowed longer routes with fewer passengers to be more economical than with the 737-300. Though smaller than the -300 and -400, the fuselage length of the -500 is 1 ft 7 in (48 cm) longer than the 737-200, accommodating up to 140 passengers. Both glass and older style mechanical cockpits arrangements were available. Using the CFM56-3 engine also gave a 25% increase in fuel efficiency over the older -200s P&W engines.
+The 737-500 was launched in 1987, by Southwest Airlines, with an order for 20 aircraft, and flew for the first time on June 30, 1989. A single prototype flew 375 hours for the certification process, and on February 28, 1990, Southwest Airlines received the first delivery. The 737-500 has become a favorite of some Russian airlines, with Nordavia, Rossiya Airlines, S7 Airlines, Sky Express, Transaero, UTair, and Yamal Airlines all buying second-hand models of the aircraft to replace aging Soviet-built aircraft and/or expand their fleets. Aerolíneas Argentinas replaced its 737-200s with second-hand 737-500s. The last 737-500 was delivered to All Nippon Airways on July 21, 1999. Like 737-300, the 737-500 also can be retrofitted with Aviation Partners Boeing winglets. The 737-500 was replaced by the 737-600 in the Boeing 737 Next Generation family. However, unlike the 737-500, the 737-600 was a slow seller for Boeing, with only 69 aircraft delivered since its introduction.
+As the retirement of all 737 Classic models progressed, with retirement of 300s and -500s reaching 40% in 2012, the 737-500 has faced accelerated retirement because of its smaller size. Aircraft of this series were being retired after 21 years of use, as compared to 24 years for the 737-300. While a few 737-300s are slated for freighter conversion, there is no demand for a -500 freighter conversion. On September 5, 2016, Southwest Airlines flew their last 737-500 revenue flight, Flight 377 from El Paso to Dallas.
+
+
+=== Comparison of variants ===
+Below is a list of major differences between the 737 Classic variants.
+
+
+== Operators ==
+
+
+=== Civilian ===
+
+As of July 2019, 692 Boeing 737 Classic aircraft were in commercial service. This includes 297 -300s, 261 -400s, and 134 -500s.
+
+
+=== Military ===
+Many countries operate the 737 passenger and cargo variants in government or military applications including Brazil, Chile, China. Colombia, India, Indonesia, Kuwait, Mexico, Niger, Peru, Taiwan, Thailand, United Arab Emirates, Venezuela and others.
+
+
+=== Deliveries ===
+
+
+== Aircraft on display ==
+
+Boeing 737 classic in display include:
+
+N300SW, line number 1037, Southwest Airlines' first 737-300 delivered in November 1984, is displayed at the Frontiers of Flight Museum at Love Field in Dallas, Texas.
+N657SW, line number 1111, a 1985-built ex-Southwest Airlines 737-300, first delivered to Maersk Air, then served at Air Europa and Western Pacific Airlines. the front fuselage section preserved at Chengdu LCA Aviation Museum, Chengdu, Sichuan, China.
+EI-DON, line number 1511, a 1988-built ex-KD Avia 737-300 built for Transbrasil, is displayed at Immanuel Kant Baltic Federal University in Kaliningrad, Russia. Following an incident in 2008 involving flight KD794 where the aircraft landed at Kaliningrad Airport with the nose landing gear retracted, the airframe was withdrawn from use and donated to the university.
+G-DOCB, line number 2144, a 1991-built ex-British Airways 737-400 is on display at Cranfield University's airport in the United Kingdom, where it is currently in use by the university for education.
+N759BA, line number 2528, a 1993-built ex-China Southern Airlines 737-300 formerly registered B-2921, is on display at the Pima Air & Space Museum in Tucson, Arizona.
+JA301K Super Dolphin, line number 2875, a 1997-built 737-500 formerly operated on All Nippon Airways' short haul ANA Wings routes, was taken out of retirement on February 1, 2018, and preserved for use as a maintenance training aircraft at Haneda Airport, Tokyo.
+JA307K, line number 3116, built in 1999, it is the last Boeing 737-500 ever built, is displayed at the Shandong Polytechnic College, China as an educational airframe
+
+
+== Accidents and incidents ==
+
+As of January 2021, 64 hull losses of Boeing 737 Classic series aircraft have occurred, with 1,298 fatalities. An analysis by Boeing on commercial jet airplane accidents in the period 1959–2017 showed that the classic series had a hull loss rate of 0.71 per million departures versus 0.17 for the Next Generation series and 1.75 for the original series.
+
+
+== Specifications (Boeing 737-300) ==
+
+Data from General characteristics
+Crew: 2
+Capacity: 126 passengers in two classes or 140 in one class, and 1,068 cu ft (30.2 m3) of cargo
+Length: 109 ft 7 in (33.4 m)
+Wingspan: 94 ft 9 in (28.9 m)
+Width: 12 ft 3 in (3.73 m) (fuselage)
+Height: 36 ft 6 in (11.1 m)
+Wing area: 979.9 sq ft (91.04 m2) 
+Empty weight: 72,360 lb (32,820 kg)
+Max takeoff weight: 124,500 lb (56,470 kg)
+Fuel capacity: 5,311 US gal (20,100 L; 4,422 imp gal)
+Powerplant: 2 × CFM International CFM56-3C-1 turbofan engine, 20,000 lbf (89 kN) thrust each
+Performance
+
+Maximum speed: Mach 0.82
+Cruise speed: 491 mph (790 km/h, 427 kn) at 26,000 ft (7,900 m)
+Service ceiling: 37,000 ft (11,000 m)
+Takeoff distance: 6,500 ft (2,000 m)
+Landing distance: 4,580 ft (1,400 m)
+
+
+== See also ==
+
+Boeing 737 rudder issues
+Related development
+
+Boeing 737
+Boeing 737 MAX
+Boeing 737 Next Generation
+Boeing T-43
+Aircraft of comparable role, configuration, and era
+
+Airbus A320 family
+McDonnell Douglas MD-80
+McDonnell Douglas MD-90
+Tupolev Tu-154
+Yakovlev Yak-42
+
+Related lists
+
+List of Boeing 737 operators
+List of civil aircraft
+
+
+== Notes ==
+
+
+== References ==
+
+
+== Further reading ==
+
+Shaw, Robbie. Boeing Jetliners. London, England: Osprey, 1995. ISBN 1-85532-528-4.
+"Historical Snapshot: 737 Commercial Transport". Boeing.
+"THE 737 STORY: The Long Stretch". Flightglobal. February 7, 2006.
+"737 classic" (PDF). Boeing. 2007.

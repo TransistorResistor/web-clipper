@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Clip</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+         margin: 0; color: #222; background: #fafafa; }
+  header { background: white; border-bottom: 1px solid #e1e1e1; padding: 14px 24px;
+           display: flex; gap: 12px; align-items: center; position: sticky; top: 0; z-index: 10; }
+  header a.back { color: #06c; text-decoration: none; }
+  main { max-width: 1100px; margin: 0 auto; padding: 20px;
+         display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
+  .clip-meta { font-size: 13px; color: #777; margin-bottom: 12px; }
+  .clip-meta a { color: #06c; word-break: break-all; }
+  h1.title { margin: 0 0 8px; }
+  .content { background: white; border: 1px solid #e1e1e1; padding: 24px;
+             border-radius: 6px; }
+  .content img { max-width: 100%; height: auto; }
+  /* Force OneNote-imported tables and other elements to stay within bounds */
+  .content table, .content pre { max-width: 100%; overflow-x: auto; }
+  aside { font-size: 13px; }
+  aside h3 { font-size: 12px; text-transform: uppercase; color: #777; margin: 14px 0 6px; }
+  button { padding: 6px 12px; background: #06c; color: white; border: none;
+           border-radius: 4px; cursor: pointer; font-size: 13px; }
+  button.secondary { background: #888; }
+  button.danger { background: #c33; }
+  .annotation { background: #fff8d4; border-left: 3px solid #f5c518;
+                padding: 8px 12px; margin: 6px 0; border-radius: 0 4px 4px 0; font-size: 13px; }
+  .annotation .quote { font-style: italic; color: #666; }
+  .annotation .note { margin-top: 4px; }
+  .annotation .actions { font-size: 11px; color: #888; margin-top: 4px; }
+  .annotation .actions a { color: #c33; cursor: pointer; }
+  .pdf-frame { width: 100%; height: 80vh; border: 1px solid #ccc; border-radius: 4px; }
+  .toast { position: fixed; bottom: 20px; right: 20px; background: #27ae60; color: white;
+           padding: 8px 14px; border-radius: 4px; opacity: 0; transition: opacity 0.2s; }
+  .toast.show { opacity: 1; }
+  mark.highlight { background: #ffeb3b; cursor: pointer; }
+  .em-form { font-size: 12px; margin-top: 6px; display: grid; gap: 6px; }
+  .em-form label { display: flex; flex-direction: column; gap: 2px; color: #777; }
+  .em-form input { font: inherit; font-size: 13px; padding: 5px 6px;
+                   border: 1px solid #ccc; border-radius: 4px; }
+  .em-form button { justify-self: start; margin-top: 2px; }
+</style>
+</head>
+<body>
+<header>
+  <a class="back" href="/">← All clips</a>
+  <span id="title-bar"></span>
+</header>
+<main>
+  <section>
+    <h1 class="title" id="title">Loading…</h1>
+    <div class="clip-meta" id="meta"></div>
+    <div id="content" class="content"></div>
+  </section>
+  <aside>
+    <h3>Tags</h3>
+    <div id="tag-widget"></div>
+    <p style="font-size: 12px; color: #888;">Enter or comma adds a tag; click Save to persist.</p>
+
+    <h3>Note</h3>
+    <textarea id="note-input" rows="3" placeholder="Your comment on this clip — searchable, feeds tag suggestions, and leads search exports."
+      style="width:100%; box-sizing:border-box; font:inherit; font-size:13px; padding:6px;
+             border:1px solid #ccc; border-radius:4px; resize:vertical;"></textarea>
+    <p style="font-size: 12px; color: #888;">Saved with “Save changes”.</p>
+
+    <h3>Annotations</h3>
+    <p style="font-size: 12px; color: #888;">Select text in the content, then click Annotate.</p>
+    <button id="annotate-btn" class="secondary" disabled>Annotate selection</button>
+    <div id="annotations"></div>
+
+    <h3>Actions</h3>
+    <button id="save-btn">Save changes</button>
+    <button id="delete-btn" class="danger">Delete clip</button>
+
+    <h3>Key metadata</h3>
+    <div id="marking-banner" style="display:none; padding:6px 10px; border-radius:4px;
+         font-weight:600; font-size:13px; margin-bottom:8px;
+         background:#fde68a; color:#7c2d12; border:1px solid #d97706;"></div>
+    <table id="key-meta" style="width:100%; font-size:12px; border-collapse:collapse;"></table>
+    <details id="edit-meta" style="margin-top:8px;">
+      <summary style="font-size:12px; cursor:pointer; color:#06c;">Edit metadata</summary>
+      <div class="em-form">
+        <label>Title<input id="em-title" type="text"></label>
+        <label>Original URL<input id="em-url" type="text" placeholder="https://…"></label>
+        <label>Marking<input id="em-marking" type="text" placeholder="e.g. OFFICIAL-SENSITIVE NO CONTRACTORS"></label>
+        <label>Published<input id="em-date" type="text" placeholder="2024-03-14, March 2024, 14 Mar 2026…"></label>
+        <label>Report number<input id="em-report" type="text"></label>
+        <button id="em-save">Save metadata</button>
+        <div id="em-status" style="color:#777; min-height:14px;"></div>
+      </div>
+    </details>
+    <details style="margin-top:8px;"><summary style="font-size:12px; cursor:pointer; color:#666;">Raw metadata</summary>
+    <pre id="raw-meta" style="font-size:11px; background:#eee; padding:8px; border-radius:4px; overflow:auto; max-height: 200px;"></pre>
+    </details>
+  </aside>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script src="/static/tags.js"></script>
+<script>
+  const clipId = {{ clip_id }};
+  const $ = sel => document.querySelector(sel);
+  let clip = null;
+  let pendingSelection = null;
+  let tagWidget = null;
+
+  function toast(msg) {
+    const t = $('#toast'); t.textContent = msg; t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+  }
+
+  function escapeHtml(s) {
+    return (s || '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+  }
+
+  function hostOf(u) {
+    try { return u ? new URL(u).hostname : ''; } catch (_) { return ''; }
+  }
+
+  function renderKeyMetadata(meta) {
+    // Show marking prominently if present.
+    if (meta.marking) {
+      $('#marking-banner').style.display = '';
+      $('#marking-banner').textContent = meta.marking;
+    } else {
+      $('#marking-banner').style.display = 'none';
+    }
+    // Render selected high-value fields as a compact table. Anything not
+    // shown here is still available in the raw metadata expander.
+    const ordered = ['title', 'url', 'report_number', 'date_published',
+                     'metadata_extractor'];
+    const rows = [];
+    for (const k of ordered) {
+      const v = meta[k];
+      if (!v) continue;
+      let display = v;
+      if (k === 'url') display = `<a href="${escapeHtml(v)}" target="_blank">${escapeHtml(v)}</a>`;
+      else display = escapeHtml(String(v));
+      rows.push(`<tr><td style="color:#888;padding:2px 6px 2px 0;vertical-align:top;white-space:nowrap;">${k}</td>
+                    <td style="word-break:break-word;padding:2px 0;">${display}</td></tr>`);
+    }
+    $('#key-meta').innerHTML = rows.length ? rows.join('') :
+      '<tr><td colspan="2" style="color:#999;font-size:12px;">none</td></tr>';
+  }
+
+  async function load() {
+    const r = await fetch(`/api/clips/${clipId}`);
+    if (!r.ok) { $('#title').textContent = 'Not found'; return; }
+    clip = await r.json();
+    $('#title').textContent = clip.title;
+    document.title = clip.title;
+    const when = new Date(clip.captured_at * 1000).toLocaleString();
+    const host = hostOf(clip.url);
+    $('#meta').innerHTML = `${when} · ${escapeHtml(host)} ${clip.url ? '· <a target="_blank" href="' + escapeHtml(clip.url) + '">original</a>' : ''}
+      · ${clip.word_count || 0} words · ${clip.reading_minutes || 0} min read`;
+
+    // Article body first (combined article+PDF clips keep their context),
+    // then the primary PDF in an iframe below it.
+    const pdfAsset = (clip.assets || []).find(a => a.role === 'pdf-primary');
+    let contentHtml = clip.content_html || '';
+    if (pdfAsset) {
+      contentHtml += `<iframe class="pdf-frame" src="/asset/${pdfAsset.asset_sha}"></iframe>`;
+    }
+    $('#content').innerHTML = contentHtml || '<i>empty</i>';
+
+    renderKeyMetadata(clip.meta || {});
+    $('#raw-meta').textContent = JSON.stringify(clip.meta || {}, null, 2);
+
+    // Populate the metadata editor from the freshly loaded clip.
+    const m = clip.meta || {};
+    $('#em-title').value = clip.title || '';
+    $('#em-url').value = clip.url || m.url || '';
+    $('#em-marking').value = m.marking || '';
+    $('#em-date').value = m.date_published || '';
+    $('#em-report').value = m.report_number || '';
+    $('#em-status').textContent = '';
+
+    // Populate the note before building the widget so its first suggestion
+    // pass already reflects the saved note (the widget reads getNote()).
+    $('#note-input').value = clip.user_note || '';
+
+    // Chip-style tag input + suggestions. excludeClipId makes the server
+    // assemble the suggestion context itself (clip text + cached PDF text),
+    // so we don't ship content over and PDF clips get real suggestions. The
+    // note is fed in too (treated like the title); editing it re-suggests.
+    tagWidget = ClipperTags.create($('#tag-widget'), {
+      initial: clip.tags || [],
+      context: { title: clip.title || '', excludeClipId: clipId,
+                 getNote: () => $('#note-input').value.trim() },
+    });
+    $('#note-input').oninput = () => tagWidget.refreshSuggestions();
+
+    renderAnnotations();
+    highlightAnnotationsInContent();
+  }
+
+  function renderAnnotations() {
+    const list = clip.annotations || [];
+    $('#annotations').innerHTML = list.length
+      ? list.map(a => `<div class="annotation" data-id="${a.id}">
+          ${a.quote ? `<div class="quote">“${escapeHtml(a.quote)}”</div>` : ''}
+          ${a.note ? `<div class="note">${escapeHtml(a.note)}</div>` : ''}
+          <div class="actions">
+            ${new Date(a.created_at * 1000).toLocaleDateString()}
+            · <a data-del="${a.id}">delete</a>
+          </div>
+        </div>`).join('')
+      : '<p style="color:#999;font-size:12px">none yet</p>';
+    document.querySelectorAll('#annotations [data-del]').forEach(el => {
+      el.addEventListener('click', async () => {
+        if (!confirm('Delete annotation?')) return;
+        await fetch(`/api/annotations/${el.dataset.del}`, { method: 'DELETE' });
+        clip.annotations = clip.annotations.filter(a => a.id != el.dataset.del);
+        renderAnnotations();
+        toast('Deleted');
+      });
+    });
+  }
+
+  function highlightAnnotationsInContent() {
+    // Wrap each annotation's quote in <mark> tags within the content. We do
+    // this by walking text nodes - replaceAll on innerHTML would break the
+    // DOM structure for any clip with non-trivial markup.
+    const content = $('#content');
+    for (const a of clip.annotations || []) {
+      if (!a.quote) continue;
+      const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT);
+      let node;
+      while ((node = walker.nextNode())) {
+        const idx = node.textContent.indexOf(a.quote);
+        if (idx === -1) continue;
+        const range = document.createRange();
+        range.setStart(node, idx);
+        range.setEnd(node, idx + a.quote.length);
+        const mark = document.createElement('mark');
+        mark.className = 'highlight';
+        mark.title = a.note || '';
+        try { range.surroundContents(mark); } catch (_) { /* selection across tags */ }
+        break;
+      }
+    }
+  }
+
+  document.addEventListener('selectionchange', () => {
+    const sel = window.getSelection();
+    const text = sel && sel.toString().trim();
+    $('#annotate-btn').disabled = !text || !$('#content').contains(sel.anchorNode);
+    pendingSelection = text || null;
+  });
+
+  $('#annotate-btn').addEventListener('click', async () => {
+    if (!pendingSelection) return;
+    const note = prompt('Annotation note (optional):', '');
+    if (note === null) return;
+    // Build prefix/suffix for the anchor.
+    const text = clip.content_text || '';
+    const idx = text.indexOf(pendingSelection);
+    const prefix = idx > 0 ? text.slice(Math.max(0, idx - 24), idx) : '';
+    const suffix = idx >= 0 ? text.slice(idx + pendingSelection.length, idx + pendingSelection.length + 24) : '';
+    const r = await fetch(`/api/clips/${clipId}/annotations`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ quote: pendingSelection, prefix, suffix, note }),
+    });
+    const j = await r.json();
+    clip.annotations.push({
+      id: j.id, quote: pendingSelection, note, created_at: Math.floor(Date.now() / 1000),
+    });
+    renderAnnotations(); highlightAnnotationsInContent();
+    toast('Annotated');
+  });
+
+  $('#save-btn').addEventListener('click', async () => {
+    const tags = tagWidget ? tagWidget.getTags() : [];
+    const note = $('#note-input').value;
+    const r = await fetch(`/api/clips/${clipId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tags, note }),
+    });
+    if (r.ok) { toast('Saved'); ClipperTags.invalidateTagCache(); await load(); }
+    else { toast('Save failed'); }
+  });
+
+  $('#em-save').addEventListener('click', async () => {
+    // The metadata (marking/date/report/url) rides in meta, where the server
+    // re-normalises it into the filter columns. Title goes to its own column
+    // and writes a revision, so only send it when it actually changed - an
+    // unchanged title shouldn't spawn an identical revision on every save.
+    const payload = {
+      meta: {
+        url: $('#em-url').value.trim(),
+        marking: $('#em-marking').value.trim(),
+        date_published: $('#em-date').value.trim(),
+        report_number: $('#em-report').value.trim(),
+      },
+    };
+    const newTitle = $('#em-title').value.trim() || 'Untitled';
+    if (newTitle !== (clip.title || '')) payload.title = newTitle;
+    $('#em-status').textContent = 'Saving…';
+    const r = await fetch(`/api/clips/${clipId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (r.ok) { toast('Metadata saved'); await load(); $('#edit-meta').open = true; }
+    else { $('#em-status').textContent = 'Save failed'; }
+  });
+
+  $('#delete-btn').addEventListener('click', async () => {
+    if (!confirm('Delete this clip permanently?')) return;
+    await fetch(`/api/clips/${clipId}`, { method: 'DELETE' });
+    window.location.href = '/';
+  });
+
+  load();
+</script>
+</body>
+</html>

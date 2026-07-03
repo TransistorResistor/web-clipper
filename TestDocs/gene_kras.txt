@@ -1,0 +1,95 @@
+KRAS (KRAS)
+
+KRAS (Kirsten rat sarcoma virus oncogene homologue) is a gene that provides instructions for making a protein called K-Ras, a part of the RAS/MAPK pathway. The protein relays signals from outside the cell to the cell's nucleus. These signals instruct the cell to grow and divide (proliferate) or to mature and take on specialized functions (differentiate). It is called KRAS because it was first identified as a viral oncogene in the Kirsten RAt Sarcoma virus (current viral nomenclature: Kirsten murine sarcoma virus, Gammaretrovirus Kimursar). The oncogene identified was derived from a cellular genome, so KRAS, when found in a cellular genome, is called a proto-oncogene.
+The K-Ras protein is a GTPase, a class of enzymes which convert the nucleotide guanosine triphosphate (GTP) into guanosine diphosphate (GDP). In this way the K-Ras protein acts like a switch that is turned on and off by the GTP and GDP molecules. To transmit signals, it must be turned on by attaching (binding) to a molecule of GTP. The K-Ras protein is turned off (inactivated) when it converts the GTP to GDP. When the protein is bound to GDP, it does not relay signals to the nucleus.
+The gene product of KRAS, the K-Ras protein, was first found as a p21 GTPase. Like other members of the ras subfamily of GTPases, the K-Ras protein is an early player in many signal transduction pathways. K-Ras is usually tethered to cell membranes because of the farnesylation of its C-terminus. There are two protein products of the KRAS gene in mammalian cells that result from the use of alternative exon 4 (exon 4A and 4B respectively): K-Ras4A and K-Ras4B. These proteins have different structures in their C-terminal region and use different mechanisms to localize to cellular membranes, including the plasma membrane.
+
+
+== Function ==
+KRAS acts as a molecular on/off switch, using protein dynamics. Once it is allosterically activated, it recruits and activates proteins necessary for the propagation of growth factors, as well as other cell signaling receptors like c-Raf and PI 3-kinase.  KRAS upregulates the GLUT1 glucose transporter, thereby contributing to the Warburg effect in cancer cells. KRAS binds to GTP in its active state.  It also possesses an intrinsic enzymatic activity which cleaves the terminal phosphate of the nucleotide, converting it to GDP. Upon conversion of GTP to GDP, KRAS is deactivated.  The rate of conversion is usually slow, but can be increased dramatically by an accessory protein of the GTPase-activating protein (GAP) class, for example RasGAP.  In turn, KRAS can bind to proteins of the Guanine Nucleotide Exchange Factor (GEF) class (such as SOS1), which forces the release of bound nucleotide (GDP).  Subsequently,  KRAS binds GTP present in the cytosol and the GEF is released from ras-GTP.
+Other members of the Ras family include: HRAS and NRAS.  These proteins all are regulated in the same manner and appear to differ in their sites of action within the cell.
+
+
+== Clinical significance when mutated ==
+This proto-oncogene is a Kirsten ras oncogene homolog from the mammalian Ras gene family. A single amino acid substitution, and in particular a single nucleotide substitution, is responsible for an activating mutation. The transforming protein that results is implicated in various malignancies, including lung adenocarcinoma, mucinous adenoma, ductal carcinoma of the pancreas and colorectal cancer.
+Several germline KRAS mutations have been found to be associated with Noonan syndrome and cardio-facio-cutaneous syndrome. Somatic KRAS mutations are found at high rates in leukemias, colorectal cancer, pancreatic cancer and lung cancer.
+
+
+=== Colorectal cancer ===
+The impact of KRAS mutations is heavily dependent on the order of mutations. Primary KRAS mutations generally lead to a self-limiting hyperplastic or borderline lesion, but if they occur after a previous APC mutation it often progresses to cancer. KRAS mutations are more commonly observed in cecal cancers than colorectal cancers located in any other places from ascending colon to rectum.
+As of 2006, KRAS mutation was predictive of a very poor response to panitumumab (Vectibix) and cetuximab (Erbitux) therapy in colorectal cancer.
+As of 2008, the most reliable way to predict whether a colorectal cancer patient will respond to one of the EGFR-inhibiting drugs was to test for certain "activating" mutations in the gene that encodes KRAS, which occurs in 30%–50% of colorectal cancers. Studies show patients whose tumors express the mutated version of the KRAS gene will not respond to cetuximab or panitumumab.
+As of 2009, although presence of the wild-type (or normal) KRAS gene does not guarantee that these drugs will work, a number of large studies had shown that cetuximab had efficacy in mCRC patients with KRAS wild-type tumors. In the Phase III CRYSTAL study, published in 2009, patients with the wild-type KRAS gene treated with Erbitux plus chemotherapy showed a response rate of up to 59% compared to those treated with chemotherapy alone. Patients with the KRAS wild-type gene also showed a 32% decreased risk of disease progression compared to patients receiving chemotherapy alone.
+As of 2012, it was known that emergence of KRAS mutations was a frequent driver of acquired resistance to cetuximab anti-EGFR therapy in colorectal cancers. The emergence of KRAS mutant clones can be detected non-invasively months before radiographic progression. It suggests to perform an early initiation of a MEK inhibitor as a rational strategy for delaying or reversing drug resistance.
+
+
+==== KRAS amplification ====
+KRAS gene can also be amplified in colorectal cancer and tumors harboring this genetic lesion are not responsive to EGFR inhibitors. Although KRAS amplification is infrequent in colorectal cancer, as of 2013 it was hypothesized to be responsible for precluding response to anti-EGFR treatment in some patients.  As of 2015 amplification of wild-type Kras has also been observed in ovarian, gastric, uterine, and lung cancers.
+
+
+=== Lung cancer ===
+Whether a patient is positive or negative for a mutation in the epidermal growth factor receptor (EGFR) will predict how patients will respond to certain EGFR antagonists such as erlotinib (Tarceva) or gefitinib (Iressa). Patients who harbor an EGFR mutation have a 60% response rate to erlotinib.  However, the mutation of KRAS and EGFR are generally mutually exclusive. Lung cancer patients who are positive for KRAS mutation (and the EGFR status would be wild type) have a low response rate to erlotinib or gefitinib estimated at 5% or less.
+Different types of data including mutation status and gene expression did not have a significant prognostic power. No correlation to survival was observed in 72% of all studies with KRAS sequencing performed in non-small cell lung cancer (NSCLC). However, KRAS mutations can not only affect the gene itself and the expression of the corresponding protein, but can also influence the expression of other downstream genes involved in crucial pathways regulating cell growth, differentiation and apoptosis. The different expression of these genes in KRAS-mutant tumors might have a more prominent role in affecting patient's clinical outcomes.
+A 2008 paper published in Cancer Research concluded that the in vivo administration of the compound oncrasin-1 "suppressed the growth of K-ras mutant human lung tumor xenografts by >70% and prolonged the survival of nude mice bearing these tumors, without causing detectable toxicity", and that the "results indicate that oncrasin-1 or its active analogues could be a novel class of anticancer agents which effectively kill K-Ras mutant cancer cells."
+
+
+=== Pancreatic cancer ===
+Over 90% of pancreatic ductal adenocarcinomas (PDACs) have a KRAS mutation. There is one approved drug, sotorasib, that targets the KRAS G12C mutation, but only ~1% of PDACs have this mutation. Another KRAS inhibitor, MRTX1133 targets G12D mutation which is present in over 40% of PDACs is currently in clinical trials to treat solid tumors including pancreatic adenocarcinoma.
+
+
+== KRAS testing ==
+In July 2009, the US Food and Drug Administration (FDA) updated the labels of two anti-EGFR monoclonal antibody drugs indicated for treatment of metastatic colorectal cancer, panitumumab (Vectibix) and cetuximab (Erbitux), to include information about KRAS mutations.
+In 2012, the FDA cleared a genetic test by QIAGEN named therascreen KRAS test, designed to detect the presence of seven mutations in the KRAS gene in colorectal cancer cells. This test aids physicians in identifying patients with metastatic colorectal cancer for treatment with Erbitux. The presence of KRAS mutations in colorectal cancer tissue indicates that the patient may not benefit from treatment with Erbitux. If the test result indicates that the KRAS mutations are absent in the colorectal cancer cells, then the patient may be considered for treatment with Erbitux.
+
+
+== As a therapeutic target ==
+
+Hyperactivating KRAS mutations are known to underlie the pathogenesis of up to 20% of human cancers, making KRAS a desirable target for cancer therapies.  However, development of KRAS-targeting therapies was elusive for decades and KRAS was long referred to as undruggable. However, Kevan M. Shokat and his colleagues, as Howard Hughes Medical Institute investigators at the University of California, discovered a druggable "Achilles heel" on KRAS (specifically the KRAS-G12C mutant), which enabled the development of the first KRAS-targeting drugs by pharmaceutical companies based on their breakthrough findings.
+Currently, a few KRAS-targeting drugs are approved for clinical use and, many clinical trials are underway, exploring the therapeutic potential of a wide variety of KRAS-targeting drugs.
+
+
+=== Pan-KRAS (WT or any mutation) ===
+An antisense oligonucleotide (ASO) targeting KRAS, AZD4785 (AstraZeneca/Ionis Therapeutics), completed a phase I study but in 2019 was discontinued from further development because of insufficient knockdown of the target. Development of a peptide inhibitor paluratide (LUNA18) was discontinued in July 2025 due to a narrow therapeutic window.
+As of October 2025, there are clinical trials exploring the therapeutic potential of several pan-KRAS targeting drugs including daraxonrasib, darlifarnib (KO-2806, a farnesyl transferase inhibitor), AMG410.
+
+
+=== G12C mutation ===
+
+One fairly frequent driver mutation is KRASG12C. Electrophilic KRAS inhibitors can form irreversible covalent bonds with nucleophilic sulfur atom of Cys-12 and hence selectively target KRASG12C and leave wild-type KRAS untouched.
+In 2021, the U.S. FDA approved one KRASG12C mutant covalent inhibitor, sotorasib (AMG 510, Amgen) for the treatment of non-small cell lung cancer (NSCLC), the first KRAS inhibitor to reach the market and enter clinical use.
+A second is adagrasib (MRTX-849, Mirati Therapeutics) while JNJ-74699157 (also known as ARS-3248, Wellspring Biosciences/Janssen) has received an investigational new drug (IND) approval to start clinical trials. 
+A phase Ia/Ib dose escalation trial of the oral selective KRAS G12C inhibitor divarasib was published in 2023, where the drug was tested in non-small cell lung cancer, colorectal cancer, and other solid tumors with KRAS G12C mutations. It continues in phase I and II studies for several cancer types as of August 2023.
+In China, garsorasib is approved for the treatment of advanced non-small cell lung cancer (NSCLC) carrying the KRAS G12C mutation in patients who have received at least one systemic treatment.
+
+
+=== G12D mutation ===
+The most common KRAS mutation is G12D which is estimated to be present in up to 37% pancreatic cancers and over 12% of colorectal cancers. As of October 2025, there are several G12D targeting drugs in clinical or preclinical trials including zoldonrasib, INCB161734, LY3962673, AZD0022, and the PROTAC ASP3082.
+In 2021, the first clinical trial of a gene therapy targeting KRAS G12D was recruiting patients, sponsored by the National Cancer Institute. In June 2022, a case report was published about a 71-year-old woman with metastatic pancreatic cancer after extensive treatment (Whipple Surgery, radiation and multiple agent chemotherapy) who received a single infusion of engineered T cells directed to both the G12D mutation and an HLA allele. Her tumor regressed persistently. But another similarly treated patient died from the cancer.
+
+
+=== G12V mutation ===
+The G12V mutation can be targeted by the drug RMC-5127 which is undergoing clinical trials as of October 2025.
+
+
+== Interactions ==
+KRAS has been shown to interact with many molecules including:
+
+C-Raf
+PIK3CG
+RALGDS
+RASSF2
+Calmodulin
+
+
+== References ==
+
+
+== Further reading ==
+
+
+== External links ==
+KRAS Reference Standards - Learn more about KRAS Reference Controls
+GeneReviews/NCBI/NIH/UW entry on Cardiofaciocutaneous Syndrome
+GeneReviews/NCBI/NIH/UW entry on Noonan syndrome
+KRAS2+protein,+human at the U.S. National Library of Medicine Medical Subject Headings (MeSH)
+Overview of all the structural information available in the PDB for UniProt: P01116 (Human GTPase KRas) at the PDBe-KB.

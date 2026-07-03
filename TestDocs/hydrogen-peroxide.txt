@@ -1,0 +1,319 @@
+Hydrogen peroxide (H2O2)
+
+Hydrogen peroxide is a chemical compound with the formula H2O2. In its pure form, it is a very pale blue liquid; however, at lower concentrations, it appears colorless due to the faintness of the blue coloration. The molecule hydrogen peroxide is asymmetrical and highly polarized. Its strong tendency to form hydrogen bond networks results in greater viscosity compared to water.  It is used as an oxidizer, bleaching agent, and antiseptic, usually as a dilute solution (3%–6% by weight) in water for consumer use and in higher concentrations for industrial use. Concentrated hydrogen peroxide, or "high-test peroxide", decomposes explosively when heated and has been used as both a monopropellant and an oxidizer in rocketry.
+Hydrogen peroxide is a reactive oxygen species and the simplest peroxide, a compound having an oxygen–oxygen single bond. It decomposes slowly into water and elemental oxygen when exposed to light, and rapidly in the presence of organic or reactive compounds. It is typically stored with a stabilizer in a weakly acidic solution in an opaque bottle. Hydrogen peroxide is found in biological systems including the human body. Enzymes that use or decompose hydrogen peroxide are classified as peroxidases.
+
+
+== Properties ==
+The boiling point of H2O2 has been extrapolated as being 150.2 °C (302.4 °F), approximately 50 °C (90 °F) higher than water. In practice, hydrogen peroxide will undergo potentially explosive thermal decomposition if heated to this temperature. It may be safely distilled at lower temperatures under reduced pressure.
+Hydrogen peroxide forms stable adducts with urea (hydrogen peroxide–urea), sodium carbonate (sodium percarbonate) and other compounds. Stable hydrogen-bonded adducts with various amine oxides and substituted phosphine oxides are known. The adduct with triphenylphosphine oxide can serve as a "carrier" for H2O2 in some reactions, although triphenylphosphine oxide can also catalyze the decomposition of hydrogen peroxide.
+
+
+=== Structure ===
+
+Hydrogen peroxide (H2O2) is a nonplanar molecule with (twisted) C2 symmetry; this was first shown by Paul-Antoine Giguère in 1950 using infrared spectroscopy. Although the O−O bond is a single bond, the molecule has a relatively high energy barrier of 386 cm−1 (4.62 kJ/mol) for rotation between enantiomers via the anti configuration, and 2460 cm−1 (29.4 kJ/mol) via the eclipsed configuration. These barriers are proposed to be due to repulsion between the lone pairs of the adjacent oxygen atoms and dipolar effects between the two O–H bonds. For comparison, the rotational barrier for ethane is 1040 cm−1 (12.4 kJ/mol).
+The approximately 100° dihedral angle between the two O–H bonds makes the molecule chiral. It is the smallest and simplest molecule to exhibit enantiomerism. It has been proposed that the enantiospecific interactions of one rather than the other may have led to amplification of one enantiomeric form of ribonucleic acids and therefore an origin of homochirality in an RNA world.
+The molecular structures of gaseous and crystalline H2O2 are significantly different. This difference is attributed to the effects of hydrogen bonding, which is absent in the gaseous state. Crystals of H2O2 are tetragonal with the space group D44 or P41212.
+
+
+=== Aqueous solutions ===
+In aqueous solutions, hydrogen peroxide forms a eutectic mixture, exhibiting freezing-point depression down as low as −56 °C under atmospheric pressure; pure water has a freezing point of 0 °C and pure hydrogen peroxide of −0.43 °C. The boiling point of the same mixtures is also depressed in relation with the mean of both boiling points (125.1 °C). It occurs at 114 °C. This boiling point is 14 °C greater than that of pure water and 36.2 °C less than that of pure hydrogen peroxide.
+
+Hydrogen peroxide is most commonly available as a solution in water. For consumers, it is usually available from pharmacies at 3 and 6 wt% concentrations. The concentrations are sometimes described in terms of the volume of oxygen gas generated; one milliliter of a 20-volume solution generates twenty milliliters of oxygen gas when completely decomposed. For laboratory use, 30 wt% solutions are most common. Commercial grades from 70% to 98% are also available, but due to the potential of solutions of more than 68% hydrogen peroxide to be converted entirely to steam and oxygen (with the temperature of the steam increasing as the concentration increases above 68%) these grades are potentially far more hazardous and require special care in dedicated storage areas. Buyers must typically allow inspection by commercial manufacturers.
+
+
+=== Comparison with analogues ===
+Hydrogen peroxide has several structural analogues with HmX−XHn bonding arrangements (water also shown for comparison). It has the highest (theoretical) boiling point of this series (X = O, S, N, P). Its melting point is also fairly high, being comparable to that of hydrazine and water, with only hydroxylamine crystallising significantly more readily, indicative of particularly strong hydrogen bonding. Diphosphane and hydrogen disulfide exhibit only weak hydrogen bonding and have little chemical similarity to hydrogen peroxide. Structurally, the analogues all adopt similar skewed structures, due to repulsion between adjacent lone pairs.
+
+
+== Natural occurrence ==
+Hydrogen peroxide is produced by various biological processes mediated by enzymes.
+Hydrogen peroxide has been detected in surface water, in groundwater, and in the atmosphere. It can also form when water is exposed to UV light. Sea water contains 0.5 to 14 μg/L of hydrogen peroxide, and freshwater contains 1 to 30 μg/L. Concentrations in air are about 0.4 to 4 μg/m3, varying over several orders of magnitude depending in conditions such as season, altitude, daylight and water vapor content. In rural nighttime air it is less than 0.014 μg/m3, and in moderate photochemical smog it is 14 to 42 μg/m3.
+The amount of hydrogen peroxide in biological systems can be assayed using a fluorometric assay.
+
+
+== Discovery ==
+Alexander von Humboldt is sometimes said to have been the first to report the first synthetic peroxide, barium peroxide, in 1799 as a by-product of his attempts to decompose air, although this is disputed due to von Humboldt's ambiguous wording. Nineteen years later Louis Jacques Thénard recognized that this compound could be used for the preparation of a previously unknown compound, which he described as eau oxygénée ("oxygenated water") — subsequently known as hydrogen peroxide.
+An improved version of Thénard's process used hydrochloric acid, followed by addition of sulfuric acid to precipitate the barium sulfate byproduct. This process was used from the end of the 19th century until the middle of the 20th century.
+The bleaching effect of peroxides and their salts on natural dyes had been known since Thénard's experiments in the 1820s, but early attempts of industrial production of peroxides failed. The first plant producing hydrogen peroxide was built in 1873 in Berlin. The discovery of the synthesis of hydrogen peroxide by electrolysis with sulfuric acid introduced the more efficient electrochemical method. It was first commercialized in 1908 in Weißenstein, Carinthia, Austria. The anthraquinone process, which is still used, was developed during the 1930s by the German chemical manufacturer IG Farben in Ludwigshafen. The increased demand and improvements in the synthesis methods resulted in the rise of the annual production of hydrogen peroxide from 35,000 tonnes in 1950, to over 100,000 tonnes in 1960, to 300,000 tonnes by 1970; by 1998 it reached 2.7 million tonnes.
+Early attempts failed to produce neat hydrogen peroxide. Anhydrous hydrogen peroxide was first obtained by vacuum distillation.
+Determination of the molecular structure of hydrogen peroxide proved to be very difficult. In 1892, the Italian physical chemist Giacomo Carrara (1864–1925) determined its molecular mass by freezing-point depression, which confirmed that its molecular formula is H2O2. H2O=O seemed to be just as possible as the modern structure, and as late as in the middle of the 20th century at least half a dozen hypothetical isomeric variants of two main options seemed to be consistent with the available evidence. In 1934, the English mathematical physicist William Penney and the Scottish physicist Gordon Sutherland proposed a molecular structure for hydrogen peroxide that was very similar to the presently accepted one.
+
+
+== Production ==
+
+In 1994, world production of H2O2 was around 1.9 million tonnes and grew to 2.2 million in 2006, most of which was at a concentration of 70% or less. In that year, bulk 30% H2O2 sold for around 0.54 USD/kg, equivalent to US$1.50/kg (US$0.68/lb) on a 100% purity basis.
+Hydrogen peroxide is manufactured almost exclusively by the anthraquinone process, which was originally developed by BASF in 1939. It begins with the reduction of an anthraquinone (such as 2-ethylanthraquinone or the 2-amyl derivative) to the corresponding anthrahydroquinone, typically by hydrogenation on a palladium catalyst. In the presence of oxygen, the anthrahydroquinone then undergoes autoxidation: the labile hydrogen atoms of the hydroxy groups transfer to the oxygen molecule, to give hydrogen peroxide and regenerating the anthraquinone. Most commercial processes achieve oxidation by passing compressed air through a solution of the anthrahydroquinone, with the hydrogen peroxide then extracted from the solution and the anthraquinone recycled back for successive cycles of hydrogenation and oxidation.
+The net reaction for the anthraquinone-catalyzed process is:
+
+H2 + O2 → H2O2
+The economics of the process depend heavily on effective recycling of the extraction solvents, the hydrogenation catalyst and the expensive quinone.
+
+
+=== Historical methods ===
+Hydrogen peroxide was once prepared industrially by hydrolysis of ammonium persulfate:
+
+[NH4]2S2O8 + 2 H2O  →  2 [NH4]HSO4 + H2O2
+[NH4]2S2O8 was itself obtained by the electrolysis of a solution of ammonium bisulfate ([NH4]HSO4) in sulfuric acid.
+
+
+=== Other routes ===
+Small amounts are formed by electrolysis, photochemistry, electric arc, and related methods.
+A commercially viable route for hydrogen peroxide via the reaction of hydrogen with oxygen favours production of water but can be stopped at the peroxide stage. One economic obstacle has been that direct processes give a dilute solution uneconomic for transportation. None of these has yet reached a point where it can be used for industrial-scale synthesis.
+The electrochemical reduction of oxygen allows for the generation of hydrogen peroxide from oxygen and water.
+
+
+== Reactions ==
+
+
+=== Acid-base ===
+Hydrogen peroxide is about 1000 times stronger as an acid than water.
+
+H2O2  ⇌  H+ + HO−2 (pK = 11.65)
+
+
+=== Disproportionation ===
+Hydrogen peroxide disproportionates to form water and oxygen with a ΔHo of −2884.5 kJ/kg and a ΔS of 70.5 J/(mol·K):
+
+2 H2O2  →  2 H2O + O2
+The rate of decomposition increases with rise in temperature, concentration, and pH. H2O2 is unstable under alkaline conditions. Decomposition is catalysed by various redox-active ions or compounds, including most transition metals and their compounds (e.g. manganese dioxide (MnO2), silver, and platinum).
+
+
+=== Oxidation reactions ===
+The redox properties of hydrogen peroxide depend on pH. In acidic solutions, H2O2 is a powerful oxidizer.
+
+Sulfite (SO2−3) is oxidized to sulfate (SO2−4).
+
+
+=== Reduction reactions ===
+Under alkaline conditions, hydrogen peroxide is a reductant. When H2O2 acts as a reducing agent, oxygen gas is also produced. For example, hydrogen peroxide will reduce sodium hypochlorite and potassium permanganate, which is a convenient method for preparing oxygen in the laboratory:
+
+NaOCl + H2O2  →  O2 + NaCl + H2O
+2 KMnO4 + 3 H2O2  →  2 MnO2 + 2 KOH + 2 H2O + 3 O2
+The oxygen produced from hydrogen peroxide and sodium hypochlorite is in the singlet state.
+Hydrogen peroxide also reduces silver oxide to silver:
+
+Ag2O + H2O2  →  2 Ag + H2O + O2
+Although usually a reductant, alkaline hydrogen peroxide converts Mn(II) to the dioxide:
+
+H2O2 + Mn2+ + 2 OH−  →  MnO2 + 2 H2O
+In a related reaction, potassium permanganate is reduced to Mn2+ by acidic H2O2:
+
+2 MnO−4 + 5 H2O2 + 6 H+  →  2 Mn2+ + 8 H2O + 5 O2
+
+
+=== Organic reactions ===
+Hydrogen peroxide is frequently used as an oxidizing agent. Illustrative is oxidation of thioethers to form sulfoxides, such as conversion of thioanisole to methyl phenyl sulfoxide:
+
+Ph-S-CH3 + H2O2  →  Ph-S(O)-CH3 + H2O
+Alkaline hydrogen peroxide is used for epoxidation of electron-deficient alkenes such as acrylic acid derivatives, and for the oxidation of alkylboranes to alcohols, the second step of hydroboration-oxidation. It is also the principal reagent in the Dakin oxidation process.
+
+
+=== Precursor to other peroxide compounds ===
+Hydrogen peroxide is a weak acid, forming hydroperoxide or peroxide salts with many metals.
+It also converts metal oxides into the corresponding peroxides. For example, upon treatment with hydrogen peroxide, chromic acid (CrO3 and H2SO4) forms a blue peroxide CrO(O2)2.
+
+
+== Biochemistry ==
+
+
+=== Production ===
+The aerobic oxidation of glucose in the presence of the enzyme glucose oxidase produces hydrogen peroxide. The conversion affords gluconolactone:
+
+C6H12O6 + O2  →  C6H10O6 + H2O2
+Superoxide dismutases (SOD)s are enzymes that promote the disproportionation of superoxide into oxygen and hydrogen peroxide.
+
+2 O−2 + 2 H+  →  O2 + H2O2
+2 H2O2  →  O2 + 2 H2O
+Peroxisomes are organelles found in virtually all eukaryotic cells. They are involved in the catabolism of very long chain fatty acids, branched chain fatty acids, D-amino acids, polyamines, and biosynthesis of plasmalogens and ether phospholipids, which are found in mammalian brains and lungs. They produce hydrogen peroxide in a process catalyzed by flavin adenine dinucleotide (FAD):
+
+R-CH2-CH2-CO-SCoA + O2
+  
+    
+      
+        
+          
+            
+              →
+              
+                
+                  FAD
+                
+              
+            
+          
+        
+      
+    
+    {\displaystyle {\ce {->[{\ce {FAD}}]}}}
+  
+ R-CH=CH-CO-SCoA + H2O2
+Hydrogen peroxide arises by the degradation of adenosine monophosphate, which yields hypoxanthine. Hypoxanthine is then oxidatively catabolized first to xanthine and then to uric acid, and the reaction is catalyzed by the enzyme xanthine oxidase:
+
+The degradation of guanosine monophosphate yields xanthine as an intermediate product which is then converted in the same way to uric acid with the formation of hydrogen peroxide.
+
+
+=== Consumption ===
+Catalase, another peroxisomal enzyme, uses this H2O2 to oxidize other substrates, including phenols, formic acid, formaldehyde, and alcohol, by means of a peroxidation reaction:
+
+H2O2 + R'H2  →  R' + 2 H2O
+thus eliminating the poisonous hydrogen peroxide in the process.
+This reaction is important in liver and kidney cells, where the peroxisomes neutralize various toxic substances that enter the blood. Some of the ethanol humans drink is oxidized to acetaldehyde in this way. In addition, when excess H2O2 accumulates in the cell, catalase converts it to H2O through this reaction:
+
+H2O2  →  0.5 O2 + H2O
+Glutathione peroxidase, a selenoenzyme, also catalyzes the disproportionation of hydrogen peroxide.
+
+
+=== Fenton reaction ===
+The reaction of Fe2+ and hydrogen peroxide is the basis of the Fenton reaction, which generates hydroxyl radicals, which are of significance in biology:
+
+Fe(II) + H2O2  →  Fe(III)OH + HO·
+The Fenton reaction explains the toxicity of hydrogen peroxides because the hydroxyl radicals rapidly and irreversibly oxidize all organic compounds, including proteins, membrane lipids, and DNA. Hydrogen peroxide is a significant source of oxidative DNA damage in living cells. DNA damage includes formation of 8-Oxo-2'-deoxyguanosine among many other altered bases, as well as strand breaks, inter-strand crosslinks, and deoxyribose damage. By interacting with Cl−, hydrogen peroxide also leads to chlorinated DNA bases. Hydroxyl radicals readily damage vital cellular components, especially those of the mitochondria. The compound is a major factor implicated in the free-radical theory of aging, based on its ready conversion into a hydroxyl radical.
+
+
+=== Function ===
+Eggs of sea urchin, shortly after fertilization by a sperm, produce hydrogen peroxide. It is then converted to hydroxyl radicals (HO•), which initiate radical polymerization, which surrounds the eggs with a protective layer of polymer.
+The bombardier beetle combines hydroquinone and hydrogen peroxide, leading to a violent exothermic chemical reaction to produce boiling, foul-smelling liquid that partially becomes a gas (flash evaporation) and is expelled through an outlet valve with a loud popping sound.
+As a proposed signaling molecule, hydrogen peroxide may regulate a wide variety of biological processes. At least one study has tried to link hydrogen peroxide production to cancer.
+
+
+== Uses ==
+
+
+=== Bleaching ===
+About 60% of the world's production of hydrogen peroxide is used for pulp- and paper-bleaching. The second major industrial application is the manufacture of sodium percarbonate and sodium perborate, which are used as mild bleaches in laundry detergents. A representative conversion is:
+
+Na2B4O7 + 4 H2O2 + 2 NaOH  →  2 Na2B2O4(OH)4 + H2O
+Sodium percarbonate, which is an adduct of sodium carbonate and hydrogen peroxide, is the active ingredient in such laundry products as OxiClean and Tide laundry detergent. When dissolved in water, it releases hydrogen peroxide and sodium carbonate. By themselves these bleaching agents are only effective at wash temperatures of 60 °C (140 °F) or above and so, often are used in conjunction with bleach activators, which facilitate cleaning at lower temperatures.
+Hydrogen peroxide has also been used as a flour bleaching agent and a tooth and bone whitening agent.
+
+
+=== Production of organic peroxy compounds ===
+
+It is used in the production of various organic peroxides and hydroperoxides. Dibenzoyl peroxide is a high-volume example. Peroxy acids, such as peracetic acid and meta-chloroperoxybenzoic acid also are produced using hydrogen peroxide. Hydrogen peroxide has been used for creating organic peroxide-based explosives, such as acetone peroxide. It is used as a Radical initiator in radical polymerization processes. Hydrogen peroxide reacts with certain di-esters, such as phenyl oxalate ester (cyalume), to produce chemiluminescence; this application is most commonly encountered in the form of glow sticks.
+
+
+=== Production of inorganic peroxides ===
+The reaction with borax leads to sodium perborate, a bleach used in laundry detergents:
+
+Na2B4O7 + 4 H2O2 + 2 NaOH  →  2 Na2B2O4(OH)4 + H2O
+
+
+=== Sewage treatment ===
+Hydrogen peroxide is used in certain waste-water treatment processes to remove organic impurities. In advanced oxidation processing, the Fenton reaction gives the highly reactive hydroxyl radical (•OH). This degrades organic compounds, including those that are ordinarily robust, such as aromatic or halogenated compounds. It can also oxidize sulfur-based compounds present in the waste; which is beneficial as it generally reduces their odour.
+
+
+=== Disinfectant ===
+Hydrogen peroxide may be used for the sterilization of various surfaces, including surgical instruments, and may be deployed as a vapour (VHP) for room sterilization. H2O2 demonstrates broad-spectrum efficacy against viruses, bacteria, yeasts, and bacterial spores. In general, greater activity is seen against Gram-positive than Gram-negative bacteria; however, the presence of catalase or other peroxidases in these organisms may increase tolerance in the presence of lower concentrations. Lower levels of concentration (3%) will work against most spores; higher concentrations (7 to 30%) and longer contact times will improve sporicidal activity.
+Hydrogen peroxide is seen as an environmentally safe alternative to chlorine-based bleaches, as it degrades to form oxygen and water and it is generally recognized as safe as an antimicrobial agent by the U.S. Food and Drug Administration (FDA).
+
+
+=== Propellant ===
+
+High-concentration H2O2 is referred to as "high-test peroxide" (HTP). It can be used as either a monopropellant (not mixed with fuel) or the oxidizer component of a bipropellant rocket. Use as a monopropellant takes advantage of the decomposition of 70–98% concentration hydrogen peroxide into steam and oxygen. The propellant is pumped into a reaction chamber, where a catalyst, usually a silver or platinum screen, triggers decomposition, producing steam at over 600 °C (1,100 °F), which is expelled through a nozzle, generating thrust. H2O2 monopropellant produces a maximal specific impulse (Isp) of 161 s (1.6 kN·s/kg). Peroxide was the first major monopropellant adopted for use in rocket applications. Hydrazine eventually replaced hydrogen peroxide monopropellant thruster applications primarily because of a 25% increase in the vacuum specific impulse. Hydrazine (toxic) and hydrogen peroxide (less toxic [ACGIH TLV 0.01 and 1 ppm respectively]) are the only two monopropellants (other than cold gases) to have been widely adopted and utilized for propulsion and power applications. The Bell Rocket Belt, reaction control systems for X-1, X-15, Centaur, Mercury, Little Joe, as well as the turbo-pump gas generators for X-1, X-15, Jupiter, Redstone and Viking used hydrogen peroxide as a monopropellant. The RD-107 engines (used from 1957 to present) in the R-7 series of rockets decompose hydrogen peroxide to power the turbopumps.
+In bipropellant applications, H2O2 is decomposed to oxidize a burning fuel. Specific impulses as high as 350 s (3.5 kN·s/kg) can be achieved, depending on the fuel. Peroxide used as an oxidizer gives a somewhat lower Isp than liquid oxygen but is dense, storable, and non-cryogenic and can be more easily used to drive gas turbines to give high pressures using an efficient closed cycle. It may also be used for regenerative cooling of rocket engines. Peroxide was used very successfully as an oxidizer in World War II German rocket motors (e.g., T-Stoff, containing oxyquinoline stabilizer, for both the Walter HWK 109-500 Starthilfe RATO externally podded monopropellant booster system and the Walter HWK 109-509 rocket motor series used for the Me 163B), most often used with C-Stoff in a self-igniting hypergolic combination, and for the low-cost British Black Knight and Black Arrow launchers. Presently, HTP is used on ILR-33 AMBER and Nucleus suborbital rockets.
+In the 1940s and 1950s, the Hellmuth Walter KG–conceived turbine used hydrogen peroxide for use in submarines while submerged; it was found to be too noisy and require too much maintenance compared to diesel-electric power systems. Some torpedoes used hydrogen peroxide as oxidizer or propellant. Operator error in the use of hydrogen peroxide torpedoes was named as possible causes for the sinking of HMS Sidon and the Russian submarine Kursk. SAAB Underwater Systems is manufacturing the Torpedo 2000. This torpedo, used by the Swedish Navy, is powered by a piston engine propelled by HTP as an oxidizer and kerosene as a fuel in a bipropellant system.
+
+
+=== Household use ===
+
+Hydrogen peroxide has various domestic uses, primarily as a cleaning and disinfecting agent.
+
+Hair bleaching and coloring
+Diluted H2O2 (between 1.9% and 12%) mixed into a solution with aqueous ammonia, aniline (color molecule) and a coupler, has been used to color human hair. It can also be mixed with powder or cream bleach compounds, most notably potassium chloride. Bleaching hair follicles does not destroy or remove color molecule or melanocytes. Bleaching compounds work to drive wedges between color molecules or melanocyte's allowing more visible light to pass through the hair shaft. The chemical's bleaching property lends its name to the phrase "peroxide blonde".
+Hydrogen peroxide is also used for tooth whitening. It may be found in most whitening toothpastes. Hydrogen peroxide has shown positive results involving teeth lightness and chroma shade parameters. It works by oxidizing colored pigments onto the enamel where the shade of the tooth may become lighter. Hydrogen peroxide may be mixed with baking soda and salt to make a homemade toothpaste.
+
+Removal of blood stains
+Hydrogen peroxide reacts with blood as a bleaching agent, and so if a blood stain is fresh, or not too old, liberal application of hydrogen peroxide, if necessary in more than single application, will bleach the stain fully out. After about two minutes of the application, the blood should be firmly blotted out.
+
+Acne treatment
+Hydrogen peroxide may be used to treat acne, although benzoyl peroxide is a more common treatment.
+
+Oral cleaning agent
+The use of dilute hydrogen peroxide as an oral cleansing agent has been reviewed academically to determine its usefulness in treating gingivitis and plaque. Although there is a positive effect when compared with a placebo, it was concluded that chlorhexidine is a much more effective treatment.
+
+
+=== Niche uses ===
+Horticulture
+Some horticulturists and users of hydroponics advocate the use of weak hydrogen peroxide solution in watering solutions. Its spontaneous decomposition releases oxygen that enhances a plant's root development and helps to treat root rot (cellular root death due to lack of oxygen) and a variety of other pests.
+For general watering concentrations, around 0.1% is in use. This can be increased up to one percent for antifungal actions. Tests show that plant foliage can safely tolerate concentrations up to 3%.
+
+Fishkeeping
+Hydrogen peroxide is used in aquaculture for controlling mortality caused by various microbes. In 2019, the U.S. FDA approved it for control of Saprolegniasis in all coldwater finfish and all fingerling and adult coolwater and warmwater finfish, for control of external columnaris disease in warm-water finfish, and for control of Gyrodactylus spp. in freshwater-reared salmonids.
+It can also be used to increase the oxygen content of water to enable fish to survive otherwise-hypoxic conditions. The hydrogen peroxide releases oxygen by decomposition when it is exposed to catalysts such as manganese dioxide. Sodium percarbonate, a complex containing hydrogen peroxide as its active agent, is sold for oxygenation in acutely oxygen-deficient water to enable fish survival.
+
+Removing yellowing from aged plastics
+Hydrogen peroxide may be used in combination with a UV-light source to remove yellowing from white or light grey acrylonitrile butadiene styrene (ABS) plastics to partially or fully restore the original color. In the retrocomputing scene, this process is commonly referred to as retrobright.
+
+
+== Safety ==
+
+Regulations vary, but low concentrations, such as 5%, are widely available. Concentrated solutions of H2O2 react violently with organic materials.
+While concentrations up to 35% produce only "white" oxygen bubbles in the skin (and some biting pain) that disappear with the blood within 30–45 minutes, concentrations of 98% dissolve paper. However, concentrations as low as 3% can be dangerous for the eye because of oxygen evolution within the eye.
+When hydrogen peroxide is used at moderate to high concentrations in organic laboratories, the associated hazards include:
+
+Decomposition and pressure buildup — The confinement or unintended heating of concentrated solutions can result in rapid gas evolution, leading to the risk of vessel rupture.
+Incompatibilities and catalysis by transition metals or organics — The presence of trace contaminants, metal ions, or organic reducing agents may accelerate decomposition or trigger radical pathways.
+Thermal runaway or self-accelerating decomposition — In the context of peroxide chemistry, it is crucial to consider the self-accelerating decomposition temperature (SADT) and to avoid scaling up reactions without conducting a thorough hazard assessment.
+Oxidizer hazards in the presence of organics — Hydrogen peroxide acts as an aggressive oxidizer. When in contact with organic substrates, solvents, or flammable materials, the risk of fire or explosion is heightened; therefore, it is essential to ensure that oxidizer storage is kept separate from reducing materials.
+High-concentration hydrogen peroxide streams, typically above 40%, should be considered hazardous due to concentrated hydrogen peroxide's meeting the definition of a DOT oxidizer according to U.S. regulations if released into the environment. The EPA Reportable Quantity (RQ) for D001 hazardous wastes is 100 pounds (45 kg), or approximately 10 US gallons (38 L), of concentrated hydrogen peroxide.
+
+Hydrogen peroxide should be stored in a cool, dry, well-ventilated area and away from any flammable or combustible substances. It should be stored in a container composed of non-reactive materials such as stainless steel or glass (other materials including some plastics and aluminium alloys may also be suitable). As it breaks down quickly when exposed to light, it should be stored in an opaque container, and pharmaceutical formulations typically come in brown bottles that block light.
+Hydrogen peroxide, either in pure or diluted form, may pose several risks, the main one being that it forms explosive mixtures upon contact with organic compounds. Distillation of hydrogen peroxide at normal pressures is highly dangerous. It is corrosive, especially when concentrated, but even domestic-strength solutions may cause irritation to the eyes, mucous membranes, and skin. Swallowing hydrogen peroxide solutions is particularly dangerous, as decomposition in the stomach releases large quantities of gas (ten times the volume of a 3% solution), leading to internal bloating. Inhaling over 10% can cause severe pulmonary irritation.
+With a significant vapour pressure (1.2 kPa at 50 °C), hydrogen peroxide vapour is potentially hazardous. According to U.S. NIOSH, the immediately dangerous to life and health (IDLH) limit is only 75 ppm. The U.S. Occupational Safety and Health Administration (OSHA) has established a permissible exposure limit of 1.0 ppm calculated as an 8-hour time-weighted average (29 CFR 1910.1000, Table Z-1). Hydrogen peroxide has been classified by the American Conference of Governmental Industrial Hygienists (ACGIH) as a "known animal carcinogen, with unknown relevance on humans". For workplaces where there is a risk of exposure to the hazardous concentrations of the vapours, continuous monitors for hydrogen peroxide should be used. Information on the hazards of hydrogen peroxide is available from OSHA and from the ATSDR.
+
+
+=== Wound healing ===
+Historically, hydrogen peroxide was used for disinfecting wounds, partly because of its low cost and prompt availability compared to other antiseptics.
+There is conflicting evidence on hydrogen peroxide's effect on wound healing. Some research finds benefit, while other research find delays and healing inhibition. Its use for home treatment of wounds is generally not recommended.
+1.5–3% hydrogen peroxide is used as a disinfectant in dentistry, especially in endodontic treatments together with hypochlorite and chlorhexidine and 1–1.5% is also useful for treatment of inflammation of third molars (wisdom teeth).
+
+
+=== Use in alternative medicine ===
+Practitioners of alternative medicine have advocated the use of hydrogen peroxide for various conditions, including emphysema, influenza, AIDS, and in particular cancer. Medical authorities and regulatory agencies warn that such uses are unsupported by scientific evidence and can be dangerous. Ingesting or injecting hydrogen peroxide, even in so-called “food-grade” concentrations, has led to serious adverse effects and fatalities.
+Both the effectiveness and safety of hydrogen peroxide therapy is scientifically questionable. Hydrogen peroxide is produced by the immune system, but in a carefully controlled manner. Cells called phagocytes engulf pathogens and then use hydrogen peroxide to destroy them. The peroxide is toxic to both the cell and the pathogen and so is kept within a special compartment, called a phagosome. Free hydrogen peroxide will damage any tissue it encounters via oxidative stress, a process that also has been proposed as a cause of cancer.
+Claims that hydrogen peroxide therapy increases cellular levels of oxygen have not been supported. The quantities administered would be expected to provide very little additional oxygen compared to that available from normal respiration. It is also difficult to raise the level of oxygen around cancer cells within a tumour, as the blood supply tends to be poor, a situation known as tumor hypoxia.
+Large oral doses of hydrogen peroxide at a 3% concentration may cause irritation and blistering to the mouth, throat, and abdomen as well as abdominal pain, vomiting, and diarrhea. Ingestion of hydrogen peroxide at concentrations of 35% or higher has been implicated as the cause of numerous gas embolism events resulting in hospitalisation. In these cases, hyperbaric oxygen therapy was used to treat the embolisms.
+Intravenous injection of hydrogen peroxide has been linked to several deaths.
+The American Cancer Society states that "there is no scientific evidence that hydrogen peroxide is a safe, effective, or useful cancer treatment." Furthermore, the therapy is not approved by the U.S. FDA.
+
+
+=== Historical incidents ===
+On 16 July 1934, in Kummersdorf, Germany, a propellant tank containing an experimental monopropellant mixture consisting of hydrogen peroxide and ethanol exploded during a test, killing three people.
+During the Second World War, doctors in German concentration camps experimented with the use of hydrogen peroxide injections in the killing of human subjects.
+In December 1943, the pilot Josef Pöhs died after being exposed to the T-Stoff of his Messerschmitt Me 163.
+In June 1955, Royal Navy submarine HMS Sidon sank after leaking high-test peroxide in a torpedo caused it to explode in its tube, killing twelve crew members; a member of the rescue party also succumbed.
+In April 1992, an explosion occurred at the hydrogen peroxide plant at Jarrie in France, due to technical failure of the computerised control system and resulting in one fatality and wide destruction of the plant.
+Several people received minor injuries after a hydrogen peroxide spill on board a Northwest Airlines flight from Orlando, Florida to Memphis, Tennessee on 28 October 1998.
+The sinking of the Russian submarine K-141 Kursk is attributed to the explosion of one of its hydrogen peroxide-fueled torpedoes.
+On 15 August 2010, a spill of about 30 US gallons (110 L) of cleaning fluid occurred on the 54th floor of 1515 Broadway, in Times Square, New York City. The spill, which a spokesperson for the New York City Fire Department said was of hydrogen peroxide, shut down Broadway between West 42nd and West 48th streets as fire engines responded to the hazmat situation. There were no reported injuries.
+In August 2024, an explosion occurred at Evonik Industries’ chemical facility in Theodore, Alabama, when a railcar containing 70% hydrogen peroxide experienced overpressure. No serious injuries were reported. After the event, Evonik began a phased restart of operations following comprehensive safety inspections.
+
+
+== Structural isomerism ==
+
+Hydrogen peroxide has a relatively elusive and highly unstable isomer called oxywater, also known as water oxide. Its chemical formula is H2OO and its systematic IUPAC name is oxidooxidanium. It is isoelectronic to fluoroamine and is a ylide. It rapidly decomposes to form hydrogen peroxide, the reaction mechanism for which is likely a 1,2-hydride shift.
+
+
+== See also ==
+FOX reagent, used to measure levels of hydrogen peroxide in biological systems
+Retrobright, a process using hydrogen peroxide to restore yellowed acrylonitrile butadiene styrene plastic
+Bis(trimethylsilyl) peroxide, an aprotic substitute
+
+
+== References ==
+
+Bibliography
+
+
+== External links ==
+
+Hydrogen Peroxide at The Periodic Table of Videos (University of Nottingham)
+Material Safety Data Sheet
+ATSDR Agency for Toxic Substances and Disease Registry FAQ
+International Chemical Safety Card 0164
+NIOSH Pocket Guide to Chemical Hazards
+Process flow sheet of Hydrogen Peroxide Production by anthrahydroquinone autoxidation
+Hydrogen Peroxide Handbook by Rocketdyne
+IR spectroscopic study J. Phys. Chem.
+Bleaching action of Hydrogen peroxide at YouTube

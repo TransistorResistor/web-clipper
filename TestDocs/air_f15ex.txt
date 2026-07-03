@@ -1,0 +1,253 @@
+Boeing F-15EX Eagle II (F-15EX)
+
+The Boeing F-15EX Eagle II is an American multirole fighter derived from the McDonnell Douglas F-15E Strike Eagle. The aircraft resulted from U.S. Department of Defense (DoD) studies in 2018 to recapitalize the United States Air Force's (USAF) tactical aviation fleet that was aging due to curtailed modernization, particularly the truncated F-22 production, from post-Cold War budget cuts. The F-15EX is a variant of the F-15 Advanced Eagle, a further development of the F-15E design initially intended for export. It incorporates improved internal structure, flight control system, and avionics. The aircraft is manufactured by Boeing's St. Louis division, formerly McDonnell Douglas. It has improved survivability compared to the F-15C/D owing to the AN/ALQ-250 EPAWSS.
+The Advanced Eagle began with the F-15SA (Saudi Advanced) which first flew in 2013, followed by the F-15QA (Qatari Advanced) in 2020. The F-15EX had its maiden flight in 2021 and took advantage of the active export production line to reduce costs and expedite deliveries for the USAF. It entered operational service in July 2024.
+The F-15EX is expected to replace the remaining F-15C/D in the U.S. Air Force and Air National Guard for performing homeland and air defense missions and serves as an affordable platform for employing large stand-off weapons to augment the frontline F-22 and F-35. The Advanced Eagle in this configuration represents the current baseline in F-15 production. 
+
+
+== Development ==
+In the 2010s, the United States Air Force (USAF) was facing an incoming shortfall of its fighter fleet size in the 2020s due to deferred and downscaled modernization plans from budget cuts following the end of the Cold War in 1991, and the focus on asymmetric counterinsurgency warfare after the 11 September 2001 terrorist attacks. The USAF's procurement requirement of 381 production F-22s to replace its fleet of air superiority F-15A to D fighters was curtailed to just 187 in 2009. 
+To retain adequate numbers of air superiority fighters, the service planned to extend the service of 179 F-15C/Ds to the 2030s, well beyond its originally planned retirement date. Also referred to as F-15 2040C or "Golden Eagle", these jets would have upgraded avionics, including active electronically scanned array (AESA) radar, infrared search and track (IRST), and a new electronic warfare suite called the Eagle Passive/Active Warning Survivability System (EPAWSS). Some of these upgrades would be shared with the F-15E fleet, such as EPAWSS, whose development contract was awarded in 2015 to Boeing and BAE Systems. 
+However, by the mid-2010s, the F-15C/D fleet was aging beyond the point of economic sustainability and would not be serviceable by the 2030s due to structural fatigue, while the F-35 was facing delays, resulting in a requirement to recapitalize the fighter shortfall as legacy F-15s retire by 2030. Restarting F-22 production was considered cost prohibitive, due to the high non-recurring startup costs of rebuilding the production line and sourcing replacement parts vendors.
+
+Meanwhile, Boeing had been developing upgrades for the F-15E for export customers and a substantial update to the air vehicle design resulted in the F-15 Advanced Eagle; the F-15SA (Saudi Advanced) was the initial variant which first flew in 20 February 2013, followed by the F-15QA (Qatari Advanced) ordered in 2017. In 2018, following a series of Cost Assessment and Program Evaluation (OSD CAPE) studies indicating that a mix of fourth- and fifth-generation fighters would allow the USAF to more affordably recapitalize its fighter fleet, the USAF and Boeing began discussing the F-15X or Advanced F-15, a proposed single-seat variant based on the F-15QA to replace USAF F-15C/Ds. Eventually, both single- and two-seat variants were proposed, called F-15CX and F-15EX respectively, with identical capabilities; the USAF opted for only the EX to reduce costs since only two-seat F-15 models remained in production, and in 2019, eight aircraft were included in the FY 2020 budget request. This would enable the use of the existing F-15 production line with minimal non-recurring startup costs to quickly bring additional fighters into service and also was a way to support Boeing's St. Louis division in order to maintain diversity in the U.S. fighter industrial base. The F-15EX improvements included the AESA radar, IRST, and EPAWSS from the existing F-15 upgrade programs while combining the benefits of the F-15QA such as the revised structure with a service life of 20,000 hours, new cockpit and flight controls, and the proposed AMBER (Advanced Missile and Bomb Ejector Rack) system to enable the carriage of up to 22 air-to-air missiles.
+
+Although it is not expected to be as survivable against the latest air defenses as the fifth-generation F-22 and F-35, the F-15EX can supplement the former in air superiority missions by performing homeland and airbase defense, enforcing no-fly zones against limited air defenses, and deploying outsized standoff weapons in support of stealth fighters at the frontline. In July 2020, the U.S. Defense Department ordered eight F-15EXs over three years for $1.2 billion. The F-15EX made its maiden flight on 2 February 2021.
+On 7 April 2021, its official name Eagle II was announced. The FY2021 defense appropriations bill funded F-15EX procurement at $1.23 billion for 12 aircraft, bringing total orders to 20 aircraft with 144 total planned. By May 2022, the USAF reduced its orders to 80. The first operational F-15EXs are not to receive conformal fuel tanks. The Air Force's proposed budget for fiscal 2024 includes funds to buy 24 more F-15EXs, which would bring the planned fleet up to 104 aircraft. In the proposed budget for FY2026, $3 billion is set aside for the F-15EX, bringing the total to 129 aircraft. As of March 2026, the USAF has increased its planned F-15EX fleet to 267 total.
+
+
+== Design ==
+
+
+=== Overview ===
+
+The F-15EX is a variant of the F-15 Advanced Eagle family of aircraft, a further development of the F-15E Strike Eagle design, beginning with the F-15SA for the Royal Saudi Air Force. The Advanced Eagle consolidated several upgrades to the F-15E developed for export customers. Full integration of the General Electric F110-GE-129 and the AN/ALQ-239 Digital Electronic Warfare System (DEWS) replaced the legacy TEWS, and introduced a revised wing structure for increased service life.
+An enhanced cockpit originally proposed for the F-15SE Silent Eagle and digital fly-by-wire control system replaced the original hybrid electronic/mechanical system and enables the activation of two additional wing pylons. The fly-by-wire eliminated flutter modes causing stability issues, that resulted in the two outboard wing pylons being deactivated in earlier F-15 variants. 
+Starting from the F-15QA for the Qatari Emiri Air Force, the Advanced Eagle introduced a further revised wing structure that increased service life to 20,000 hours. The new Advanced Display Core Processor II (ADCP II) mission computer, and a new cockpit has a 10 in × 19 in (25 cm × 48 cm) large area display (LAD) for both the pilot and the weapon systems officer (WSO).
+Based on the F-15QA, the F-15EX incorporates the Raytheon AN/APG-82(V)1 AESA radar, BAE Systems AN/ALQ-250 EPAWSS, and the Lockheed Martin Legion Pod with AN/ASG-34(V)1 IRST21 sensor. In contrast to some other Advanced Eagle variants, the USAF F-15EX does not have the BAE Systems AN/AAR-57 Common Missile Warning System (CMWS), although the blisters for these sensors were retained in order to minimize production changes and maintain the same aerodynamic profile for the fly-by-wire system.
+The F-15EX's large payload capacity enables a high level of flexibility. In a typical air superiority or escort configuration, the Advanced Eagle can carry twelve air-to-air missiles, either the AIM-120 AMRAAM or AIM-9 Sidewinder short-range missiles. The AGM-88 HARM can also be carried. Using proposed expanded racks and CFT weapons stations, it can potentially carry sixteen AIM-120s, four AIM-9s, and two AGM-88 HARMs, although this has not been tested or funded.
+For precision strike, it can carry sixteen GBU-39 Small Diameter Bombs, four AMRAAMs, one 2,000 lb Joint Direct Attack Munition, two HARMs, and two fuel drop tanks. The F-15EX can carry multiple large standoff munitions such as the AGM-158 JASSM, or outsized munitions like the AGM-183 ARRW to bring additional firepower behind the frontline F-22 and F-35.
+While the Advanced Eagle's strengthened structure makes it heavier than earlier F-15 variants, the digital fly-by-wire control system and the increased dynamic thrust envelope of the F110-129 engines provide it with substantially improved maneuverability and handling characteristics over legacy F-15s and enables the pilot to maneuver aggressively with no angle-of-attack limits. The fly-by-wire also makes the aircraft much more departure-resistant and tolerant of asymmetric loads.
+
+
+=== Avionics ===
+While not as survivable as the stealthy F-22 or F-35, the F-15EX incorporates advanced integrated avionics and protective countermeasures systems to improve the pilot's situational awareness and increase survivability. The F-15EX's APG-82(V)1 radar, initially designated APG-63(V)4, combines the AESA antenna of the APG-63(V)3 with the processor of the APG-79(V) found on the F/A-18E/F Super Hornet as well as a new cooling system and Radio Frequency Tunable Filters (RFTF) to enable simultaneous radar and electronic warfare functions while integrated with the AN/ALQ-250 EPAWSS electronic warfare suite.  
+Leveraging the work and experience from AN/ALQ-239 DEWS, the EPAWSS is a digital system that provides all-aspect radar warning receiver function and threat geolocation. It is integrated with the AN/ALE-47 chaff/flare countermeasures dispenser system. Both the pilot and WSO can use the Digital Joint Helmet Mounted Cueing System (D-JHMCS) to cue weapons at high angles off boresight. 
+In addition to radio frequency sensors, the F-15EX can mount the Legion Pod with the ASG-34(V)1 IRST21 sensor, which provides a passive means of threat detection especially against low-observable threats in the radio-frequency spectrum. The F-15SA and F-15QA mounts the AN/AAS-42 "Tiger Eyes", the precursor to the IRST21 sensor, on the targeting pod pylon. While the aircraft can be operated by a single pilot for basic air superiority missions, the back seat is fully missionized to support a WSO for complex missions and can potentially support the manned-unmanned teaming coordination with uncrewed collaborative combat aircraft. 
+Although employed primarily as an air superiority fighter to replace the F-15C/D and complement the F-22, the F-15EX can employ the LANTIRN and Sniper XR pods like its F-15E precursor to perform ground attack missions. The avionics has an open systems architecture to facilitate potential future upgrades.
+
+
+== Operational history ==
+
+
+=== United States ===
+The first F-15EX was delivered in March 2021 and flown to Eglin Air Force Base, Florida. A fleet of six aircraft formed the test force to support development and operational flight testing. The first two aircraft conducted weapons separation tests and participated in Northern Edge and Combat Hammer in May 2021 and August 2023 respectively. 
+The third aircraft was equipped with additional communications equipment, a redesigned forward fuselage specifically for USAF requirements, and was the first equipped with EPAWSS. The F-15EX test program is able to save time and money because many systems such as the fly-by-wire and cockpit displays were already tested on the F-15SA and F-15QA with export customer funding by Saudi Arabia and Qatar. 
+The F-15EX's Integrated Test & Evaluation Phase 1, which consisted of weapons trials, integration with fifth-generation fighters, and mission systems testing, was completed in August 2023. Phase 2 was cancelled due to planned aircraft upgrades of later lots and a follow-on operational test & evaluation (FOT&E) is planned.
+
+In August 2020, the USAF announced plans to replace F-15Cs of Air National Guard units in Florida and Oregon with F-15EXs. In April 2023, the USAF announced that the California and Louisiana Air National Guards would replace their F-15C/D fleets with the F-15EX. In May 2023, it was announced that the 173rd Fighter Wing at Kingsley Field ANGB, Oregon, would become a Formal Training Unit (FTU) for the F-35A rather than the F-15EX. Basic F-15 training, for both the F-15E and F-15EX, will instead take place at Seymour Johnson AFB, North Carolina, from 2026 onwards.
+In June 2024, Oregon's 142nd Wing received its first F-15EX with the fighter landing at Portland Air National Guard Base. The second arrived a month later. Initial operational capability was declared in July 2024. 
+
+
+=== Israel ===
+The Israeli Air Force signed a contract for 25 F-15IA fighters based on the F-15EX in December 2025 with an option for an additional 25. It previously requested upgrade kits for 25 F-15Is to the F-15IA standard in 2023 but they are yet to be ordered.
+
+
+=== Saudi Arabia ===
+In addition to the 84 F-15SA purchased in 2011, Boeing discussed the sale of 54 F-15EXs to Saudi Arabia during the 2024 World Defense Show in Riyadh. If the deal goes ahead, Saudi Arabia will look to upgrade their fleet of F-15SAs to the same standard as the EX.
+
+
+=== Qatar ===
+On 2 March 2026, amid the 2026 Iran war, a QEAF F-15QA shot down two low-flying Iranian Su-24s after they ignored radio warnings. The Iranian Su-24s were targeting the Al Udeid Air Base in Qatar. This shootdown marked the first aerial kills achieved by the Qatar Emiri Air Force and the F-15EX Eagle II.
+
+
+=== Potential operators ===
+
+
+==== Egypt ====
+In March 2022, a U.S. agreement to sell F-15 Advanced Eagles to Egypt for the Egyptian Air Force was announced. A contract needs to be finalized after price and delivery date are determined.
+In November 2025, it was reported that Egypt was in talks with the US for up to 46 F-15EX Eagle II fighters, with initial deliveries starting as early as 2028.
+
+
+==== Poland ====
+At the Polish International Defence Industry Exhibition (MSPO) in September 2023, Boeing pitched the F-15EX to Poland. However, there were no specifics on price or delivery.
+
+
+==== India ====
+Boeing proposed the entry of either the F-15EX Eagle II or the F/A-18 Super Hornet for India's MRFA tender. Boeing haas also announced its willingness to jointly produce the aircraft with HAL and Mahindra Aerospace. Certain components related to the F-15EX have already been produced in India. 
+In 2026, Chief of Indian Air Force Staff Amar Preet Singh conducted a familiarisation flight in an F-15EX at Nellis AFB during a bilateral visit. India has been interested in the aircraft as a complement to its large fleet of Su-30MKIs due to its heavy payload capacity, long range and multi-mission capability.
+
+
+=== Failed bids ===
+
+
+==== Thailand ====
+The Royal Thai Air Force is seeking multirole fighters to replace the F-16A/Bs it has in service. In December 2021, the RTAF Commander-in-chief announced that the Air Force proposed to buy 8 to 12 F-35 Lightning IIs in 2023. In January 2022, the council of ministers approved the first batch of four F-35As. In May 2023, a Royal Thai Air Force source stated that the United States Department of Defense implied it will turn down Thailand's bid to buy F-35As, and instead offer F-16 Block 70 and F-15EX Eagle II fighters. In August 2024, the Royal Thai Air Force nominated the Gripen E/F to replace the service's aging F-16A/Bs.
+
+
+==== Indonesia ====
+In February 2022, the U.S. State Department approved the sale of up to 36 F-15IDs and related equipment to Indonesia. As of November 2022, Indonesia's planned purchase of F-15s is in advanced stages and awaiting final sign-off from the government, as stated by the Indonesian Minister of Defense. Speaking after meeting his U.S. counterpart Lloyd Austin in Jakarta, Prabowo Subianto said that Boeing had agreed to the financial offer proposed and he is confident the package is affordable.
+In June 2023 during a Ministry of Defense press conference it was stated that the contract for the F-15 aircraft is still in the discussion stage with the U.S. government. In August 2023, Boeing and the Indonesian government signed a Memorandum of Understanding for the purchase of 24 F-15EX fighters.
+In January 2026, a Boeing company official stated that the F-15 procurement program for Indonesia is "no longer active".
+
+
+== Variants ==
+
+F-15SA
+The F-15SA (Saudi Advanced) is the initial Advanced Eagle variant for Royal Saudi Air Force and the baseline from which the F-15EX would be developed from. The F-15SA has the older AN/APG-63(V)3 radar, AN/ALQ-239 Digital Electronic Warfare System (DEWS), AN/AAR-57 Common Missile Warning System (CMWS), and AN/AAS-42 "Tiger Eyes" IRST mounted on the targeting pod pylon.
+F-15QA "Ababil"
+The F-15QA (Qatari Advanced) is the direct predecessor of the F-15EX, a further development of the Advanced Eagle for the Qatari Emiri Air Force, with the introduction of the improved cockpit with large area display (LAD) and ADCP II mission computer. The F-15QA has AN/APG-82(V)1 radar, AN/ALQ-239 DEWS, AN/AAR-57 CMWS, and AN/AAS-42 IRST. In June 2017, Qatar signed a deal to buy 36 F-15QAs for US$12 billion (~$15.1 billion in 2024) which included weapons, support, equipment, and training, with up to 72 approved by the U.S. State Department. In June 2021, Boeing announced that it will integrate an Elbit Systems anti-jamming systems into the F-15QA, allowing it to fly into heavy electromagnetic interference environment uninterrupted.
+F-15EX
+Two-seat variant for the U.S. Air Force. The F-15EX has AN/APG-82(V)1, AN/ALQ-250 EPAWSS, Legion Pod with AN/ASG-34(V)1 IRST21 sensor, but no AN/AAR-57 CMWS.
+F-15IA
+The F-15IA (Israel Advanced) is a variant for the Israeli Air Force based on the F-15EX.
+
+
+=== Proposed variants ===
+F-15CX
+A proposed single-seat variant for the U.S. Air Force with an equivalent capability as the F-15EX. Not procured because single-seat Eagles were no longer being produced and the F-15CX would thus require additional startup costs.
+F-15GA
+Boeing offered 90 F-15GA (German Advanced) fighters to Germany as replacements for its Tornado IDSs and ECRs. Luftwaffe chose 35 F-35A Lightning II and 15 Eurofighter Typhoon (ECR EW variant) instead.
+F-15IDN
+The F-15IDN (formerly F-15ID) is a proposed export version of the F-15EX for the Indonesian Air Force.
+
+
+== Operators ==
+
+This article only covers the F-15 Advanced Eagle variants. For the operators of older legacy F-15 and F-15E-based variants, such as the F-15A/B/C/D, F-15E, F-15I, F-15S, F-15K, F-15SG, see McDonnell Douglas F-15 Eagle and McDonnell Douglas F-15E Strike Eagle.
+
+ Israel
+Israeli Air Force - 25 F-15IAs on order as of 2024 with an option for an additional 25
+ Qatar
+Qatar Emiri Air Force - 33 F-15QAs delivered to Qatar out of 48 planned by July 2023. Two kept in the US for testing.
+Flying Wing 5 – Al Udeid Air Base
+51st Squadron
+52nd Squadron
+53rd Squadron
+ Saudi Arabia
+Royal Saudi Air Force – 84 F-15SAs
+No. 3 Wing – King Abdulaziz Air Base
+No. 92 Squadron
+No. 5 Wing – King Khalid Air Base
+No. 6 Squadron
+No. 55 Squadron
+No. 7 Wing - King Faisal Air Base
+No. 29 Squadron
+ United States
+United States Air Force – 17 delivered out of 268 planned
+18th Wing (PACAF) - Kadena Air Base, Okinawa, Japan (planned)
+44th Fighter Squadron
+67th Fighter Squadron
+53d Wing (ACC) – Eglin Air Force Base, Florida
+85th Test and Evaluation Squadron
+96th Test Wing (AFMC) – Eglin Air Force Base, Florida
+40th Flight Test Squadron
+127th Wing (ANG) - Selfridge Air National Guard Base, Michigan (planned)
+107th Fighter Squadron
+142d Fighter Wing (ANG) – Portland Air National Guard Base, Oregon
+123d Fighter Squadron
+144th Fighter Wing (ANG) – Fresno Air National Guard Base, California (planned)
+194th Fighter Squadron
+159th Fighter Wing (ANG) – Naval Air Station Joint Reserve Base New Orleans, Louisiana (planned)
+122d Fighter Squadron
+
+
+== Accidents and losses ==
+
+
+== Specifications (F-15EX) ==
+
+Data from Air and Space Forces Magazine, Flight Manual, General ElectricGeneral characteristics
+Crew: 1 or 2 (pilot and weapon systems officer)
+Length: 63 ft 9 in (19.43 m)
+Wingspan: 42 ft 10 in (13.06 m)
+Height: 18 ft 8 in (5.69 m)
+Wing area: 608 sq ft (56.5 m2)
+Airfoil: root: NACA 64A006.6; tip: NACA 64A203
+Empty weight: 35,500 lb (16,103 kg) or 40,000 lb (18,140 kg) with CFTs
+Max takeoff weight: 81,000 lb (36,741 kg)
+Fuel capacity: 13,550 pounds (6,150 kg) internal, 35,500 pounds (16,100 kg) with 3× 600-gal external tanks and CFTs
+Powerplant: 2 × General Electric F110-GE-129 afterburning turbofan, 17,155 lbf (76.31 kN) thrust each dry, 29,500 lbf (131 kN) with afterburner
+Performance
+
+Maximum speed: Mach 2.5, 1,650 mph (2,655 km/h) at high altitude
+Mach 1.2, 800 kn (921 mph; 1,482 km/h) at low altitude
+Combat range: 687 nmi (791 mi, 1,272 km)
+Ferry range: 2,100 nmi (2,400 mi, 3,900 km) with conformal fuel tanks and three external fuel tanks
+Service ceiling: 60,000 ft (18,000 m)
+g limits: +9
+Rate of climb: 50,000 ft/min (250 m/s) +
+Thrust/weight: 0.93
+Armament
+
+Guns: 1× 20 mm (0.787 in) M61A1 Vulcan 6-barreled Gatling cannon, 500 rounds of either M-56 or PGU-28 ammunition
+Hardpoints: up to 25 in total (3+2 under each wing, 3 on each CFT, 9 on fuselage) with a capacity of 29,500 lb (13,400 kg)
+Missiles: 
+Air-to-air missiles:
+AIM-9 Sidewinder
+AIM-120 AMRAAM
+AIM-260 JATM (to be integrated)
+Air-to-surface missiles:
+AGM-65 Maverick
+AGM-154 JSOW
+AGM-158 JASSM
+Joint Strike Missile
+Bombs: 
+Mark 82 bomb
+Mark 84 bomb
+Paveway II series (GBU-10, GBU-12, GBU-24, GBU-27)
+GBU-28
+GBU-31 or GBU-38 JDAM
+GBU-54 LJDAM
+GBU-39 SDB
+GBU-53/B StormBreaker
+B61 nuclear bomb
+CBU-87 or CBU-103 CEM
+CBU-89 or CBU-104 GATOR
+CBU-97 or CBU-105 SFW
+CBU-107 Passive Attack Weapon
+Avionics
+
+Sensors:
+Raytheon AN/APG-82(V)1 AESA radar
+Lockheed Martin Legion Pod with AN/ASG-34(V)1 IRST21
+Targeting pods:
+Martin Marietta AN/AAS-13 LANTIRN navigation pod
+Martin Marietta AN/AAS-14 LANTIRN targeting pod or Lockheed Martin AN/AAQ-33 Sniper XR targeting pod
+Countermeasures:
+BAE Systems AN/ALQ-250 Eagle Passive Active Warning Survivability System (EPAWSS) - combined electronic warfare/electronic countermeasures system
+BAE Systems AN/ALE-47 Airborne Countermeasures Dispenser System
+Raytheon AN/APX-119 Identify Friend/Foe (IFF) interrogator
+
+
+== See also ==
+
+Related development
+
+McDonnell Douglas F-15 Eagle
+McDonnell Douglas F-15E Strike Eagle
+Mitsubishi F-15J
+Aircraft of comparable role, configuration, and era
+
+Shenyang J-16
+Sukhoi Su-35
+
+Related lists
+
+List of fighter aircraft
+List of active United States Air Force aircraft
+
+
+== References ==
+
+
+=== Notes ===
+
+
+=== Citations ===
+
+
+== External links ==
+
+Boeing F-15EX page
+F-15E USAF fact sheet

@@ -1,0 +1,371 @@
+McDonnell Douglas F-15E Strike Eagle (F-15E)
+
+The McDonnell Douglas (now Boeing) F-15E Strike Eagle is an American all-weather multirole strike fighter derived from the McDonnell Douglas F-15 Eagle. Intended for the Dual-Role Fighter (DRF) program (initially called Enhanced Tactical Fighter), the F-15E was designed in the 1980s for long-range, high-speed interdiction without relying on escort or electronic-warfare aircraft. United States Air Force (USAF) F-15E Strike Eagles can be generally distinguished from other US Eagle variants by darker aircraft camouflage, conformal fuel tanks (CFTs) and LANTIRN pods mounted behind the engine intake ramps (although CFTs can also be mounted on earlier F-15 variants) and a tandem-seat cockpit.
+Initially designed and manufactured by McDonnell Douglas, the F-15E first flew in 1986 and production continued under Boeing following the companies' merger in 1997. The aircraft became the USAF's primary strike fighter/interdictor starting near the end of the Cold War, gradually replacing the F-111 Aardvark. The Strike Eagle has been deployed for military operations in Iraq, Afghanistan, Syria, Libya, and Iran among others. During these operations, the strike fighter has carried out deep strikes against high-value targets and combat air patrols, and provided close air support for coalition troops. It has also been exported to several countries. The F-15E is expected to remain in USAF service until the 2030s. Enhanced versions of the design, called the F-15 Advanced Eagle, remain in production. As of 2026, the F-15E is USAF's most capable tactical nuclear weapon delivery aircraft, able to carry up to five B61 Mod 12 nuclear bombs.
+
+
+== Development ==
+
+
+=== Origins ===
+The McDonnell Douglas F-15 Eagle was introduced by the USAF to replace its fleet of McDonnell Douglas F-4 Phantom IIs. Unlike the F-4, the F-15 was designed for air superiority with little consideration for a ground-attack role; the F-15 Special Project Office opposed the idea of F-15s performing interdiction, giving rise to the phrase "Not a pound for air to ground." 
+Despite a lack of official interest, McDonnell Douglas had quietly included a basic secondary ground attack capability in the F-15's design since the beginning and worked on an F-15-derived interdictor fighter. The company envisaged the aircraft as a replacement for the General Dynamics F-111 and the remaining F-4s, as well as to augment the existing F-15s. In 1978, the USAF initiated the Tactical All-Weather Requirement Study, which looked at McDonnell Douglas's proposal and other options such as the purchase of further F-111Fs, and then the Enhanced Tactical Fighter program. The studies ecommended the F-15E as the USAF's future strike platform. In 1979, McDonnell Douglas and Hughes began a close collaboration on the development of the F-15E's potential air-to-ground capabilities.
+To assist in the F-15E's development, although not yet a program of record, McDonnell Douglas modified the second TF-15A prototype, AF serial number 71-0291, as a demonstrator. The aircraft, known as the Advanced Fighter Capability Demonstrator, first flew on 8 July 1980. It was previously used to test conformal fuel tanks (CFTs), initially designed for the F-15 under the designation "FAST Pack", with FAST standing for "Fuel and Sensor, Tactical. It was subsequently fitted with a Pave Tack laser designator targeting pod to allow the independent delivery of guided bombs. The demonstrator was displayed at the 1980 Farnborough Airshow.
+
+
+=== Enhanced Tactical Fighter ===
+In March 1981, the USAF announced the Enhanced Tactical Fighter program to replace the F-111. The program was later renamed the Dual-Role Fighter (DRF) competition, while the Advanced Tactical Fighter looked at more advanced concepts. The ETF concept envisioned an aircraft capable of launching deep air interdiction missions without requiring additional support by fighter escort or jamming. General Dynamics submitted the F-16XL, while McDonnell Douglas submitted the F-15E. The Panavia Tornado was also a candidate, but since the aircraft lacked a credible air-superiority fighter capability, coupled with the fact that it was not American-made, it was not seriously considered.
+The DRF evaluation team, under the direction of Brigadier General Ronald W. Yates, ran from 1981 through 30 April 1983, during which the F-15E logged more than 200 flights, demonstrated a takeoff weight of more than 75,000 pounds (34 t), and validated 16 different weapons-carrying configurations. McDonnell Douglas, to assist 71-0291 in the evaluation, added to the program other F-15s, designated 78-0468, 80-0055, and 81-0063. The single-engined F-16XL was a promising design, which with its radically redesigned cranked-delta wing, greatly boosted performance; if selected, the single- and two-seat versions were to be designated F-16E and F-16F, respectively. On 24 February 1984, the USAF chose the F-15E; key factors in the decision were the F-15E's lower development costs compared to the F-16XL (US$270 million versus US$470 million), a belief that the F-15E had future growth potential, and possessing twin-engine redundancy. The USAF was initially expected to procure 400 aircraft, a figure later revised to 392.
+Construction of the first three F-15Es started in July 1985. The first of these, 86-0183, made its maiden flight on 11 December 1986. Piloted by Gary Jennings, the aircraft reached a maximum speed of Mach 0.9 and an altitude of 40,000 feet (12,000 m) during the 75-minute flight. This aircraft had the full F-15E avionics suite and the redesigned front fuselage, but not the aft fuselage and the common engine bay for more powerful Improved Performance Engine (IPE) variants of the Pratt & Whitney F100 or General Electric F110. The latter was featured on 86-0184, while 86-0185 incorporated all the changes of the F-15E from the F-15. On 31 March 1987, the first officially completed F-15E made its first flight.
+The first production F-15E was delivered to the 405th Tactical Training Wing, Luke Air Force Base, Arizona, in April 1988. Production continued into the 2000s with 236 produced for the USAF through 2001.
+
+
+=== Upgrade programs and replacement ===
+
+The F-15E was upgraded with the Raytheon AN/APG-82(V)1 Active Electronically Scanned Array (AESA) radar after 2007, and the first test radar was delivered to Boeing in 2010. It combines the processor of the APG-79 used on the F/A-18E/F Super Hornet with the antenna of the APG-63(V)3 AESA being fitted on the F-15C; it was named APG-63(V)4 until it received the APG-82 designation in 2009. The new radar is to be part of the F-15E Radar Modernization Program, which also includes a wideband radome (enabling operation on more radar frequencies) and environment control and electronic warfare improvements. In 2015, Boeing and BAE Systems were awarded contracts to comprehensively upgrade of the electronic warfare system of all USAF F-15s, including the F-15E, with the AN/ALQ-250 Eagle Passive/Active Warning Survivability System (EPAWSS). The first F-15E retrofitted with EPAWSS was delivered in 2022.
+Having a sturdier airframe rated for 8,000 hours of service life or up to 16,000 hours with proper depot maintenance programs, twice the lifetime of earlier variants, the F-15E is expected to remain in service past 2025. As of December 2012, the USAF's F-15E fleet had an average age of 21 years and an average airframe flying time of 6,000 hours. In 2012, the USAF was reportedly considering future options, with no replacement for the F-15E being slated at that time.
+The F-15E design would see some export success and Boeing continued developing upgrades for international customers. More radical upgrades to the air vehicle design resulted in the F-15 Advanced Eagle family that began with the F-15SA (Saudi Advanced) for the Royal Saudi Air Force, which first flew in 2013. It replaces the older hybrid electronic/mechanical system with a digital fly-by-wire control system that opens up two additional wing pylons and a revised wing structure for increased service life. The Advanced Eagle would have further developed variants with the F-15QA (Qatari Advanced) for the Qatar Emiri Air Force and the F-15EX Eagle II for the USAF. In FY 2020, USAF began procuring the F-15EX to replace the aging fleet of F-15C/D and supplement the F-22 Raptor to maintain air superiority fighter numbers, taking advantage of the existing export production line to quickly and affordably bring additional fighters into service; the F-15EX is also an option to replace the F-15E at a later time. Another choice is the F-35 Lightning II, set to replace other aircraft such as the F-16 Falcon; an F-35E variant was studied. Adding a second seat to the F-35 is complex and costly, especially to preserve its stealth profile; providing for greater range and payload would also be difficult tasks. Alternatively, the role could be covered by a combination of fighter and bomber aircraft, such as the B-21 Raider. The F-15E may also be replaced by a clean-sheet sixth-generation aircraft design.
+
+
+=== ALASA ===
+On 24 March 2014, Boeing won a $30.6 million contract from DARPA as part of the Airborne Launch Assist Space Access (ALASA) program. The goal of the program is to cut the cost of putting microsatellites into orbit by 66% through advances in launch systems. Under the 11-month contract, Boeing will build twelve 24 ft (7.3 m) launch vehicles, each with a payload capability up to 100 lb (45 kg). An ALASA vehicle is to be fitted under an F-15E, which will climb to 40,000 ft, then be released and fire its four engines to reach low-Earth orbit. Awarding the contract to Boeing would make use of the F-15E as the carriage vehicle, as previous design contracts had been given to Lockheed Martin to use the F-22 Raptor and Virgin Galactic to use their SpaceShip Two aircraft. DARPA had previously insisted they wanted to select an aircraft they would not need to modify heavily to carry and launch the ALASA payload. The project was terminated in late 2015.
+
+
+== Design ==
+
+
+=== Overview ===
+
+The F-15E's deep-strike mission is a radical departure from the original intent of the F-15 since it was designed as an air-superiority fighter under the mantra "not a pound for air-to-ground." The basic airframe, however, proved versatile enough to produce a very capable strike fighter. The F-15E, while designed for ground attack, retains the air-to-air lethality of the F-15, and can defend itself against enemy aircraft.
+The F-15E prototype was a modification of the two-seat F-15B. Despite its origins and retaining the same aerodynamic shape, it includes significant structural changes as well as more powerful engines. The aft fuselage was designed to incorporate the more powerful engines with advanced engine bay structures and doors, which incorporate superplastic forming and diffusion bonding technologies. The back seat is equipped for a weapon systems officer (WSO, pronounced "wizzo") to work the air-to-ground avionics via multiple screens; these view the radar, electronic warfare, or thermographic cameras, monitor aircraft or weapons status and possible threats, select targets, and use an electronic moving map to navigate. Two hand controls are used to select new displays and to refine targeting information; displays can be moved from one screen to another using a menu of display options. Unlike previous two-place jets (e.g. the F-14 Tomcat and Navy variants of the F-4), whose back seat omitted flying controls, the F-15E's back seat is equipped with its own stick and throttle so the WSO can take over flying, albeit with reduced visibility.
+For extended range, the F-15E is fitted with two conformal fuel tanks (CFTs) that hug the fuselage to produce lower drag than conventional underwing/underbelly drop tanks. They carry 750 U.S. gallons (2,800 L) of fuel, and house six weapons hardpoints in two rows of three in tandem. Unlike conventional drop tanks, CFTs cannot be jettisoned, thus increased range is a trade-off for increased drag and weight compared to a "clean" configuration.
+
+
+=== Avionics ===
+
+The tactical electronic warfare system (TEWS) integrates all countermeasures on the craft: radar warning receivers, radar jammer, radar and chaff/flare dispensers are all tied to the TEWS to provide comprehensive defense against detection and tracking. This system includes an externally mounted ALQ-131 ECM pod which is carried on the centerline pylon when required. The MIDS Fighter Data Link Terminal, produced by BAE Systems, improves situational awareness and communications capabilities via the Link 16 datalink. The TEWS was replaced by the AN/ALQ-250 EPAWSS digital electronic warfare suite beginning in 2022; EPAWSS replaces all TEWS components with lighter and more capable digital ones for increased performance.
+The AN/APG-70 radar allows crews to detect ground targets from longer ranges; one feature is that, after a sweep of a target area, the crew may freeze the air-to-ground map then switch to air-to-air mode to scan for aerial threats. During air-to-surface weapon delivery, the pilot is capable of detecting, targeting, and engaging air-to-air targets while the WSO designates ground targets. Under the Radar Modernization Program, the APG-70 has been replaced by the AN/APG-82(V)1, which combines the AESA antenna from the AN/APG-63(V)3 with the processor from the AN/APG-79(V) as well as new Radio Frequency Tunable Filters and cooling system; APG-82(V)1 flight tests began in January 2010 and the radar achieved initial operational capability in 2014.
+
+Its inertial navigation system uses a laser gyroscope to continuously monitor the aircraft's position and provide information to the central computer and other systems, including a digital moving map in both cockpits. The F-15E is commonly equipped with LANTIRN system pods for its interdiction role. Mounted externally under the engine intakes, the LANTIRN system allows the aircraft to fly at low altitudes, at night, and in any weather conditions, to attack ground targets with a variety of precision-guided and unguided weapons. The LANTIRN system gives the F-15E exceptional accuracy in weapons delivery day or night and in poor weather, and consists of two pods attached to the exterior of the aircraft. At night, the video picture from the LANTIRN can be projected on the head-up display (HUD), producing an infrared image of the ground. The digital, triple-redundant Lear Siegler aircraft flight control system permits coupled automatic terrain following, enhanced by a ring-laser gyro inertial navigation system.
+The AN/AAQ-13 navigation pod contains a terrain-following radar which allows the pilot to safely fly at a very low altitude following cues displayed on a HUD; it also can be coupled to the autopilot to provide "hands off" terrain-following capability. This pod also contains a forward-looking infrared system which is projected on the HUD, typically used during nighttime or low-visibility operations. The nav pod is installed beneath the right engine intake. The targeting pod contains a laser designator and a tracking system that mark an enemy for destruction as far away as 10 mi (16 km). Once tracking has started, targeting information is automatically handed off to infrared homing air-to-surface missiles or laser-guided bombs. The targeting pod is mounted beneath the left engine intake; configurations may be either the AN/AAQ-14, AN/AAQ-28(V) Litening, or the AN/AAQ-33 Sniper.
+
+The F-15E carries most air-to-ground weapons in the USAF inventory. It is also armed with AIM-9 Sidewinders and AIM-120 AMRAAMs, retaining the counter-air capabilities of its Eagle lineage, being fully capable of Offensive-Counter-Air operations. Like the F-15C, it also carries an internally mounted General Electric M61A1 20 mm cannon with 500 rounds, which is effective against enemy aircraft and "soft" ground targets.
+Since 2004, South Korean firm LIG Nex1 has been manufacturing the F-15's Head-up display; a total number of 150 HUDs were delivered by 2011. LIG Nex1 had been a participant in the F-15K program as a subcontractor to Rockwell Collins. LIG Nex1 is also preparing to manufacture F-15's new multi-function display and flight control computer. Also since 2004, Korea Aerospace Industries (KAI) has produced the F-15's wings and forward fuselages; in 2008, KAI established another production line for Singapore's F-15SG. KAI is involved in the design and manufacture of the Conformal Weapons Bay (CWB) for the F-15 Silent Eagle.
+
+
+=== Engines ===
+The engines used on early aircraft are the same as on previous F-15 variants, the Pratt & Whitney F100-PW-220 each producing 23,770 lbf (105.7 kN) of thrust in afterburner. However, owing to the increased weight from strike payloads and CFTs, the F-15E was designed with a common engine bay that could accept more powerful Improved Performance Engine (IPE) variants. Later batches feature the F100-PW-229 IPE with 29,160 lbf (129.7 kN) of thrust each. Saudi Arabian and Israeli aircraft were also ordered and equipped with the F100-229 engines.
+While the F-15E had also been flight tested with the General Electric F110-GE-129 with 29,500 lbf (131.2 kN) of thrust, the South Korean F-15K would be the first variant to adopt it in service. The F-15K would have two different engine types; the first batch are powered by F110-129 engines, while the second batch are powered by F100-229 engines. In 2008, Saudi Arabia decided to re-engine their F-15S fleet with the F110-129 engines, which also enables commonality with their F-15SA fleet. The Singapore Air Force equipped their F-15SG fleet with F110-129 engines.
+
+
+== Operational history ==
+
+
+=== United States ===
+The F-15E was first delivered to the U.S. Air Force operational units in 1988. The F-15E reached initial operational capability on 30 September 1989 at Seymour Johnson Air Force Base in North Carolina with the 4th Tactical Fighter Wing, 336th Tactical Fighter Squadron. As of 2026, the F-15E is USAF's most capable tactical nuclear weapon delivery aircraft, able to carry up to five B61 Mod 12 nuclear bombs.
+
+
+==== Gulf War ====
+
+The F-15E was deployed in response to Iraq's invasion of Kuwait in August 1990 for Operation Desert Shield. The 336th Tactical Fighter Squadron flew to Seeb Air Base in Oman to begin training exercises in anticipation of an Iraqi attack on Saudi Arabia; in December, the 335th and 336th squadrons relocated to Prince Sultan Air Base in Saudi Arabia, closer to Iraq's border. At the start of Operation Desert Storm, 24 F-15Es launched an attack on five fixed Scud installations in western Iraq on 17 January 1991. Missions against Scud sites continued through that night with a second strike of 21 F-15Es. At night-time, F-15Es flew hunter missions over western Iraq, searching for mobile SCUD launchers. By conducting random bombings in suspected areas, it was hoped to deter the Iraqis from setting up for a Scud launch.
+On the war's opening night, an F-15E failed to hit a MiG-29 with an AIM-9 Sidewinder; other F-15Es also unsuccessfully engaged this lone MiG-29, which was eventually brought down by a missile of unknown origin. On 18 January, during a strike against a petrol oil and lubricant plant near Basrah, an F-15E was lost to enemy fire, killing both pilot and WSO. F-15E crews described this mission as the most difficult and dangerous of the war as it was heavily defended by SA-3s, SA-6s, SA-8s and Rolands as well as by anti-aircraft artillery. Two nights later, a second and final F-15E was downed by an Iraqi SA-2; the crew survived and evaded capture for several days and made contact with coalition aircraft, but a rescue was not launched due to security issues over an airman who failed to identify himself with proper codes. The Iraqis later captured both airmen.
+F-15Es destroyed 18 Iraqi jets on the ground at Tallil air base using GBU-12s and CBU-87s. On 14 February, an F-15E scored its only air-to-air kill of the war: a Mil Mi-24 helicopter. While responding to a request for help by US Special Forces, five Iraqi helicopters were spotted. The lead F-15E of two, via its FLIR, acquired a helicopter in the process of unloading Iraqi soldiers, and released a GBU-10 bomb. The F-15E crew thought the bomb had missed its target and were preparing to use a Sidewinder when the helicopter was destroyed. The Special Forces team estimated that the Hind was roughly 800 feet (240 m) over the ground when the 2,000 lb (910 kg) bomb hit its target. As another Coalition bombing operation had commenced, the F-15Es disengaged from combat with the remaining helicopters.
+F-15Es struck heavily defended targets throughout Iraq, prioritizing SCUD missile sites. Missions aimed at killing Iraqi President Saddam Hussein were undertaken by F-15Es, bombing several suspected locations. Prior to the ground war, F-15Es flew tank plinking missions against Iraqi vehicles in Kuwait. After 42 days of combat, a cease fire came into effect on 1 March 1991, leading to the creation of Northern and Southern no-fly zones over Iraq.
+
+
+==== Operations Southern Watch and Northern Watch ====
+
+Following the Gulf War, two no-fly zones over Iraq were set up, and enforced typically by US and UK aircraft. In one incident, an attack on up to 600 Kurdish refugees by Iraqi helicopters at Chamchamal, northern Iraq, was observed by a flight of F-15Es. As they were not allowed to open fire, the F-15Es instead conducted several high speed passes as close as possible to the Iraqi helicopters to create severe wake-turbulence, while aiming lasers at the helicopter's cockpits to attempt to blind their crews; this caused the crash of one Hind. Afterwards, USAF leadership ordered F-15Es not to fly below 10,000 feet (3,000 m) to deter a repetition.
+F-15Es of the 391st Fighter Squadron, 492d Fighter Squadron, and 494th Fighter Squadron regularly deployed to Turkey throughout the 1990s. In January 1993, in breach of the ceasefire agreement, Iraqi targets below the 32nd parallel north were attacked; 10 F-15Es conducted a punitive strike days later. Most missions were of a defensive nature; the Strike Eagles carried a flexible range of weapons on a typical mission. AWACS aircraft were in close contact with F-15E crews, who would receive new taskings while airborne and thus could fly unplanned attacks on Iraqi targets. After 1993, no-fly zone violations were minimal as Iraq staged a minor withdrawal; in 1997, Turkey approved the creation of Operation Northern Watch (ONW) and permitted US forces to use the Incirlik air base.
+In December 1998, Operation Desert Fox was conducted when Iraq refused UNSCOM inspections. On 28 December 1998, three F-15Es struck an SA-3 tracking radar and optical guidance unit, each dropping two GBU-12 500-pound precision-guided munitions (PGMs). After Desert Fox, Iraq frequently violated the no-fly zones, thus F-15Es conducted several pre-planned retaliatory strikes; in ONW alone, weapons were expended on at least 105 days. Between 24 and 26 January 1999, F-15Es expended several AGM-130s and GBU-12s against SAM sites near Mosul, northern Iraq. They also flew in support of Operation Provide Comfort and Operation Provide Comfort II.
+
+
+==== Operations in the Balkans ====
+
+Operation Deny Flight was a United Nations-enforced no-fly zone over Bosnia and Herzegovina due to the deteriorating situation in the Balkans. In August 1993, F-15Es from 492nd and 494th FS deployed to Aviano, Italy. In late 1993, NATO ordered a limited F-15E strike at Udbina airfield, targeting Serbian forces in neighboring Croatia. Eight F-15Es armed with GBU-12s took off to attack an SA-6 anti-aircraft vehicle; the mission was cancelled mid-flight over the application of stringent Rules of Engagement. In December 1993, F-15Es launched to destroy a pair of SA-2s which had fired upon two Royal Navy Sea Harrier FRS 1s. In August 1995, F-15Es of 90th Fighter Squadron were also deployed. The 492d and 494th flew over 2,500 sorties since starting Deny Flight, 2,000 of these by 492d. In August 1995, in support of NATO's Operation Deliberate Force, F-15Es flew strike missions against Serbian armor and logistics around the Bosnian capital, Sarajevo. On 9 September, an F-15E deployed the type's first GBU-15 bomb; dropping nine on Bosnian-Serb ground forces and air defense targets near Banja Luka.
+In response to the displacement of Kosovars and the Serbian government's rejection of a NATO ultimatum, Operation Allied Force was launched in March 1999. A total of 26 F-15Es flew the first strikes of Allied Force against Serb surface-to-air-missile sites, anti-aircraft batteries and early warning radar stations. Strike Eagles were deployed to Aviano as well as RAF Lakenheath in the UK. In-theater, F-15Es conducted close air support (CAS) missions, a popular concept within the USAF. Missions typically lasted around 7.5 hours, included two aerial refuelings; F-15Es would carry a mix of air-to-air and air-to-ground munitions to perform both combat air patrol duties as well as strike missions in the same mission. Mobile SAM launchers posed a considerable threat to NATO aircraft and had made successful shoot-downs, most notably of a Lockheed F-117 Nighthawk. In order to strike from increased distances, the F-15E was equipped with the AGM-130, which provided a stand-off strike capability.
+
+
+==== War in Afghanistan ====
+
+Weeks after the September 11 attacks in 2001, the 391st Fighter Squadron deployed to Ahmad al-Jaber air base, Kuwait, to support Operation Enduring Freedom during the War in Afghanistan. F-15Es met little resistance during initial missions. On the first night, the main targets were Taliban military structures, supply depots, and al-Qaeda training camps and caves. Both the AGM-130 and GBU-15 2,000 lb (910 kg) bombs were expended; this was the GBU-15's first combat usage. GBU-24s and GBU-28s were used against reinforced targets, command and control centers and cave entrances. F-15Es often operated in pairs alongside pairs of F-16Cs. Within weeks of the start of combat operations, there was a lack of targets to strike as nearly all targets had been already destroyed. The Taliban had access to SA-7 and FIM-92 Stinger portable surface-to-air missiles, posing no threat to most aircraft flying above 7,000 feet (2,100 m). Additionally, fixed SAM sites near cities as Mazar-i-Sharif and Bagram were struck early on; Afghanistan had rapidly become a low-threat environment for air operations.
+Aircraft commonly flew on-call support missions for allied ground forces, F-15Es usually carried MK-82 and GBU-12 bombs in this role, other weapons were sometimes carried, during one mission a GBU-28, two GBU-24s and six GBU-12s were released. Frequent targets during the rest of the war were individual insurgents, light vehicles and supply convoys; cannon fire was often expended as well as bombs from F-15Es. It was during combat over Afghanistan that four 391st crews conducted the longest fighter mission in history; lasting a total of 15.5 hours, nine of those hours spent flying over the target area. Two F-15Es attacked two Taliban command and control facilities, two buildings suspected of being used by Taliban fighters, and a road block; the F-15Es refueled 12 times during the mission.
+
+On 4 March, another incident known as the Battle of Roberts' Ridge involved several F-15Es performing a CAS mission. Aircraft destroyed a Taliban observation post and responded to nearby enemy mortar fire upon Navy SEAL forces searching for an ambushed MH-47E Chinook in the Shah-i-Kot Valley. Several bombs were dropped as the SEAL team took fire, however one bomb missed due to the aircrew using incorrect coordinates. An MH-47 carrying a rescue team was downed by an RPG while attempting to support the SEALs. Following refueling, the F-15Es dropped a further 11 GBU-12s in coordination with ground forces, and fired their cannons on Taliban forces in close proximity to the survivors of the downed MH-47. F-16s of 18th Fighter Squadron also made strafing passes until cannon ammunition was depleted, then resorting to further bomb drops. The F-15Es suffered technical issues involving both radio and weapon failures, several GBU-12s were dropped before returning to Al Jaber in Kuwait.
+Years later, several incidents occurred. On 23 August 2007, a friendly fire incident involved an F-15E mistakenly dropping a 500 lb (230 kg) bomb on British forces, killing three soldiers; the stated cause was confusion between the air controller and the F-15E on the bombing coordinates. On 13 September 2009, an F-15E shot down a non-responsive MQ-9 Reaper drone over Northern Afghanistan to prevent it entering foreign airspace.
+
+
+==== Iraq War ====
+
+In late 2002, during tension over suspected Iraqi possession of weapons of mass destruction, the 4th Fighter Wing at Seymour Johnson Air Force Base was ordered to maintain at least one squadron ready to deploy to the Persian Gulf. During January 2003, the 336th was deployed to Al Udeid Air Base, Qatar, in coordination with planners of the Combined Air Operations Center at Prince Sultan Air Base, Saudi Arabia. In late January, F-15Es began flying in Operation Southern Watch, typically performing surveillance and reconnaissance missions. Additional roles included simulated combat against potential Iraqi targets and regional familiarization with local procedures and rules of engagement. During OSW, F-15Es struck targets in southern and western Iraq, including radars, radio stations, command and control sites, and air defences. On one night, four F-15Es released multiple GBU-24s on the Iraqi Republican Guard/Baath Party HQ in Basrah while another flight of four destroyed a nearby Air Defense Sector HQ with six GBU-10s.
+In late February, the 336th received additional aircrews, many drafted from the two non-deployable squadrons at Seymour Johnson (the 333d and 334th Fighter Squadrons) and 391st Fighter Squadron at Mountain Home Air Force Base, for a total of four aircrews per F-15E. In March, the 335th Fighter Squadron's personnel and aircraft joined the 336th at Al Udeid. One objective was the destruction of Iraq's air defenses and Early Warning radar network near the Jordanian border, allowing F-16s and helicopters to operate from Jordan from the war's outset. Several radar sites and radio relay stations were hit in western Iraq near the "H3" airfield, encountering heavy anti-aircraft fire.
+On 19 March, as F-117 Nighthawks dropped bombs over Baghdad, targeting a house where Saddam Hussein was believed to be; F-15Es dropped GBU-28s around the H3 airfield. On 20 March, the effective start of the war, F-15Es fired AGM-130s against communication, command and control buildings, and other key targets in Baghdad; some weapons missed their intended targets, possibly due to jamming by EA-6B Prowlers in the vicinity. On 3 April 2003, an F-15E mistook a USA M270 Multiple Launch Rocket System (MLRS) for an Iraqi surface-to-air missile site and dropped a 500 lb (230 kg) laser-guided bomb, killing three and wounding five others.
+On 7 April 2003, an F-15E, crewed by Captain Eric Das and Major William Watkins, performed a key interdiction mission in support of special forces, but crashed near Tikrit, Iraq. Das and Watkins were posthumously awarded the Distinguished Flying Cross and the Purple Heart. During the war, F-15Es were credited with destroying 60% of the Iraqi Medina Republican Guard's total force; they also struck 65 MiGs on the ground, and destroyed key air defense and command buildings in Baghdad. F-15Es worked with other jets deployed to Al Udeid, including RAAF F/A-18s, USAF F-16s and F-117s, RAF Panavia Tornados and US Navy F-14s.
+
+
+==== Libyan civil war ====
+Following the adoption of United Nations Security Council Resolution 1973 on 17 March 2011, 18 USAF F-15Es were amongst other NATO and allied aircraft were deployed to enforce the Libyan no-fly zone as part of Operation Odyssey Dawn. On 21 March 2011, an F-15E from the 492d Fighter Squadron crashed near Bengazi, Libya. Both crew members parachuted into territory held by resistance elements of the Libyan population and were eventually rescued by US Marines. Equipment problems caused a weight imbalance and contributed to the crash when leaving the target area.
+
+
+==== Operations against Islamic State (2014–present) ====
+USAF F-15Es have participated in Operation Inherent Resolve against Islamic State (IS) militants in Iraq and Syria. On the morning of 23 September 2014, numerous American and Arab aircraft conducted air strikes in Syria against IS fighters, training compounds, headquarters and command and control facilities, storage facilities, a finance center, supply trucks, and armed vehicles. The Pentagon released videos of targets hit by ordnance deployed by F-15Es, taken by their AN/AAQ-33 Sniper targeting pods. Between August 2014 and January 2015, F-15Es flew 37 percent of all USAF sorties.
+
+USAF F-15Es based at RAF Lakenheath in the United Kingdom performed several long range strikes against IS camps and prominent figures in Libya. On 13 November 2015, a pair of F-15Es killed Abu Nabil al-Anbari, the leader of the Islamic State of Iraq and the Levant in Libya, in a strike near Darnah, Eastern Libya. On 20 February 2016, USAF F-15Es hit an IS training camp near Sabratha where foreign fighters were based, reportedly killing Noureddine Chouchane, a 36-year-old Tunisian jihadist linked to the 2015 Sousse attacks. Sources said that 49 people were killed and 6 wounded; two Serbians kidnapped by IS in 2015 were also reportedly killed.
+On 8 June 2017, an F-15E shot down a pro-Syrian Regime UAV near Al Tanf, Syria; according to OIR officials, it was downed after deploying "one of several weapons it was carrying near a position occupied by Coalition personnel... [It was] similar in size to a U.S. MQ-1 Predator". The drone may have been a Shahed 129; on 20 June 2017, a second Shahed-129 was downed by an F-15E near the 50 mile exclusion zone around Al-Tanf.
+On 21 August 2021, a USAF F-15E shot down an unidentified drone with an AIM-9X Sidewinder missile as the drone approached US forces in Eastern Syria.
+USAF F-15Es were deployed on 2 February 2024, during the airstrikes against Iranian backed militias in Iraq and Syria. USAF F-15Es helped blunt an Iranian attack against Israel on 13 April 2024 by shooting down over 70 Iranian one-way attack UAVs.
+Concurrent with the fall of the Assad regime on 8 December, USAF F-15Es were deployed alongside B-52s and A-10s in what the USAF said were "dozens" of airstrikes against over 75 ISIS targets. The strikes were intended to prevent ISIS from benefitting from the political upheaval in Syria.
+
+
+==== Iran war (2026) ====
+
+During the 2026 Iran war, on 1-2 March 2026, videos emerged online of a USAF F-15E in a death spiral, after it suffered a catastrophic issue due to a friendly fire incident, after being hit by Kuwaiti air defense. Two other USAF F-15Es were also confirmed to have been shot down due to friendly fire in the same incident. All six crew members ejected from their aircraft and were safely recovered. It was later reported that the F-15Es were shot down by one or more Kuwaiti F/A-18s.
+On 3 April 2026, U.S. officials reported that a F-15E had been shot down by Iranian forces. Both its pilot and weapon systems officer (WSO) ejected inside Iranian territory and a massive search operation was undertaken, utilizing C-130s, Black Hawks and Apaches. The pilot was recovered within a few hours, while it took roughly two days to recover and exfiltrate the weapon systems officer. Hundreds of U.S. special operations forces were involved in the rescue mission. Two MC-130s and four MH-6 were destroyed by U.S. forces on a makeshift airstrip in Iran to prevent them from being seized by the Iranian military. No U.S. casualties occurred during the rescue, while there were three IRGC and four Iranian Army casualties. 
+
+
+=== Israel ===
+
+The F-15I is operated by the Israeli Defense Force/Air Force No 69 Squadron, succeeding the F-4 Phantom II. It is used akin to a strategic bomber due to its long range, high munition capacity and advanced systems.
+After the Gulf War in 1991, in which Israeli towns were attacked by SCUD missiles based in Iraq, the Israeli government decided a long range strike aircraft was needed, issuing a Request for Information (RFI). In response, Lockheed Martin offered a version of the F-16 Fighting Falcon, while McDonnell Douglas offered both the F/A-18 Hornet and the F-15E. On 27 January 1994, the Israeli government announced their intention to buy 21 modified F-15Es, designated F-15I. On 12 May 1994, the US Government authorized the purchase of up to 25 F-15Is by Israel. In November 1995, Israel ordered four extra F-15Is; 25 were built from 1996 to 1998. Some of the air-to-air missiles aircraft can carry: the AIM-9L, Rafael Python 4 and the Rafael Python 5 infrared-homing missiles; and the AIM-7 Sparrow and the AIM-120 AMRAAM radar-guided missiles. In 1999, Israel announced its intention to procure more fighters and that a possible contender was the F-15I. However, the contract went to the F-16I.
+
+
+=== Saudi Arabia ===
+In November 2009, Royal Saudi Air Force (RSAF) F-15s, along with Saudi Tornados, performed air raids amid the Houthi insurgency in north Yemen. It was the RSAF's first military action over hostile territory since Operation Desert Storm. In October 2010, Saudi Arabia requested 84 F-15SA (Saudi Advanced) fighters, upgrading of its existing F-15S fleet to F-15SA standard, and related equipment and weapons through a Foreign Military Sale (FMS). On 29 December 2011, the U.S. signed a $29.4 billion contract to sell 84 F-15SAs, as well as the F-15S upgrades. In June 2012, an FMS contract for 68 F-15S to F-15SA modification kits was placed with Boeing; the upgraded aircraft are designated the F-15SR. On 20 February 2013, the maiden flight of the first new-build F-15SA occurred.
+
+
+==== Saudi-led intervention in Yemen (2015–present) ====
+
+On 26 March 2015, Saudi F-15Ss, along with other Arab coalition assets, started striking targets in Yemen as part of the Saudi Arabian-led intervention in Yemen, called Operation Decisive Storm. Opposing a joint force composed of former Houthi rebels and Yemeni Army forces, the strikes, at least initially, were met by ineffective anti-aircraft fire that reportedly only caused damage when falling to the ground. Early strikes were aimed at air defense sites, Army HQs, military airports, ballistic missiles depots, and launchers. During these attacks, a Saudi F-15S crashed into the Gulf of Aden after circling over the sea; its two pilots ejected safely and were recovered from the sea by a USAF HH-60G rescue helicopter; Arab coalition reports claimed enemy fire was not involved, while Houthi and Iranian sources claimed they had shot it down. On 8 January 2018, a RSAF F-15S was reportedly shot down by a Houthi surface-to-air missile; a Houthi-released video shows the F-15 increasing speed and releasing decoy flares before being struck by a projectile and apparently suffering major damage. On 9 January 2018, the Houthi media, Al-Masirah, announced that the F-15 had been damaged but did not crash.
+On 21 March 2018, Houthi rebels released a video allegedly showing a RSAF F-15 being hit in Saada province by an R-27 air to air missile adapted for surface to air use. As in the video of the previous similar hit recorded on 8 January, the target, while clearly hit, seems not falling to the ground when the video stops. Saudi forces confirmed the hit, while saying the jet safely landed at a Saudi base. Saudi sources confirmed the incident involved a surface-to-air missile being launched at the jet from inside Saada airport.
+
+
+== Variants ==
+
+
+=== F-15E variants ===
+
+
+==== F-15E ====
+Two-seat all-weather long-range strike and ground-attack aircraft for the USAF. A total of 236 were built from 1985 to 2001.
+
+
+==== F-15I ====
+The F-15I is operated by the Israeli Air Force where it is known as the Ra'am (רעם – "Thunder"). It is a dual-seat ground attack aircraft powered by two Pratt & Whitney F100-PW-229 engines, and is based on the F-15E.
+The F-15I has featured different avionic systems from the USAF F-15E to meet Israeli requirements and also due to export restictions relating the resolution of the APG-70 system. Initially, Sharpshooter targeting pods designed for IAF F-16s were fitted for nighttime strikes but were less capable than the LANTIRN pods used on USAF F-15Es. Israel later bought 30 LANTIRN pods. The F-15Is initially lacked Radar Warning Receivers; Israel installed its own Elisra ASPS electronic warfare suite with a new central computer and embedded GPS/INS system. All sensors can be slaved to the Display and Sight Helmet (DASH) helmet-mounted sight, providing both crew members a means of targeting which the F-15E lacks. The F-15I uses the APG-70I radar; its terrain mapping capability can locate targets difficult to spot while under adverse weather conditions and can detect large airliner-sized targets at 150 nautical miles (170 mi; 280 km), and fighter-sized targets at 56 nmi (64 mi; 104 km); it has degraded resolution one-third below the original APG-70. In January 2016, Israel approved F-15I upgrades such as structural changes, an AESA radar, updated avionics, and new weapons.
+
+
+==== F-15K ====
+The F-15K Slam Eagle (Korean: F-15K 슬램 이글) is a derivative of the F-15E, operated by the Republic of Korea Air Force. Several major components were outsourced to South Korean companies under an offset agreement, wherein South Korea was responsible for 40% of production and 25% of assembly. The fuselage and wings are supplied by Korea Aerospace Industries, flight control actuator by Hanwha Corporation, electronic jammer and radar warning receiver by Samsung Thales, head-up display, airborne communication system, and radar by LIG Nex1, and engines by Samsung Techwin under license before final assembly at Boeing's St. Louis facility.
+
+In 2002, ROKAF selected the F-15K for its F-X fighter program, during which the F-15K, the Dassault Rafale, the Eurofighter Typhoon and Sukhoi Su-35 were evaluated. A total of 40 aircraft were ordered, deliveries began in 2005. On 25 April 2008, a second batch of 21 F-15Ks were ordered, worth 2.3 trillion Korean won (US$2.3 billion). This second batch differs from first batch aircraft in having Pratt & Whitney F100-PW-229 (EEP) engines, license-produced by Samsung Techwin, for commonality with the KF-16 fleet. ROKAF had received 50 F-15Ks by June 2011. ROKAF expects the F-15K to be in service until 2060.
+The F-15K has several atypical features to the F-15E, such as an AAS-42 infra-red search and track system, a customized Tactical Electronics Warfare Suite to reduce weight and increase jamming effectiveness, cockpit compatibility with night vision devices, ARC-232 U/VHF radio with Link 16 and advanced APG-63(V)1 mechanical-scanned array radar. The APG-63(V)1 radar has common digital processing equipment with the APG-63(V)3 AESA radar, and can be upgraded to an AESA radar via antenna replacement. The F-15K is equipped with the Joint Helmet Mounted Cueing System and weapons such as AGM-84K SLAM-ER, AGM-84H Harpoon Block II, and KEPD 350. In December 2022, South Korea approved to upgrade all of its 59 F-15Ks with new components, including AN/APG-82(V)1 AESA radar, AN/ALQ-250 EPAWSS electronic warfare system, and ADCP II mission computer.
+
+
+==== F-15S ====
+The F-15S is a variant of the F-15E supplied to the Royal Saudi Air Force (RSAF) in the 1990s. Saudi Arabia previously sought to buy up to 24 F-15Fs, a proposed single-seat variant, but was blocked by the U.S. Congress. The F-15S, initially referred to as F-15XP, is almost identical to the USAF F-15E, the only major difference in the AN/APG-70 radar's performance in synthetic aperture mode. 72 were built from 1996 to 1998. In October 2007, GE announced a US$300 million contract with Saudi Arabia for 65 GE F110-GE-129C engines for the F-15S. The F-15S fleet is being upgraded to a broadly comparable configuration as the later F-15SA (Saudi Advanced) and designated F-15SR with 66 aircraft planned to be upgraded by 2026.
+
+
+==== F-15SG ====
+The F-15SG (formerly F-15T) is a variant ordered by the Republic of Singapore Air Force (RSAF) after an evaluation involving five other fighters. It was chosen on 6 September 2005 over the Dassault Rafale, the only other remaining aircraft in contention. On 22 August 2005, the US Defense Security Cooperation Agency (DSCA) notified Congress of a potential Foreign Military Sale (FMS) of weapons, logistics and training to Singapore; options included AIM-120C and AIM-9X missiles; GBU-38 JDAM and AGM-154 JSOW air-to-ground weapons, AN/APG-63(V)3, night vision goggles and Link 16 terminals. The F-15F designation was also reserved. An order for 12 F-15SGs was placed in December 2005. On 22 October 2007, Singapore exercised an option for eight more F-15SGs within the original contract. Four more were later bought. The first F-15SG was rolled out on 3 November 2008; deliveries began in 2009; all 24 were declared operational in September 2013. Further F-15SGs were ordered, including 8 in 2010 and 8 in 2014, for a total of 40 F-15SGs by 2018. The RSAF currently qualifies personnel on the F-15SG via the 428th Fighter Squadron, a joint USAF-RSAF unit located at Mountain Home Air Force Base.
+
+
+=== F-15 Advanced Eagle variants ===
+
+The F-15 Advanced Eagle represents a more substantial upgrade baseline over previous models in that it has a new fly-by-wire control system and wing structure that enables two additional underwing weapons hardpoints (increasing the number from nine to eleven). Additional enhancements include the option of a large area display cockpit, the Raytheon AN/APG-82(V)1 or APG-63(V)3 AESA radar, General Electric F110-129 engines, digital Joint Helmet-Mounted Cueing Systems for pilot and WSO, and a digital electronic warfare system among other enhancements. Advanced Eagle variants include the F-15SA (Saudi Advanced), F-15QA (Qatari Advanced), F-15EX Eagle II, and F-15IA (Israeli Advanced).
+
+
+=== Proposed variants ===
+
+
+==== F-15F ====
+Proposed single-seat F-15E variant for Saudi Arabia. Later preliminarily assigned to F-15SGs.
+
+
+==== F-15G ====
+A F-15G Wild Weasel was a proposed two-seat version to replace the F-4G Wild Weasel in the suppression of enemy air defenses (SEAD) role. The F-15G was studied in 1986. A proposed modification to F-15Cs for the SEAD role was studied in 1994–95, but F-16Cs were modified to perform this role instead.
+
+
+==== F-15H ====
+The F-15H Strike Eagle (H for Hellas) was a 1990s proposed export version of F-15E for Greece, which was selected by the Greek Ministry of Defence and the Hellenic Air Force, but the government chose new F-16s and Mirage 2000-5s instead.
+
+
+==== F-15SE Silent Eagle ====
+
+The F-15SE Silent Eagle was a proposed variant with fifth generation fighter features, such as internal weapons carriage and radar-absorbent material. The Silent Eagle featured conformal weapons bays (CWB) to hold weapons internally instead of conformal fuel tanks, the twin vertical tails are canted outward 15 degrees to reduce radar cross section; the majority of the CWB's area is for weapons storage, a minority is used for fuel storage. The F-15SE was optimized for air-to-air missions, lacking all-aspect stealth features for missions inside areas protected by ground-based anti-aircraft systems. The first production F-15E, s/n "86-0183", was modified to become a Silent Eagle demonstrator. It first flew in July 2010 with a left-side conformal weapons bay, and successfully launched an AMRAAM missile from the CWB in July 2010. Potential customers were Saudi Arabia, Israel, Japan, and South Korea; however the Saudis chose to procure the less ambitious F-15SA which became the first F-15 Advanced Eagle variant, while Israel, Japan, and South Korea selected the F-35. Some of the proposed F-15SE features were carried over to the F-15 Advanced Eagle family.
+
+
+==== F-15GSE Global Strike Eagle ====
+The F-15GSE was a 2006 proposal for a space strike version of the F-15E, for attacking satellites. It was to be an unmanned remotely-piloted variant, carrying a 3-stage-to-orbit solid rocket ASAT missile on its back between the twin-tails.
+
+
+== Operators ==
+
+ Israel
+Israeli Air Force – 25 F-15I aircraft in use as of January 2014
+69 Squadron – Hatzerim AFB
+ Republic of Korea
+Republic of Korea Air Force – 59 F-15Ks in service in 2019. Sequentially, 40 and 21 units were delivered, of which two units crashed.
+11th Fighter Wing (제11전투비행단), based at Daegu
+102nd Fighter Squadron
+122nd Fighter Squadron
+110th Fighter Squadron
+ Saudi Arabia
+Royal Saudi Air Force – 70 F-15S Eagles in service as of January 2014
+No. 3 Wing RSAF – King Abdulaziz Air Base
+No. 92 Squadron RSAF
+No. 5 Wing RSAF – King Khalid Air Base
+No. 6 Squadron RSAF
+No. 55 Squadron RSAF
+ Singapore
+Republic of Singapore Air Force – 40 F-15SGs
+142 Squadron "Gryphon"
+149 Squadron "Fighting Shikra"
+ United States
+United States Air Force – 219 F-15Es in operation as of April 2019
+4th Fighter Wing – Seymour-Johnson AFB, North Carolina
+333d Fighter Squadron
+334th Fighter Squadron
+335th Fighter Squadron
+336th Fighter Squadron
+48th Fighter Wing - RAF Lakenheath, United Kingdom
+492d Fighter Squadron
+494th Fighter Squadron
+53d Wing - Eglin Air Force Base, Florida
+85th Test and Evaluation Squadron
+422d Test and Evaluation Squadron (Nellis Air Force Base, Nevada)
+57th Wing - Nellis AFB, Nevada
+17th Weapons Squadron
+96th Test Wing - Eglin AFB, Florida
+40th Flight Test Squadron
+366th Fighter Wing - Mountain Home Air Force Base, Idaho
+389th Fighter Squadron
+391st Fighter Squadron
+428th Fighter Squadron
+414th Fighter Group - Seymour-Johnson AFB, NC
+307th Fighter Squadron
+
+
+== Accidents and losses ==
+
+
+== Specifications (F-15E) ==
+
+Data from USAF F-15E Flight Manual (TO 1F-15E-1), USAF fact sheet, Davies, and BoeingGeneral characteristics
+Crew: 2 (pilot and weapon systems officer)
+Length: 63 ft 9.6 in (19.446 m)
+Wingspan: 42 ft 9.6 in (13.045 m)
+Height: 18 ft 6 in (5.64 m)
+Wing area: 608 sq ft (56.5 m2)
+Airfoil: root: NACA 64A006.6; tip: NACA 64A203
+Empty weight: 34,600 lb (15,694 kg) or 38,990 lb (17,690 kg) with CFTs
+Max takeoff weight: 81,000 lb (36,741 kg)
+Fuel capacity: 12,915 lb (5,858 kg) internal, 22,267 lb (10,100 kg) with CFTs, 34,162 lb (15,496 kg) with CFTs and 3× 600-gallon (2,270 L) external fuel tanks
+Powerplant: 2 × Pratt & Whitney F100-PW-220 afterburning turbofan, 14,590 lbf (64.9 kN) thrust each dry, 23,770 lbf (105.7 kN) with afterburner(or 2 × F100-PW-229, thrust: 17,800 lb dry (79 kN); 29,160 lb (129.7 kN) with afterburner each)
+Performance
+
+Maximum speed: Mach 2.5, 1,650 mph (2,655 km/h) at high altitude
+Mach 1.2, 800 kn (921 mph; 1,482 km/h) at low altitude
+Combat range: 687 nmi (791 mi, 1,272 km) air interdiction
+Ferry range: 2,100 nmi (2,400 mi, 3,900 km) with conformal fuel tanks and three external fuel tanks
+Service ceiling: 60,000 ft (18,000 m)
+g limits: +9
+Rate of climb: 50,000 ft/min (250 m/s) +
+Thrust/weight: 0.93
+Armament
+
+Guns: 1× 20 mm (0.787 in) M61A1 Vulcan 6-barreled rotary cannon, 500 rounds of either M-56 or PGU-28 ammunition
+Hardpoints: 4 wing pylons, fuselage pylons, bomb racks on CFTs with a capacity of 23,000 lb (10,400 kg) of external fuel and ordnance
+Missiles: 
+Air-to-air missiles:
+4× AIM-7 Sparrow
+4× AIM-9 Sidewinder or IRIS-T (S variant of the Saudi Air Force)
+8× AIM-120 AMRAAM
+Air-to-surface missiles:
+6× AGM-65 Maverick
+2× AGM-84 Harpoon
+2× AGM-84H/K SLAM-ER
+2x AGM-130
+AGM-154 JSOW
+AGM-158 JASSM
+Joint Strike Missile (to be integrated)
+Taurus KEPD 350 (integrated on South Korean Air Force F-15Ks)
+Bombs: 
+Mark 82 bomb
+Mark 84 bomb
+GBU-15
+GBU-10 Paveway II
+GBU-12 Paveway II
+GBU-24 Paveway III
+GBU-27 Paveway III
+GBU-28 (Bunker buster)
+GBU-31 or GBU-38 {8 GBU-31s or 16 GBU-38s} (JDAM)
+GBU-54 Laser JDAM (LJDAM)
+GBU-39 Small Diameter Bomb (SDB)
+B61 nuclear bomb
+CBU-87 or CBU-103 (CEM)
+CBU-89 or CBU-104 (GATOR)
+KGGB (integrated on South Korean Air Force F-15Ks)
+CBU-97 or CBU-105 (SFW)
+CBU-107 Passive Attack Weapon
+BLU-107 Durandal
+Others:
+up to 3× 600 US gallons (2,300 L) external drop tanks for ferry flight or extended range/loitering time
+3 x 7-round (21) APKWS under each wing
+Avionics
+
+Radar:
+Raytheon AN/APG-70 or AN/APG-82
+AN/ASQ-236 Radar Pod
+Targeting pods:
+AN/AAQ-14 LANTIRN or Lockheed Martin Sniper XR or AN/AAQ-28(V) Litening
+Countermeasures:
+Northrop Grumman Electronic Systems AN/ALQ-131 electronic countermeasures pod
+Hazeltine AN/APX-76 or Raytheon AN/APX-119 Identify Friend/Foe (IFF) interrogator
+Magnavox AN/ALQ-128 Electronic Warfare Warning Set (EWWS) – part of Tactical Electronic Warfare Systems (TEWS)
+Loral AN/ALR-56 Radar warning receivers (RWR) – part of TEWS
+Northrop Grumman Electronic Systems ALQ-135 Internal Countermeasures System (ICS) – part of TEWS
+Marconi AN/ALE-45 Chaff/Flares dispenser system – part of TEWS
+BAE Systems AN/ALQ-250 Eagle Passive Active Warning Survivability System (EPAWSS) - combined electronic warfare/electronic countermeasures system
+
+
+== See also ==
+
+4th generation jet fighter
+Related development
+
+McDonnell Douglas F-15 Eagle
+Boeing F-15EX Eagle II
+Aircraft of comparable role, configuration, and era
+
+Boeing F/A-18E/F Super Hornet
+Panavia Tornado
+Sukhoi Su-30
+Sukhoi Su-34
+Sukhoi Su-35
+Shenyang J-11
+Shenyang J-16
+
+Related lists
+
+List of fighter aircraft
+List of military aircraft of the United States
+List of military electronics of the United States
+
+
+== References ==
+
+
+=== Notes ===
+
+
+=== Citations ===
+
+
+=== Bibliography ===
+
+
+== External links ==
+
+F-15E USAF fact sheet
+F-15 page, and F-15EX Super Eagle page on Boeing.com, Boeing F-15IA (Israeli Advanced) poster Archived 29 April 2021 at the Wayback Machine
+F-15E.info, Strike Eagle site

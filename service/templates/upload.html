@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Upload · Clipper</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  * { box-sizing: border-box; }
+  body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+         margin: 0; color: #222; background: #fafafa; }
+  header { background: white; border-bottom: 1px solid #e1e1e1; padding: 14px 24px;
+           display: flex; gap: 12px; align-items: center; }
+  header h1 { margin: 0; font-size: 18px; }
+  header a { color: #06c; text-decoration: none; font-size: 14px; }
+  main { max-width: 760px; margin: 0 auto; padding: 20px; }
+  #drop { border: 2px dashed #bcc; border-radius: 10px; padding: 48px 24px;
+          text-align: center; color: #678; background: white; cursor: pointer;
+          transition: all 0.15s; }
+  #drop.over { border-color: #06c; background: #eef6ff; color: #06c; }
+  #drop .big { font-size: 40px; margin-bottom: 8px; }
+  .preview { background: white; border: 1px solid #e1e1e1; border-radius: 8px;
+             padding: 20px; margin-top: 20px; }
+  .preview h2 { margin: 0 0 4px; font-size: 16px; }
+  .fileline { font-size: 12px; color: #888; margin-bottom: 14px; }
+  .field { margin-bottom: 12px; }
+  .field label { display: block; font-size: 12px; color: #555; margin-bottom: 3px; font-weight: 600; }
+  .field input { width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
+  .field .remembered { color: #b45309; font-weight: 400; font-size: 11px; margin-left: 6px; }
+  .marking-row { display: flex; align-items: center; gap: 8px; }
+  .marking-badge { display: inline-block; padding: 2px 8px; border-radius: 3px;
+                   background: #fde68a; color: #7c2d12; font-weight: 600; font-size: 12px; }
+  .cands { font-size: 11px; color: #888; margin-top: 4px; }
+  .cands code { background: #f0f0f4; padding: 1px 4px; border-radius: 3px; }
+  .text-preview { margin-top: 12px; font-size: 12px; color: #555; background: #f7f7f9;
+                  border-radius: 6px; padding: 10px; max-height: 160px; overflow-y: auto;
+                  white-space: pre-wrap; }
+  .btns { margin-top: 16px; display: flex; gap: 8px; justify-content: flex-end; }
+  button { padding: 9px 16px; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; }
+  button.primary { background: #06c; color: white; font-weight: 600; }
+  button.secondary { background: #eee; }
+  .status { font-size: 13px; color: #666; margin-top: 10px; min-height: 18px; }
+  .err { color: #c0392b; }
+  .dup-banner { background: #fff3cd; border: 1px solid #ffe08a; color: #7a5b00;
+                border-radius: 6px; padding: 8px 12px; margin-bottom: 12px; font-size: 13px; }
+  .dup-banner a { color: #06c; }
+</style>
+</head>
+<body>
+<header>
+  <h1>⬆️ Upload</h1>
+  <a href="/">library</a> · <a href="/search">search</a>
+</header>
+<main>
+  <div id="drop">
+    <div class="big">📄</div>
+    <div>Drag <strong>PDF</strong> or <strong>MHTML</strong> (.mht/.mhtml) files here</div>
+    <div style="font-size:12px; margin-top:6px;">or click to choose — multiple files supported</div>
+    <input type="file" id="file" accept=".pdf,.mht,.mhtml" multiple style="display:none">
+  </div>
+  <div style="text-align:center; margin-top:10px;">
+    <button class="secondary" id="pick-folder">📁 Or ingest a whole folder of PDFs (subfolders included)…</button>
+    <input type="file" id="folder-input" webkitdirectory multiple style="display:none">
+  </div>
+  <div class="preview" id="folder-panel" style="display:none;">
+    <h2>Folder ingest</h2>
+    <div class="fileline" id="folder-summary"></div>
+    <div class="field">
+      <label>Tags applied to every imported PDF (optional, comma-separated)</label>
+      <input id="folder-tags" placeholder="e.g. archive-2024, reference">
+    </div>
+    <label style="font-size:13px; display:block; margin-bottom:4px;">
+      <input type="checkbox" id="folder-review">
+      Flag imports for tag review (confirm tags one by one on the <a href="/review" target="_blank">review page</a>)
+    </label>
+    <div class="btns">
+      <button class="secondary" id="folder-cancel">Cancel</button>
+      <button class="primary" id="folder-go">Ingest</button>
+    </div>
+    <div class="status" id="folder-progress"></div>
+    <div id="folder-results" style="font-size:13px; max-height:280px; overflow-y:auto; margin-top:6px;"></div>
+  </div>
+  <div class="status" id="status"></div>
+  <div id="batch-bar" style="display:none; margin:10px 0;">
+    <button class="primary" id="ingest-all">Ingest all non-duplicates</button>
+    <button class="secondary" id="clear-all">Clear</button>
+    <span id="batch-status" style="font-size:13px; color:#666; margin-left:8px;"></span>
+  </div>
+  <div id="preview-host"></div>
+</main>
+
+<script src="/static/tags.js"></script>
+<script>
+  const $ = s => document.querySelector(s);
+  const drop = $('#drop'), fileInput = $('#file');
+
+  drop.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', e => { uploadMany([...e.target.files]); });
+  ['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => {
+    e.preventDefault(); drop.classList.add('over');
+  }));
+  ['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => {
+    e.preventDefault(); drop.classList.remove('over');
+  }));
+  drop.addEventListener('drop', e => {
+    uploadMany([...e.dataTransfer.files]);
+  });
+
+  $('#clear-all').onclick = () => {
+    $('#preview-host').innerHTML = ''; $('#batch-bar').style.display = 'none';
+    $('#batch-status').textContent = '';
+  };
+  $('#ingest-all').onclick = ingestAll;
+
+  function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+  async function uploadMany(files) {
+    files = files.filter(Boolean);
+    if (!files.length) return;
+    $('#status').className = 'status';
+    for (const f of files) {
+      $('#status').textContent = `Reading ${f.name}…`;
+      await upload(f);
+    }
+    $('#status').textContent = '';
+    if ($('#preview-host').children.length) $('#batch-bar').style.display = '';
+  }
+
+  async function upload(file) {
+    const fd = new FormData();
+    fd.append('file', file);
+    try {
+      const r = await fetch('/api/upload/preview', { method: 'POST', body: fd });
+      const j = await r.json();
+      if (!r.ok) {
+        // Render an error card so a bad file in a batch doesn't vanish silently.
+        renderErrorCard(file.name, j.error || 'Failed');
+        return;
+      }
+      renderPreview(j);
+    } catch (e) {
+      renderErrorCard(file.name, String(e));
+    }
+  }
+
+  function renderErrorCard(name, msg) {
+    const card = document.createElement('div');
+    card.className = 'preview';
+    card.innerHTML = `<h2>${esc(name)}</h2><div class="status err">${esc(msg)}</div>`;
+    $('#preview-host').appendChild(card);
+  }
+
+  async function ingestAll() {
+    const cards = [...document.querySelectorAll('.preview[data-token]')];
+    let done = 0, skipped = 0;
+    for (const card of cards) {
+      if (card.dataset.committed === '1') continue;
+      if (card.dataset.duplicate === '1' && card.dataset.force !== '1') { skipped++; continue; }
+      const btn = card.querySelector('.commit-btn');
+      if (btn) { await commitCard(card); done++; }
+    }
+    $('#batch-status').textContent = `Ingested ${done}, skipped ${skipped} duplicate(s).`;
+  }
+
+  function renderPreview(p) {
+    const remembered = new Set(p.remembered_fields || []);
+    const f = p.editable;
+    function field(key, label) {
+      const tag = remembered.has(key) ? '<span class="remembered">(remembered correction)</span>' : '';
+      return `<div class="field">
+        <label>${label}${tag}</label>
+        <input data-f="${key}" value="${esc(f[key])}">
+      </div>`;
+    }
+    const cands = p.marking_candidates || {};
+    const candBits = Object.entries(cands).filter(([k,v]) => v)
+      .map(([k,v]) => `<code>${esc(k)}</code>=${esc(String(v))}`).join(' · ') || '<em>none detected</em>';
+    const extra = p.extra || {};
+    const extraBits = Object.entries(extra).map(([k,v]) => `${esc(k)}: ${esc(String(v))}`).join(' · ');
+
+    const dup = p.duplicate;
+    const dupBanner = dup ? `
+      <div class="dup-banner">
+        ⚠ Duplicate of <a href="/clip/${dup.id}" target="_blank">clip #${dup.id}</a>
+        ("${esc(dup.title || '')}", matched on ${esc(dup.matched_on)}).
+        Skipped by default — tick to ingest anyway:
+        <label style="margin-left:6px;"><input type="checkbox" class="force-box"> ingest anyway</label>
+      </div>` : '';
+
+    const card = document.createElement('div');
+    card.className = 'preview';
+    card.dataset.token = p.token;
+    if (dup) card.dataset.duplicate = '1';
+    card.innerHTML = `
+        <h2>${esc(p.filename)}</h2>
+        <div class="fileline">${p.kind.toUpperCase()} · ${(p.byte_size/1024).toFixed(0)} KB${extraBits ? ' · ' + extraBits : ''}</div>
+        ${dupBanner}
+        ${field('title','Title')}
+        ${field('url','URL')}
+        ${field('report_number','Report number')}
+        ${field('date_published','Date published')}
+        <div class="field">
+          <label>Marking</label>
+          <div class="marking-row">
+            <input data-f="marking" value="${esc(f.marking)}" style="flex:1">
+          </div>
+          <div class="cands">Candidates: ${candBits}</div>
+        </div>
+        <div class="field">
+          <label>Tags</label>
+          <div class="tag-widget"></div>
+        </div>
+        <div class="text-preview">${esc(p.text_preview || '(no text preview)')}</div>
+        <div class="btns">
+          <button class="secondary cancel-btn">Remove</button>
+          <button class="primary commit-btn">${dup ? 'Ingest (duplicate)' : 'Ingest'}</button>
+        </div>
+        <div class="status commit-status"></div>`;
+    $('#preview-host').appendChild(card);
+
+    // Force checkbox toggles the card's force flag + enables the button.
+    const forceBox = card.querySelector('.force-box');
+    if (forceBox) {
+      forceBox.addEventListener('change', () => {
+        card.dataset.force = forceBox.checked ? '1' : '0';
+      });
+    }
+
+    // Chip-style tag input + suggestions, scoped to this card.
+    let hostHint = '';
+    try { hostHint = p.editable.url ? new URL(p.editable.url).hostname : ''; } catch (_) {}
+    card._tagWidget = ClipperTags.create(card.querySelector('.tag-widget'), {
+      // Keywords authored into the file's metadata are applied up-front as
+      // removable chips (auto-include with opt-out), not just suggested.
+      initial: p.auto_tags || [],
+      // Title-weighted fields (filename + doc metadata) and a body-text slice
+      // from the server, so PDF/MHTML uploads get the same suggestion quality
+      // as a clipped webpage. Fall back to the display preview if absent.
+      context: { title: p.suggest_title || p.editable.title || '',
+                 text: p.suggest_text || p.text_preview || '', host: hostHint },
+    });
+
+    card.querySelector('.cancel-btn').onclick = () => {
+      card.remove();
+      if (!$('#preview-host').children.length) $('#batch-bar').style.display = 'none';
+    };
+    card.querySelector('.commit-btn').onclick = () => commitCard(card);
+  }
+
+  // ---- Recursive folder ingest -------------------------------------------
+  // webkitdirectory hands us every file under the picked root with its
+  // relative path; we filter to PDFs client-side and stream them one request
+  // at a time through /api/upload/bulk, so progress is live and one bad file
+  // can't sink the batch. Duplicates are skipped server-side, so re-picking
+  // the same folder after adding files imports only the new ones.
+  const folderInput = $('#folder-input');
+  let folderFiles = [];
+
+  $('#pick-folder').onclick = () => { folderInput.value = ''; folderInput.click(); };
+  folderInput.addEventListener('change', () => {
+    const all = [...folderInput.files];
+    folderFiles = all.filter(f => f.name.toLowerCase().endsWith('.pdf'));
+    const panel = $('#folder-panel');
+    $('#folder-results').innerHTML = '';
+    $('#folder-progress').textContent = '';
+    if (!folderFiles.length) {
+      panel.style.display = 'none';
+      $('#status').textContent = 'No PDFs found under that folder.';
+      return;
+    }
+    $('#status').textContent = '';
+    const root = (folderFiles[0].webkitRelativePath || '').split('/')[0] || 'folder';
+    const dirs = new Set(folderFiles.map(f =>
+      (f.webkitRelativePath || f.name).split('/').slice(0, -1).join('/')));
+    $('#folder-summary').textContent =
+      `${folderFiles.length} PDF(s) in ${dirs.size} folder(s) under "${root}" ` +
+      `(${all.length} file(s) scanned).`;
+    const go = $('#folder-go');
+    go.disabled = false;
+    go.textContent = `Ingest ${folderFiles.length} PDF(s)`;
+    panel.style.display = '';
+  });
+
+  $('#folder-cancel').onclick = () => {
+    folderFiles = [];
+    $('#folder-panel').style.display = 'none';
+  };
+
+  $('#folder-go').onclick = async () => {
+    const tags = $('#folder-tags').value.trim();
+    const review = $('#folder-review').checked;
+    const go = $('#folder-go');
+    go.disabled = true;
+    const resHost = $('#folder-results');
+    resHost.innerHTML = '';
+    let ok = 0, dup = 0, err = 0;
+    for (let i = 0; i < folderFiles.length; i++) {
+      const f = folderFiles[i];
+      const rel = f.webkitRelativePath || f.name;
+      $('#folder-progress').textContent =
+        `Ingesting ${i + 1} / ${folderFiles.length}: ${rel}`;
+      const fd = new FormData();
+      fd.append('file', f);
+      fd.append('relpath', rel);
+      if (tags) fd.append('tags', tags);
+      if (review) fd.append('review', '1');
+      let line;
+      try {
+        const r = await fetch('/api/upload/bulk', { method: 'POST', body: fd });
+        const j = await r.json();
+        if (!r.ok) {
+          err++; line = `✗ ${esc(rel)} — ${esc(j.error || 'failed')}`;
+        } else if (j.status === 'duplicate') {
+          dup++; line = `↩ ${esc(rel)} — already saved as ` +
+            `<a href="/clip/${j.duplicate.id}" target="_blank">clip #${j.duplicate.id}</a>`;
+        } else {
+          ok++; line = `✓ ${esc(rel)} → ` +
+            `<a href="/clip/${j.id}" target="_blank">clip #${j.id}</a>` +
+            (j.tags && j.tags.length ? ` · ${esc(j.tags.join(', '))}` : '');
+        }
+      } catch (e) {
+        err++; line = `✗ ${esc(rel)} — ${esc(String(e))}`;
+      }
+      const div = document.createElement('div');
+      div.innerHTML = line;
+      resHost.appendChild(div);
+      resHost.scrollTop = resHost.scrollHeight;
+    }
+    $('#folder-progress').innerHTML =
+      `Done: ${ok} imported, ${dup} duplicate(s) skipped, ${err} error(s).` +
+      (review && ok ? ' <a href="/review" target="_blank">Open the review queue →</a>' : '');
+    ClipperTags.invalidateTagCache();
+    go.disabled = false;
+    go.textContent = 'Ingest again';
+  };
+
+  ClipperTags.attachAutocomplete($('#folder-tags'), { multi: true });
+
+  // Commit one preview card. Reads its fields, posts, and on duplicate
+  // respects the per-card force flag.
+  async function commitCard(card) {
+    if (card.dataset.committed === '1') return;
+    const token = card.dataset.token;
+    const force = card.dataset.force === '1';
+    const fields = {};
+    card.querySelectorAll('[data-f]').forEach(inp => { fields[inp.dataset.f] = inp.value; });
+    const tags = card._tagWidget ? card._tagWidget.getTags() : [];
+    const statusEl = card.querySelector('.commit-status');
+    const btn = card.querySelector('.commit-btn');
+    btn.disabled = true;
+    try {
+      const r = await fetch('/api/upload/commit', {
+        method: 'POST', headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ token, fields, tags, force }),
+      });
+      const j = await r.json();
+      if (!r.ok) { statusEl.className='status err'; statusEl.textContent = j.error||'Failed'; btn.disabled=false; return; }
+      if (j.ok === false && j.skipped) {
+        statusEl.className = 'status';
+        statusEl.innerHTML = `Skipped — duplicate of <a href="/clip/${j.duplicate.id}" target="_blank">clip #${j.duplicate.id}</a>. Tick "ingest anyway" to override.`;
+        btn.disabled = false;
+        return;
+      }
+      card.dataset.committed = '1';
+      statusEl.className = 'status';
+      statusEl.innerHTML = `Ingested as <a href="/clip/${j.id}" target="_blank">clip #${j.id}</a>.`;
+      btn.textContent = 'Ingested';
+      // New tags from this commit should appear in other cards' autocomplete.
+      ClipperTags.invalidateTagCache();
+    } catch (e) {
+      statusEl.className='status err'; statusEl.textContent = String(e); btn.disabled=false;
+    }
+  }
+
+</script>
+</body>
+</html>

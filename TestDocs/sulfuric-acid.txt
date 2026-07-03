@@ -1,0 +1,725 @@
+Sulfuric acid (H2SO4)
+
+Sulfuric acid (American spelling and the preferred IUPAC name) or sulphuric acid (Commonwealth spelling), known in antiquity as oil of vitriol, is a mineral acid composed of the elements sulfur, oxygen, and hydrogen, with the molecular formula H2SO4. It is a colorless, odorless, and viscous liquid that is miscible with water.
+Pure sulfuric acid does not occur naturally due to its strong affinity to water vapor; it is hygroscopic and readily absorbs water vapor from the air. Concentrated sulfuric acid is a strong oxidant with powerful dehydrating properties, making it highly corrosive towards other materials, from rocks to metals. Phosphorus pentoxide is a notable exception in that it is not dehydrated by sulfuric acid but, to the contrary, dehydrates sulfuric acid to sulfur trioxide. When sulfuric acid is added to water, a considerable amount of heat is released; thus, the reverse procedure of adding water to the acid is generally avoided since the heat released may boil the solution, spraying droplets of hot acid during the process. Upon contact with body tissue, sulfuric acid can cause severe acidic chemical burns and secondary thermal burns due to dehydration. Dilute sulfuric acid is substantially less hazardous without the oxidative and dehydrating properties. Nonetheless, it must be handled with care due to its acidity.
+There are many methods for producing sulfuric acid, including the contact process, the wet sulfuric acid process, and the lead chamber process. Sulfuric acid is also a key substance in the chemical industry. It is most commonly used in fertilizer manufacture but is also important in mineral processing, oil refining, wastewater treating, and chemical synthesis. It has a wide range of end applications, including in domestic acidic drain cleaners, as an electrolyte in lead-acid batteries, as a dehydrating compound, and in various cleaning agents.
+Sulfuric acid can be obtained by dissolving sulfur trioxide in water.
+
+
+== Physical properties ==
+
+
+=== Grades of sulfuric acid ===
+Although nearly 100% sulfuric acid solutions can be made, the subsequent loss of SO3 at the boiling point brings the concentration to 98.3% acid. The 98.3% grade, which is more stable in storage, is the usual form of what is described as "concentrated sulfuric acid". Other concentrations are used for different purposes. Some common concentrations are:
+
+"Chamber acid" and "tower acid" were the two concentrations of sulfuric acid produced by the lead chamber process, chamber acid being the acid produced in the lead chamber itself (<70% to avoid contamination with nitrosylsulfuric acid) and tower acid being the acid recovered from the bottom of the Glover tower. They are now obsolete as commercial concentrations of sulfuric acid, although they may be prepared in the laboratory from concentrated sulfuric acid if needed. In particular, "10 M" sulfuric acid (the modern equivalent of chamber acid, used in many titrations) is prepared by slowly adding 98% sulfuric acid to an equal volume of water, with good stirring: the temperature of the mixture can rise to 80 °C (176 °F) or higher.
+
+
+=== Sulfuric acid ===
+Sulfuric acid contains not only H2SO4 molecules, but is actually an equilibrium of many other chemical species, as it is shown in the table below.
+
+Sulfuric acid is a colorless oily liquid, and has a vapor pressure of <0.001 mmHg at 25 °C and 1 mmHg at 145.8 °C, and 98% sulfuric acid has a vapor pressure of <1 mmHg at 40 °C.
+In the solid state, sulfuric acid is a molecular solid that forms monoclinic crystals with nearly trigonal lattice parameters. The structure consists of layers parallel to the (010) plane, in which each molecule is connected by hydrogen bonds to two others. Hydrates H2SO4·nH2O are known for n = 1, 2, 3, 4, 6.5, and 8, although most intermediate hydrates are stable against disproportionation.
+
+
+=== Polarity and conductivity ===
+Anhydrous H2SO4 is a very polar liquid, having a dielectric constant of around 100. It has a high electrical conductivity, a consequence of autoprotolysis, i.e. self-protonation:
+
+2 H2SO4  ⇌  H3SO+4 + HSO−4
+The equilibrium constant for autoprotolysis (25 °C) is:
+
+[H3SO4]+[HSO4]− =  2.7 × 10−4
+The corresponding equilibrium constant for water, Kw is 10−14, a factor of 1010 (10 billion) smaller.
+In spite of the viscosity of the acid, the effective conductivities of the H3SO+4 and HSO−4 ions are high due to an intramolecular proton-switch mechanism (analogous to the Grotthuss mechanism in water), making sulfuric acid a good conductor of electricity. It is also an excellent solvent for many reactions.
+
+
+== Chemical properties ==
+
+
+=== Acidity ===
+
+The hydration reaction of sulfuric acid is highly exothermic.
+As indicated by its acid dissociation constant, sulfuric acid is a strong acid:
+
+H2SO4 + H2O   →  H3O+ + HSO−4, Ka1 >> 1
+The product of this ionization is HSO−4, the bisulfate anion. Bisulfate is a far weaker acid:
+
+HSO−4 + H2O  →  H3O+ + SO2−4, Ka2 = 0.01 (pKa2 = 2)
+The product of this second dissociation is SO2−4, the sulfate anion.
+
+
+=== Dehydration ===
+Concentrated sulfuric acid has a powerful dehydrating property, removing water (H2O) from other chemical compounds such as table sugar (sucrose) and other carbohydrates, to produce carbon, steam, and heat. Dehydration of table sugar (sucrose) is a common laboratory demonstration. The sugar darkens as carbon is formed, and a rigid column of black, porous carbon called a carbon snake may emerge.
+
+  
+    
+      
+        
+          
+            
+              
+                C
+                
+                  12
+                
+                
+                  
+                
+              
+              
+                H
+                
+                  22
+                
+                
+                  
+                
+              
+              
+                O
+                
+                  11
+                
+                
+                  
+                
+              
+            
+            sucrose
+          
+        
+        ⟶
+        
+          
+            
+              12
+              
+              C
+            
+            
+              
+                black
+              
+              
+                graphitic foam
+              
+            
+          
+        
+        +
+        
+          11
+          
+          
+            H
+            
+              2
+            
+            
+              
+            
+          
+          
+            O
+            
+              
+                (
+                g
+                ,
+                l
+                )
+              
+            
+            
+              
+            
+          
+        
+      
+    
+    {\displaystyle {\underset {\text{sucrose}}{{\ce {C12H22O11}}}}\longrightarrow {\underset {{\text{black}} \atop {\text{graphitic foam}}}{{\ce {12 C}}}}+{\ce {11 H2O_{(g,l)}}}}
+  
+
+Similarly, mixing starch into concentrated sulfuric acid gives elemental carbon and water. The effect of this can also be seen when concentrated sulfuric acid is spilled on paper. Paper is composed of cellulose, a polysaccharide related to starch. The cellulose reacts to give a burnt appearance in which the carbon appears much like soot that results from fire.
+Although less dramatic, the action of the acid on cotton, even in diluted form, destroys the fabric.
+
+  
+    
+      
+        
+          
+            
+              
+                
+                  [
+                  
+                    C
+                    
+                      6
+                    
+                    
+                      
+                    
+                  
+                  
+                    H
+                    
+                      10
+                    
+                    
+                      
+                    
+                  
+                  
+                    O
+                    
+                      5
+                    
+                    
+                      
+                    
+                  
+                  ]
+                
+              
+              
+                n
+              
+            
+            polysaccharide
+          
+        
+        ⟶
+        6
+        n
+         
+        
+          C
+        
+        +
+        5
+        n
+         
+        
+          
+            H
+            
+              2
+            
+            
+              
+            
+          
+          O
+        
+      
+    
+    {\displaystyle {\underset {\text{polysaccharide}}{{\ce {[C6H10O5]}}_{n}}}\longrightarrow 6n\ {\ce {C}}+5n\ {\ce {H2O}}}
+  
+
+The reaction with copper(II) sulfate can also demonstrate the dehydration property of sulfuric acid. The blue crystals change into white powder as water is removed.
+
+  
+    
+      
+        
+          
+            
+              
+                CuSO
+                
+                  4
+                
+                
+                  
+                
+              
+              ⋅
+              5
+              
+              
+                H
+                
+                  2
+                
+                
+                  
+                
+              
+              O
+            
+            
+              
+                copper(II) sulfate
+              
+              
+                pentahydrate
+              
+            
+          
+        
+        ⟶
+        
+          
+            
+              
+                CuSO
+                
+                  4
+                
+                
+                  
+                
+              
+            
+            
+              
+                anhydrous
+              
+              
+                copper(II) sulfate
+              
+            
+          
+        
+        +
+        
+          5
+          
+          
+            H
+            
+              2
+            
+            
+              
+            
+          
+          O
+        
+      
+    
+    {\displaystyle {\underset {{\text{copper(II) sulfate}} \atop {\text{pentahydrate}}}{{\ce {CuSO4*5H2O}}}}\longrightarrow {\underset {{\text{anhydrous}} \atop {\text{copper(II) sulfate}}}{{\ce {CuSO4}}}}+{\ce {5 H2O}}}
+  
+
+
+=== Reactions with salts ===
+Sulfuric acid reacts with most bases to give the corresponding sulfate or bisulfate.
+Aluminium sulfate, also known as paper maker's alum, is made by treating bauxite with sulfuric acid:
+
+2 AlO(OH) + 3 H2SO4  →  Al2(SO4)3 + 4 H2O
+Sulfuric acid can also be used to displace weaker acids from their salts. Reaction with sodium acetate, for example, displaces acetic acid, CH3COOH, and forms sodium bisulfate:
+
+H2SO4 + CH3CO2Na  →  NaHSO4 + CH3COOH
+Similarly, treating potassium nitrate with sulfuric acid produces nitric acid.  Sulfuric acid reacts with sodium chloride, and gives hydrogen chloride gas and sodium bisulfate:
+
+NaCl + H2SO4  →  NaHSO4 + HCl
+When combined with nitric acid, sulfuric acid acts both as an acid and a dehydrating agent, forming the nitronium ion NO+2, which is important in nitration reactions involving electrophilic aromatic substitution. This type of reaction, where protonation occurs on an oxygen atom, is important in many organic chemistry reactions, such as Fischer esterification and dehydration of alcohols.
+
+When allowed to react with superacids, sulfuric acid can act as a base and can be protonated, forming the [H3SO4]+ ion. Salts of [H3SO4]+ have been prepared (e.g. trihydroxyoxosulfonium hexafluoroantimonate(V) [H3SO4]+[SbF6]−) using the following reaction in liquid HF:
+
+[(CH3)3SiO]2SO2 + 3 HF + SbF5  →  [H3SO4]+[SbF6]− + 2 (CH3)3SiF
+The above reaction is thermodynamically favored due to the high bond enthalpy of the Si–F bond in the side product. Protonation using simply fluoroantimonic acid, however, has met with failure, as pure sulfuric acid undergoes self-ionization to give [H3O]+ ions:
+
+2 H2SO4  ⇌  H3O+ + HS2O−7
+which prevents the conversion of H2SO4 to [H3SO4]+ by the HF/SbF5 system.
+
+
+=== Reactions with metals ===
+Even diluted sulfuric acid reacts with many metals via a single displacement reaction, like other typical acids, producing hydrogen gas and salts (the metal sulfate). It attacks reactive metals (metals at positions above copper in the reactivity series) such as iron, aluminium, zinc, manganese, magnesium, and nickel.
+
+Fe + H2SO4  →  H2 + FeSO4
+Concentrated sulfuric acid can serve as an oxidizing agent, releasing sulfur dioxide:
+
+Cu + 2 H2SO4  →  SO2 + 2 H2O + SO2−4 + Cu2+
+Lead and tungsten, however, are resistant to sulfuric acid.
+
+
+=== Reactions with carbon and sulfur ===
+Hot concentrated sulfuric acid oxidizes carbon (as bituminous coal) and sulfur:
+
+C + 2 H2SO4  →  CO2 + 2 SO2 + 2 H2O
+S + 2 H2SO4  →  3 SO2 + 2 H2O
+
+
+=== Electrophilic aromatic substitution ===
+Benzene and many derivatives undergo electrophilic aromatic substitution with sulfuric acid to give the corresponding sulfonic acids:
+
+
+=== Sulfur–iodine cycle ===
+Sulfuric acid can be used to produce hydrogen from water:
+
+The compounds of sulfur and iodine are recovered and reused, hence the process is called the  sulfur–iodine cycle. This process is endothermic and must occur at high temperatures, so energy in the form of heat has to be supplied. The sulfur–iodine cycle has been proposed as a way to supply hydrogen for a hydrogen-based economy. It is an alternative to electrolysis, and does not require hydrocarbons like current methods of steam reforming. But note that all of the available energy in the hydrogen so produced is supplied by the heat used to make it.
+
+
+== Occurrence ==
+
+Sulfuric acid is rarely encountered naturally on Earth in anhydrous form, due to its great affinity for water. Dilute sulfuric acid is a constituent of acid rain, which is formed by atmospheric oxidation of sulfur dioxide in the presence of water—i.e. oxidation of sulfurous acid. When sulfur-containing fuels such as coal or oil are burned, sulfur dioxide is the main byproduct (besides the chief products carbon oxides and water).
+Sulfuric acid is formed naturally by the oxidation of sulfide minerals, such as pyrite:
+
+2 FeS2(s) + 7 O2 + 2 H2O → 2 Fe2+ + 4 SO2−4 + 4 H+
+The resulting highly acidic water is called acid mine drainage (AMD) or acid rock drainage (ARD).
+The Fe2+ can be further oxidized to Fe3+:
+
+4 Fe2+ + O2 + 4 H+ → 4 Fe3+ + 2 H2O
+The Fe3+ produced can be precipitated as the hydroxide or hydrous iron oxide:
+
+Fe3+ + 3 H2O → Fe(OH)3↓ + 3 H+
+The iron(III) ion ("ferric iron") can also oxidize pyrite:
+FeS2(s) + 14 Fe3+ + 8 H2O → 15 Fe2+ + 2 SO2−4 + 16 H+
+When iron(III) oxidation of pyrite occurs, the process can become rapid. pH values below zero have been measured in ARD produced by this process.
+ARD can also produce sulfuric acid at a slower rate, so that the acid neutralizing capacity (ANC) of the aquifer can neutralize the produced acid. In such cases, the total dissolved solids (TDS) concentration of the water can be increased from the dissolution of minerals from the acid-neutralization reaction with the minerals.
+Sulfuric acid is used as a defense by certain marine species, for example, the phaeophyte alga Desmarestia munda (order Desmarestiales) concentrates sulfuric acid in cell vacuoles.
+
+
+=== Stratospheric aerosol ===
+In the stratosphere, the atmosphere's second layer that is generally between 10 and 50 km above Earth's surface, sulfuric acid is formed by the oxidation of volcanic sulfur dioxide by the hydroxyl radical:
+
+SO2 + HO• → HSO3
+HSO3 + O2 → SO3 + HO2
+SO3 + H2O → H2SO4
+Because sulfuric acid reaches supersaturation in the stratosphere, it can nucleate aerosol particles and provide a surface for aerosol growth via condensation and coagulation with other water-sulfuric acid aerosols. This results in the stratospheric aerosol layer.
+
+
+=== Extraterrestrial sulfuric acid ===
+The permanent Venusian clouds are made of concentrated sulfuric acid, and produce a concentrated sulfuric acid rain, just as the clouds in the atmosphere of Earth are made of water and produce water rain. Sulfuric acid ice has been detected on Jupiter's moon Europa, where it forms when sulfur ions from Jupiter's magnetosphere implant into the icy surface.
+
+
+== Production ==
+
+Sulfuric acid is produced from sulfur, oxygen and water via the conventional contact process (DCDA) or the wet sulfuric acid process (WSA).
+
+
+=== Contact process ===
+
+In the first step, sulfur is burned to produce sulfur dioxide.
+
+S(s) + O2 → SO2
+The sulfur dioxide is oxidized to sulfur trioxide by oxygen in the presence of a vanadium(V) oxide catalyst. This reaction is reversible and the formation of the sulfur trioxide is exothermic.
+
+2 SO2 + O2 ⇌ 2 SO3
+The sulfur trioxide is absorbed into 97–98% H2SO4 to form oleum (H2S2O7), also known as fuming sulfuric acid or pyrosulfuric acid. The oleum is then diluted with water to form concentrated sulfuric acid.
+
+H2SO4 + SO3 → H2S2O7
+H2S2O7 + H2O → 2 H2SO4
+
+
+=== Wet sulfuric acid process ===
+
+Directly dissolving SO3 in water, called the "wet sulfuric acid process", is rarely practiced because the reaction is extremely exothermic, resulting in a hot aerosol of sulfuric acid that requires condensation and separation.
+In the first step, sulfur is burned to produce sulfur dioxide:
+
+S + O2 → SO2 (−297 kJ/mol)
+or, alternatively, hydrogen sulfide (H2S) gas is incinerated to SO2 gas:
+
+2 H2S + 3 O2 → 2 H2O + 2 SO2 (−1036 kJ/mol)
+The sulfur dioxide then oxidized to sulfur trioxide using oxygen with vanadium(V) oxide as catalyst.
+
+2 SO2 + O2 ⇌ 2 SO3 (−198 kJ/mol) (reaction is reversible)
+The sulfur trioxide is hydrated into sulfuric acid H2SO4:
+
+SO3 + H2O → H2SO4(g) (−101 kJ/mol)
+The last step is the condensation of the sulfuric acid to liquid 97–98% H2SO4:
+
+H2SO4(g) → H2SO4(l) (−69 kJ/mol)
+
+
+=== Other methods ===
+Burning sulfur together with saltpeter (potassium nitrate, KNO3), in the presence of steam, has been used historically. As saltpeter decomposes, it oxidizes the sulfur to SO3, which combines with water to produce sulfuric acid.
+Prior to 1900, most sulfuric acid was manufactured by the lead chamber process. As late as 1940, up to 50% of sulfuric acid manufactured in the United States was produced by chamber process plants.
+A wide variety of laboratory syntheses are known, and typically begin from sulfur dioxide or an equivalent salt.  In the metabisulfite method, hydrochloric acid reacts with metabisulfite to produce sulfur dioxide vapors.  The gas is bubbled through nitric acid, which will release brown/red vapors of nitrogen dioxide as the reaction proceeds. The completion of the reaction is indicated by the ceasing of the fumes. This method conveniently does not produce an inseparable mist.
+
+3 SO2 + 2 HNO3 + 2 H2O → 3 H2SO4 + 2 NO
+Alternatively, dissolving sulfur dioxide in an aqueous solution of an oxidizing metal salt such as copper(II) or iron(III) chloride:
+
+2 FeCl3 + 2 H2O + SO2 → 2 FeCl2 + H2SO4 + 2 HCl
+2 CuCl2 + 2 H2O + SO2 → 2 CuCl + H2SO4 + 2 HCl
+Two less well-known laboratory methods of producing sulfuric acid, albeit in dilute form and requiring some extra effort in purification, rely on electrolysis. A solution of copper(II) sulfate can be electrolyzed with a copper cathode and platinum/graphite anode to give spongy copper at cathode and oxygen gas at the anode.  The solution of dilute sulfuric acid indicates completion of the reaction when it turns from blue to clear (production of hydrogen at cathode is another sign):
+
+2 CuSO4 + 2 H2O → 2 Cu + 2 H2SO4 + O2
+More costly, dangerous, and troublesome is the electrobromine method, which employs a mixture of sulfur, water, and hydrobromic acid as the electrolyte. The sulfur is pushed to bottom of container under the acid solution. Then the copper cathode and platinum/graphite anode are used with the cathode near the surface and the anode is positioned at the bottom of the electrolyte to apply the current. This may take longer and emits toxic bromine/sulfur-bromide vapors, but the reactant acid is recyclable. Overall, only the sulfur and water are converted to sulfuric acid and hydrogen (omitting losses of acid as vapors): 
+
+2 HBr → H2 + Br2 (electrolysis of aqueous hydrogen bromide)
+Br2 + Br−  ⇌  Br−3 (initial tribromide production, eventually reverses as Br− depletes)
+2 S + Br2 → S2Br2 (bromine reacts with sulfur to form disulfur dibromide)
+S2Br2 + 8 H2O + 5 Br2 → 2 H2SO4 + 12 HBr (oxidation and hydration of disulfur dibromide)
+
+
+== Uses ==
+
+Sulfuric acid is a very important commodity chemical, and a nation's sulfuric acid production was as recently as 2002 believed to be a good indicator of its industrial strength. World production in the year 2004 was about 180 million tonnes, with the following geographic distribution: Asia 35%, North America (including Mexico) 24%, Africa 11%, Western Europe 10%, Eastern Europe and Russia 10%, Australia and Oceania 7%, South America 7%. World production in 2022 was estimated at 260 million tonnes.
+As of the late 20th century, most of the produced amount (≈60%) was consumed for fertilizers, particularly superphosphates, ammonium phosphate and ammonium sulfates. About 20% is used in chemical industry for production of detergents, synthetic resins, dyestuffs, pharmaceuticals, petroleum catalysts, insecticides and antifreeze, as well as in various processes such as oil well acidicizing, aluminium reduction, paper sizing, and water treatment. About 6% of uses are related to pigments and include paints, enamels, printing inks, coated fabrics and paper, while the rest is dispersed into a multitude of applications such as production of explosives, cellophane, acetate and viscose textiles, lubricants, non-ferrous metals, and batteries.
+Sulfuric acid is used as a consumable for the extraction of copper from oxides in leaching piles. Chile, the world's leading producer of copper, required as of 2026 sulfuric acid in about 20% of its copper production.
+
+
+=== Industrial production of chemicals ===
+The dominant use for sulfuric acid is in the "wet method" for the production of phosphoric acid, used for manufacture of phosphate fertilizers. In this method, phosphate rock is used, and more than 100 million tonnes are processed annually. This raw material is shown below as fluorapatite, though the exact composition may vary. This is treated with 93% sulfuric acid to produce calcium sulfate, hydrogen fluoride (HF) and phosphoric acid. The HF is removed as hydrofluoric acid. The overall process can be represented as:
+
+  
+    
+      
+        
+          
+            
+              
+                Ca
+                
+                  5
+                
+                
+                  
+                
+              
+              
+                
+                  (
+                  
+                    PO
+                    
+                      4
+                    
+                    
+                      
+                    
+                  
+                  )
+                
+                
+                  3
+                
+                
+                  
+                
+              
+              F
+            
+            fluorapatite
+          
+        
+        +
+        
+          5
+          
+          
+            H
+            
+              2
+            
+            
+              
+            
+          
+          
+            SO
+            
+              4
+            
+            
+              
+            
+          
+          +
+          10
+          
+          
+            H
+            
+              2
+            
+            
+              
+            
+          
+          O
+        
+        ⟶
+        
+          
+            
+              5
+              
+              
+                CaSO
+                
+                  4
+                
+                
+                  
+                
+              
+              ⋅
+              2
+              
+              
+                H
+                
+                  2
+                
+                
+                  
+                
+              
+              O
+            
+            
+              
+                calcium sulfate
+              
+              
+                dihydrate
+              
+            
+          
+        
+        +
+        
+          HF
+          +
+          3
+          
+          
+            H
+            
+              3
+            
+            
+              
+            
+          
+          
+            PO
+            
+              4
+            
+            
+              
+            
+          
+        
+      
+    
+    {\displaystyle {\underset {\text{fluorapatite}}{{\ce {Ca5(PO4)3F}}}}+{\ce {5 H2SO4 + 10 H2O}}\longrightarrow {\underset {{\text{calcium sulfate}} \atop {\text{dihydrate}}}{{\ce {5 CaSO4*2H2O}}}}+{\ce {HF + 3 H3PO4}}}
+  
+
+Ammonium sulfate, an important nitrogen fertilizer, is most commonly produced as a byproduct from coking plants supplying the iron and steel making plants. Reacting the ammonia produced in the thermal decomposition of coal with waste sulfuric acid allows the ammonia to be crystallized out as a salt (often brown because of iron contamination) and sold into the agro-chemicals industry.
+Sulfuric acid is also important in the manufacture of dyestuffs solutions.
+
+
+=== Industrial cleaning agent ===
+Sulfuric acid is used in steelmaking and other metallurgical industries as a pickling agent for removal of rust and fouling. Used acid is often recycled using a spent acid regeneration (SAR) plant. These plants combust spent acid with natural gas, refinery gas, fuel oil or other fuel sources. This combustion process produces gaseous sulfur dioxide (SO2) and sulfur trioxide (SO3) which are then used to manufacture "new" sulfuric acid.
+Hydrogen peroxide (H2O2) can be added to sulfuric acid to produce piranha solution, a powerful but potentially hazardous cleaning solution with which substrate surfaces can be cleaned. Piranha solution is typically used in the microelectronics industry, and also in laboratory settings to clean glassware.
+
+
+=== Catalyst ===
+Sulfuric acid is used for a variety of other purposes in the chemical industry. For example, it is the usual acid catalyst for the conversion of cyclohexanone oxime to caprolactam, used for making nylon. It is used for making hydrochloric acid from salt via the Mannheim process. Much H2SO4 is used in petroleum refining, for example as a catalyst for the reaction of isobutane with isobutylene to give isooctane, a compound that raises the octane rating of gasoline (petrol). Sulfuric acid is also often used as a dehydrating or oxidizing agent in industrial reactions, such as the dehydration of various sugars to form solid carbon.
+
+
+=== Electrolyte ===
+
+Sulfuric acid acts as the electrolyte in lead–acid batteries (lead-acid accumulator):
+At anode:
+
+Pb + SO2−4 ⇌ PbSO4 + 2 e−
+At cathode:
+
+PbO2 + 4 H+ + SO2−4 + 2 e− ⇌ PbSO4 + 2 H2O
+
+Overall:
+
+Pb + PbO2 + 4 H+ + 2 SO2−4 ⇌ 2 PbSO4 + 2 H2O
+
+
+=== Domestic uses ===
+Sulfuric acid at high concentrations is frequently the major ingredient in domestic acidic drain cleaners which are used to remove lipids, hair, tissue paper, etc. Similar to their alkaline versions, such drain openers can dissolve fats and proteins via hydrolysis. Moreover, as concentrated sulfuric acid has a strong dehydrating property, it can remove tissue paper via dehydrating process as well. Since the acid may react with water vigorously, such acidic drain openers should be added slowly into the pipe to be cleaned.
+
+
+== History ==
+
+
+=== Vitriols ===
+The study of vitriols (hydrated sulfates of various metals forming glassy minerals from which sulfuric acid can be derived) began in ancient times. Sumerians had a list of types of vitriol that they classified according to the substances' color. Some of the earliest discussions on the origin and properties of vitriol is in the works of the Greek physician Dioscorides (first century AD) and the Roman naturalist Pliny the Elder (23–79 AD). Galen also discussed its medical use. Metallurgical uses for vitriolic substances were recorded in the Hellenistic alchemical works of Zosimos of Panopolis, in the treatise Phisica et Mystica, and the Leyden papyrus X. Medieval Islamic alchemists like the authors writing under the name of Jabir ibn Hayyan (died c. 806 – c. 816, known in Latin as Geber), Abu Bakr al-Razi (865–925, known in Latin as Rhazes), Ibn Sina (980–1037, known in Latin as Avicenna), and Muhammad ibn Ibrahim al-Watwat (1234–1318) included vitriol in their mineral classification lists.
+
+
+=== Jabir ibn Hayyan, Abu Bakr al-Razi, Ibn Sina, et al. ===
+The Jabirian authors and al-Razi experimented extensively with the distillation of various substances, including vitriols. In one recipe recorded in his Kitāb al-Asrār ('Book of Secrets'), al-Razi may have created sulfuric acid without being aware of it:
+
+Take white (Yemeni) alum, dissolve it and purify it by filtration. Then distil (green?) vitriol with copper-green (the acetate), and mix (the distillate) with the filtered solution of the purified alum, afterwards let it solidify (or crystallise) in the glass beaker. You will get the best qalqadis (white alum) that may be had.
+In an anonymous Latin work variously attributed to Aristotle (under the title Liber Aristotilis, 'Book of Aristotle'), to al-Razi (under the title Lumen luminum magnum, 'Great Light of Lights'), or to Ibn Sina, the author speaks of an 'oil' (oleum) obtained through the distillation of iron(II) sulfate (green vitriol), which was likely 'oil of vitriol' or sulfuric acid. The work refers multiple times to Jabir ibn Hayyan's Seventy Books (Liber de septuaginta), one of the few Arabic Jabir works that were translated into Latin. The author of the version attributed to al-Razi also refers to the Liber de septuaginta as his own work, showing that he erroneously believed the Liber de septuaginta to be a work by al-Razi. There are several indications that the anonymous work was an original composition in Latin, although according to one manuscript it was translated by a certain Raymond of Marseilles, meaning that it may also have been a translation from the Arabic.
+According to Ahmad Y. al-Hassan, three recipes for sulfuric acid occur in an anonymous Garshuni manuscript containing a compilation taken from several authors and dating from before c. 1100 AD. One of them runs as follows:
+
+The water of vitriol and sulphur which is used to irrigate the drugs: yellow vitriol three parts, yellow sulphur one part, grind them and distil them in the manner of rose-water.
+A recipe for the preparation of sulfuric acid is mentioned in Risālat Jaʿfar al-Sādiq fī ʿilm al-ṣanʿa, an Arabic treatise falsely attributed to the Shi'i Imam Ja'far al-Sadiq (died 765). Julius Ruska dated this treatise to the 13th century, but according to Ahmad Y. al-Hassan it likely dates from an earlier period:
+
+Then distil green vitriol in a cucurbit and alembic, using medium fire; take what you obtain from the distillate, and you will find it clear with a greenish tint.
+
+
+=== Vincent of Beauvais, Albertus Magnus, and pseudo-Geber ===
+Sulfuric acid was called 'oil of vitriol' by medieval European alchemists because it was prepared by roasting iron(II) sulfate or green vitriol in an iron retort. The first allusions to it in works that are European in origin appear in the thirteenth century AD, as for example in the works of Vincent of Beauvais, in the Compositum de Compositis ascribed to Albertus Magnus, and in pseudo-Geber's Summa perfectionis.
+
+
+=== Producing sulfuric acid from sulfur ===
+A method of producing oleum sulphuris per campanam, or "oil of sulfur by the bell", was known by the 16th century: it involved burning sulfur under a glass bell in moist weather (or, later, under a moistened bell). However, it was very inefficient (according to Gesner, 5 pounds (2.3 kg) of sulfur converted into less than 1 ounce (0.03 kg) of acid), and the resulting product was contaminated by sulfurous acid (or rather, solution of sulfur dioxide) so most alchemists (including, for example, Isaac Newton) did not consider it equivalent to "oil of vitriol".
+In the 17th century, Johann Rudolf Glauber discovered that adding saltpeter (potassium nitrate, KNO3) significantly improves the output, also replacing moisture with steam. As saltpeter decomposes, it oxidizes the sulfur to SO3, which combines with water to produce sulfuric acid. In 1736, Joshua Ward, a London pharmacist, used this method to begin the first large-scale production of sulfuric acid.
+
+
+=== Lead chamber process ===
+In 1746 in Birmingham, John Roebuck adapted this method to produce sulfuric acid in lead-lined chambers, which were stronger, less expensive, and could be made larger than the previously used glass containers. This process allowed the effective industrialization of sulfuric acid production. After several refinements, this method, called the lead chamber process or "chamber process", remained the standard for sulfuric acid production for almost two centuries with a purity of 62% and a conversion of 75%.
+
+
+=== Distillation of pyrite ===
+Sulfuric acid created by John Roebuck's process approached a 65% concentration. Later refinements to the lead chamber process by French chemist Joseph Louis Gay-Lussac and British chemist John Glover improved concentration to 78%. However, the manufacture of some dyes and other chemical processes require a more concentrated product. Throughout the 18th century, this could only be made by dry distilling minerals in a technique similar to the original alchemical processes. Pyrite (iron disulfide, FeS2) was heated in air to yield iron(II) sulfate, FeSO4, which was oxidized by further heating in air to form iron(III) sulfate, Fe2(SO4)3, which, when heated to 480 °C, decomposed to iron(III) oxide and sulfur trioxide, which could be passed through water to yield sulfuric acid in any concentration. However, the expense of this process prevented the large-scale use of concentrated sulfuric acid.
+
+
+=== Contact process ===
+In 1831, British vinegar merchant Peregrine Phillips patented the contact process, which was a far more economical process for producing sulfur trioxide and concentrated sulfuric acid. Today, nearly all of the world's sulfuric acid is produced using this method.
+In the early to mid 19th century "vitriol" plants existed, among other places, in Prestonpans in Scotland, Shropshire and the Lagan Valley in County Antrim, Northern Ireland, where it was used as a bleach for linen. Early bleaching of linen was done using lactic acid from sour milk but this was a slow process and the use of vitriol sped up the bleaching process.
+
+
+== Safety ==
+
+
+=== Laboratory hazards ===
+
+Sulfuric acid is capable of causing very severe burns, especially when it is at high concentrations. In common with other corrosive acids and alkali, it readily decomposes proteins and lipids through amide and ester hydrolysis upon contact with living tissues, such as skin and flesh. In addition, it exhibits a strong dehydrating property on carbohydrates, liberating extra heat and causing secondary thermal burns. Accordingly, it rapidly attacks the cornea and can induce permanent blindness if splashed onto eyes. If ingested, it damages internal organs irreversibly and may even be fatal. Personal protective equipment should hence always be used when handling it. Moreover, its strong oxidizing property makes it highly corrosive to many metals and may extend its destruction on other materials. Because of such reasons, damage caused by sulfuric acid is potentially more severe than that by other comparable strong acids, such as hydrochloric acid and nitric acid.
+
+Sulfuric acid must be stored carefully in containers made of nonreactive material (such as glass). Solutions equal to or stronger than 1.5 M are labeled "CORROSIVE", while solutions greater than 0.5 M but less than 1.5 M are labeled "IRRITANT". However, even the normal laboratory "dilute" grade (approximately 1 M, 10%) will char paper if left in contact for a sufficient time.
+The standard first aid treatment for acid spills on the skin is, as for other corrosive agents, irrigation with large quantities of water. Washing is continued for at least ten to fifteen minutes to cool the tissue surrounding the acid burn and to prevent secondary damage. Contaminated clothing is removed immediately and the underlying skin washed thoroughly.
+
+
+=== Dilution hazards ===
+Preparation of diluted acid can be dangerous due to the heat released in the dilution process. To avoid splattering, the concentrated acid is usually added to water and not the other way around. A saying used to remember this is "Do like you oughta, add the acid to the water". Water has a higher heat capacity than the acid, and so a vessel of cold water will absorb heat as acid is added.
+
+Also, because the acid is denser than water, it sinks to the bottom. Heat is generated at the interface between acid and water, which is at the bottom of the vessel. Acid will not boil, because of its higher boiling point. Warm water near the interface rises due to convection, which cools the interface, and prevents boiling of either acid or water.
+In contrast, addition of water to concentrated sulfuric acid results in a thin layer of water on top of the acid. Heat generated in this thin layer of water can boil, leading to the dispersal of a sulfuric acid aerosol, or worse, an explosion.
+Preparation of solutions greater than 6 M (35%) in concentration is dangerous, unless the acid is added slowly enough to allow the mixture sufficient time to cool. Otherwise, the heat produced may be sufficient to boil the mixture. Efficient mechanical stirring and external cooling (such as an ice bath) are essential.
+Reaction rates double for about every 10-degree Celsius increase in temperature. Therefore, the reaction will become more violent as dilution proceeds, unless the mixture is given time to cool. Adding acid to warm water will cause a violent reaction.
+On a laboratory scale, sulfuric acid can be diluted by pouring concentrated acid onto crushed ice made from de-ionized water. The ice melts in an endothermic process while diluting the acid. The amount of heat needed to melt the ice in this process is greater than the amount of heat evolved by diluting the acid so the solution remains cold. After all the ice has melted, further dilution can take place using water.
+
+
+=== Industrial hazards ===
+Sulfuric acid is non-flammable.
+The main occupational risks posed by this acid are skin contact leading to burns (see above) and the inhalation of aerosols. Exposure to aerosols at high concentrations leads to immediate and severe irritation of the eyes, respiratory tract and mucous membranes: this ceases rapidly after exposure, although there is a risk of subsequent pulmonary edema if tissue damage has been more severe. At lower concentrations, the most commonly reported symptom of chronic exposure to sulfuric acid aerosols is erosion of the teeth, found in virtually all studies: indications of possible chronic damage to the respiratory tract are inconclusive as of 1997. Repeated occupational exposure to sulfuric acid mists may increase the chance of lung cancer by up to 64 percent. In the United States, the permissible exposure limit (PEL) for sulfuric acid is fixed at 1 mg/m3: limits in other countries are similar. There have been reports of sulfuric acid ingestion leading to vitamin B12 deficiency with subacute combined degeneration. The spinal cord is most often affected in such cases, but the optic nerves may show demyelination, loss of axons and gliosis.
+
+
+== Legal restrictions ==
+International commerce of sulfuric acid is controlled under the United Nations Convention Against Illicit Traffic in Narcotic Drugs and Psychotropic Substances, 1988, which lists sulfuric acid under Table II of the convention as a chemical frequently used in the illicit manufacture of narcotic drugs or psychotropic substances.
+
+
+== See also ==
+Aqua regia
+Diethyl ether—also known as "sweet oil of vitriol"
+Piranha solution
+Sulfur oxoacid
+Sulfuric acid poisoning
+
+
+== References ==
+
+
+== External links ==
+
+International Chemical Safety Card 0362
+Sulfuric acid at The Periodic Table of Videos (University of Nottingham)
+NIOSH Pocket Guide to Chemical Hazards
+CDC – Sulfuric Acid – NIOSH Workplace Safety and Health Topic
+Calculators: surface tensions, and densities, molarities and molalities of aqueous sulfuric acid

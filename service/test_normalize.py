@@ -281,3 +281,16 @@ if __name__ == "__main__":
                 traceback.print_exc()
     print(f"\n{passed} passed, {failed} failed")
     raise SystemExit(1 if failed else 0)
+
+
+def test_custom_marking_rules_preserve_source(monkeypatch):
+    import marking_rules
+    monkeypatch.setattr(marking_rules, "normalize_marking_text",
+                        lambda value: "OFFICIAL" if value == "MY LOCAL MARKING" else value)
+    meta = {"marking": "MY LOCAL MARKING"}
+    N.apply_normalization(meta)
+    assert meta["marking"] == "MY LOCAL MARKING"
+    assert meta["marking_norm"]["raw"] == "MY LOCAL MARKING"
+    assert meta["marking_norm"]["classification"] == "OFFICIAL"
+    assert N.columns_from_meta(meta)["marking_class"] == "OFFICIAL"
+    assert N.normalize_marking("MY LOCAL MARKING")["normalized"] == "OFFICIAL"

@@ -296,7 +296,7 @@ Standard fields populated when available:
   `citation_report_id`, `dc.identifier`, or a per-site selector
 - `date_published` — `article:published_time`, `datePublished`,
   `og:published_time`, `dc.date`, or `<time datetime="…">`
-- `marking` — auto-extracted classification/handling marker (see below)
+- `marking` — auto-extracted marking (see below)
 - `metadata_extractor` — which extractor produced the result
   (`site:arXiv`, `site:Wikipedia`, or `generic`)
 
@@ -309,33 +309,29 @@ holds a list of `{ name, match(host), extract() }` entries. Each
 `extract()` returns a partial object; any fields it omits are filled in
 from the generic extractor. Included examples cover arXiv (parsing the
 arXiv ID from the URL) and a synthetic "gov report site" (pulling a
-report ID from `.report-id` and a classification banner). Edit or add
+report ID from `.report-id` and a marking banner). Edit or add
 your own — the existing logic you said you'd port can drop straight in
 as new entries.
 
 **Marking selection.** The `selectMarking(candidates)` function is the
 single hook your existing logic plugs into. Each extractor produces a
-flat object of candidates (e.g. `{ classBanner: 'OFFICIAL: Sensitive',
-metaSecurity: 'OFFICIAL', firstHeading: null, ... }`) and `selectMarking`
-collapses them to one string (or null). The default implementation picks
-the first non-empty candidate in a documented priority order — replace
-the function body with your real selection logic.
+flat object of candidates from visible marking banners, metadata, headings,
+footers and URL hints. `selectMarking` collapses them to one string (or null).
+The default implementation picks the first non-empty candidate in priority
+order; replace its body with your own selection logic. See the extractor
+source for supported selectors and candidate keys.
 
-The generic fallback gathers candidates from:
-
-- `classBanner` — visible `.classification-banner`, `.handling-marker`,
-  `.security-banner`, `#classification`, `[data-classification]`
-- `metaSecurity` — `<meta name="security-classification">` or `security`
-- `metaClassification` — `<meta name="classification">`
-- `firstHeading` — `<h1>` if it matches ALL-CAPS handling-marker shape
-- `pageFooter` — `.page-footer .classification`, `footer .classification`
-- `urlPath` — URL path containing `unclassified`/`official`/`internal`/etc.
-- `fallback` — empty; sites can fill this in (e.g. arXiv → `PUBLIC`)
+For server-side normalisation, edit `normalize_marking_text(value)` in
+`service/marking_rules.py`. This pass-through stub runs before the built-in
+parser for ingestion, metadata edits and marking queries. Keep the return value
+a string. Original markings and the existing database format are preserved.
+Restart the service after changing rules; re-save existing clip metadata to
+recompute its stored marking/filter values.
 
 Marking is searchable via the advanced search language:
 
 ```
-marking:official AND report:nist
+marking:internal AND report:example
 ```
 
 `marking:` matches substrings of `meta.marking`; `report:` (or
@@ -387,21 +383,21 @@ server-side, and shows an **editable preview before ingestion**.
 Flow:
 
 1. Drop a file → `POST /api/upload/preview` parses it, extracts metadata,
-   applies any remembered corrections, and stages the bytes in memory under
+   applies remembered corrections for MHTML only, and stages the bytes in memory under
    a token (30-minute TTL, lost on restart by design).
 2. The preview shows editable fields (title, url, report_number,
    date_published, marking), the marking *candidates* (so you can see where
    a detected marking came from), a short text preview, and a tags box.
-   Fields pre-filled from a remembered correction are flagged.
+   For MHTML, fields pre-filled from a remembered correction are flagged.
 3. Confirm → `POST /api/upload/commit` creates the clip. Any field you
-   changed from the auto-extracted value is saved as a correction.
+   changed from the auto-extracted value is saved as a correction for MHTML only.
 
 **MHTML handling.** The MIME-multipart archive is parsed, the root HTML
 part is kept as the clip body, and embedded resource parts (images) are
 re-inlined as `data:` URIs, then pulled into the deduped asset store on
 commit (same pipeline as a normal clip). Metadata comes from the embedded
 HTML (`og:title`/`<title>`, canonical link, `article:published_time`,
-classification meta/banner/heading, body-scan for handling markers).
+marking metadata, banners and headings, body-scan for handling markers).
 
 **PDF handling.** Text is extracted with PyMuPDF; metadata comes from the
 PDF info dict (title, author, creation date, page count) plus a scan of
@@ -419,13 +415,10 @@ it's dense, on-topic prose that often lives only in the metadata or deep in the
 body, past the suggestion window, and gives the keyphrase / term→tag signals the
 document's own summary of what it's about.
 
-**Remembered corrections.** Stored in a `metadata_corrections` table keyed
-by scope — `host:<hostname>` for MHTML (so corrections follow the source
-site) or `ext:pdf` for PDFs. A correction pre-fills the matching field on
-future uploads only when the extractor didn't find a value itself, so it
-never clobbers genuine per-document metadata. The marking selection logic
-lives in `ingest.select_marking()` — the same kind of hook as the
-userscript's `selectMarking`, ready for your real logic.
+**Remembered corrections.** MHTML corrections are stored in
+`metadata_corrections` by source host. PDF metadata edits apply only to that
+PDF: PDF uploads neither read nor write remembered corrections. Existing table
+rows remain compatible with older database files.
 
 ## Tag autocomplete & suggestions (offline)
 

@@ -322,3 +322,15 @@ keys. Blank values count as absent. Use NOT tag:draft to exclude a specific tag.
 PDF upload corrections apply only to that PDF and are never remembered for
 later PDFs. Existing corrections and stored metadata remain in the database;
 PDF ingestion ignores remembered corrections. No database format change is required.
+
+
+Custom marking rules
+--------------------
+Edit `service/marking_rules.py`, function `normalize_marking_text(value)`.
+It currently returns the input unchanged. Add your own text transformations
+there; the result is then interpreted by the existing parser and
+`service/markings.json` vocabulary. The hook applies to ingestion, metadata
+edits from either UI and marking queries. Original markings remain preserved.
+Restart the service after changing rules. Existing records are not rewritten;
+re-save their metadata to recompute stored marking/filter columns.
+No database format changes are required.

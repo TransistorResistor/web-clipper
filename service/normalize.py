@@ -43,6 +43,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import marking_rules
 from datetime import date
 
 # Read ambiguous all-numeric dates (03/04/2026) day-first. Flip to False for
@@ -204,10 +205,16 @@ def normalize_marking(raw: str) -> dict:
     """
     out = {"raw": raw or "", "label": "", "classification": None,
            "caveats": [], "unknown": [], "normalized": ""}
-    if not raw or not raw.strip():
+    # Custom rules live in their own small module. Preserve the source in
+    # out['raw'] while interpreting the transformed text consistently for
+    # ingestion, web/userscript edits and marking queries.
+    interpreted = marking_rules.normalize_marking_text(raw or "")
+    if not isinstance(interpreted, str):
+        raise TypeError("marking_rules.normalize_marking_text must return a string")
+    if not interpreted.strip():
         return out
 
-    s = raw.strip()
+    s = interpreted.strip()
 
     # 1. Curated equivalence rule for the whole marker (markings.json). Highest
     #    priority: "if you see THIS, it means exactly THAT".

@@ -703,3 +703,10 @@ pages open in the same browser:
 | GET    | /clip/<id>                         | Viewer detail page |
 | GET    | /search                            | Advanced search page |
 | GET    | /upload                            | Drag-and-drop upload page |
+
+
+## Licence
+
+Web Clipper's original source code is free and open source software under the
+[MIT License](LICENSE). Third-party components retain their own licences;
+see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

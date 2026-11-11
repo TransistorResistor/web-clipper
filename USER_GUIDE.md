@@ -301,3 +301,24 @@ as often as you like.
 
 *Happy clipping! For the technical reference — schema, API, configuration,
 search syntax, and how the tag ranker is tuned — see [README.md](README.md).*
+
+
+Metadata editing and presence filters
+-------------------------------------
+Open a clip and expand Edit metadata to change its title, original URL,
+marking, publication date or report number. Save metadata applies the edits.
+The userscript capture window also lets you set title, original URL, report
+number, publication date and marking before saving a page or PDF. Its post-save
+window lets you edit the same fields with Save metadata. Saved values refresh
+every three seconds while open; unsaved fields are preserved. Reinstall/update
+the userscript (version 0.14.0) to use these controls. Native browser PDF viewers
+may hide userscript windows; use the web UI to edit those clips.
+
+In the library, choose Has field or Missing field and enter tags or a metadata
+key (for example report_number, date_published, marking). This combines with
+text, tag, PDF, marking and date filters. Advanced search accepts has:tags,
+missing:report_number, has:marking AND NOT tag:draft, and arbitrary metadata
+keys. Blank values count as absent. Use NOT tag:draft to exclude a specific tag.
+PDF upload corrections apply only to that PDF and are never remembered for
+later PDFs. Existing corrections and stored metadata remain in the database;
+PDF ingestion ignores remembered corrections. No database format change is required.

@@ -534,6 +534,19 @@ def api_clips():
         if tag:
             sql += " AND c.id IN (SELECT clip_id FROM clip_tags ct JOIN tags t ON t.id = ct.tag_id WHERE t.name = ? COLLATE NOCASE)"
             params.append(tag)
+        for key, negate in (("has", False), ("missing", True)):
+            for field in request.args.getlist(key):
+                if field in ("tag", "tags"):
+                    expr = "EXISTS (SELECT 1 FROM clip_tags ct WHERE ct.clip_id = c.id)"
+                elif field in ("title", "url"):
+                    expr = f"TRIM(COALESCE(c.{field}, '')) != ''"
+                else:
+                    expr = ("EXISTS (SELECT 1 FROM json_each(CASE WHEN json_valid(c.meta_json) "
+                            "THEN c.meta_json ELSE '{}' END) m WHERE m.key = ? "
+                            "AND m.value IS NOT NULL AND TRIM(CAST(m.value AS TEXT)) "
+                            "NOT IN ('', '[]', '{}', 'null'))")
+                    params.append(field)
+                sql += " AND " + ("NOT (" + expr + ")" if negate else "(" + expr + ")")
         if has_pdf:
             sql += " AND c.id IN (SELECT clip_id FROM clip_assets WHERE role = 'pdf-primary')"
         if marking:
@@ -668,6 +681,11 @@ def api_clip_update(clip_id):
                 # The AFTER UPDATE trigger handles title/content_text in FTS,
                 # but we lose the tags column - refresh manually.
                 refresh_fts_tags(conn, clip_id)
+            if "title" in body:
+                row = conn.execute("SELECT meta_json FROM clips WHERE id = ?", (clip_id,)).fetchone()
+                meta = json.loads(row["meta_json"] or "{}")
+                meta["title"] = body["title"]
+                conn.execute("UPDATE clips SET meta_json = ? WHERE id = ?", (json.dumps(meta), clip_id))
             if "tags" in body:
                 upsert_tags(conn, clip_id, body["tags"])
             # The user note edits in place like tags (no revision row): it's a
@@ -707,6 +725,8 @@ def api_clip_update(clip_id):
                     conn.execute(
                         "UPDATE clips SET url = ?, canonical_url = ? WHERE id = ?",
                         (newurl, newurl, clip_id))
+        refresh_fts_tags(conn, clip_id)
+        conn.commit()
         return jsonify({"ok": True})
     finally:
         conn.close()
@@ -1722,7 +1742,7 @@ def api_upload_preview():
         # the extractor actually found, unless the correction is for a field
         # the extractor left blank OR the user previously corrected it).
         scope = _scope_for(kind, meta)
-        corrections = _corrections_for_scope(conn, scope)
+        corrections = _corrections_for_scope(conn, scope) if kind != "pdf" else {}
         applied = {}
         for field, val in corrections.items():
             # Pre-fill corrected fields; mark them so the UI can show "remembered".
@@ -1887,7 +1907,7 @@ def api_upload_commit():
 
             # Remember any field the user changed from the auto value.
             scope = staged["scope"]
-            for k in ("title", "url", "report_number", "date_published", "marking"):
+            for k in (() if kind == "pdf" else ("title", "url", "report_number", "date_published", "marking")):
                 new_val = (fields.get(k) or "").strip()
                 if new_val and new_val != (auto_editable.get(k) or "").strip():
                     conn.execute(

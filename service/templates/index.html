@@ -73,6 +73,9 @@
     <option value="">All clips</option>
     <option value="has_pdf=1">PDFs only</option>
   </select>
+  <select id="presence"><option value="has">Has field</option><option value="missing">Missing field</option></select>
+  <input id="presence-field" list="presence-fields" placeholder="Tag or metadata field" aria-label="Tag or metadata field">
+  <datalist id="presence-fields"><option value="tags"><option value="marking"><option value="date_published"><option value="report_number"><option value="url"></datalist>
   <select id="filter-marking" title="Filter by classification marking">
     <option value="">Any marking</option>
     <option value="*">Any classification</option>
@@ -286,6 +289,7 @@
       const [k, v] = state.extra.split('=');
       params.set(k, v);
     }
+    if ($('#presence-field').value.trim()) params.set($('#presence').value, $('#presence-field').value.trim());
     if (state.marking) params.set('marking', state.marking);
     if (state.pubFrom) params.set('published_from', state.pubFrom);
     if (state.pubTo)   params.set('published_to', state.pubTo);
@@ -379,6 +383,8 @@
   }
 
   $('#q').addEventListener('input', debounce(e => { state.q = e.target.value.trim(); load(); }, 200));
+  $('#presence').addEventListener('change', () => load());
+  $('#presence-field').addEventListener('input', () => { clearTimeout(window.presenceTimer); window.presenceTimer = setTimeout(() => load(), 250); });
   $('#filter-extra').addEventListener('change', e => { state.extra = e.target.value; load(); });
   $('#filter-marking').addEventListener('change', e => { state.marking = e.target.value; load(); });
   $('#pub-from').addEventListener('change', e => { state.pubFrom = e.target.value; load(); });

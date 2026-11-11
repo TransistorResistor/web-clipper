@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Local Clipper
 // @namespace    https://local.tim.clipper
-// @version      0.13.0
+// @version      0.14.0
 // @description  Clip web pages and PDFs into a local SQLite-backed knowledge base.
 // @match        *://*/*
 // @match        file:///*.pdf
@@ -1122,6 +1122,31 @@
     // A chip click PATCHes the cumulative tag list onto the clip. Reuses the
     // showLinkChip overlay idiom; on Firefox's HTML pdf.js viewer the DOM is
     // visible, so this shows for both flows.
+    // Shared by the capture form and the saved-clip editor. Never persisted
+    // locally: defaults always come from this page or this saved clip.
+    function createMetadataEditor(container, initial = {}) {
+        const inputs = {};
+        const dirty = new Set();
+        for (const [key, label] of Object.entries({ title: 'Title', url: 'Original URL',
+            report_number: 'Report number', date_published: 'Published', marking: 'Marking' })) {
+            const input = el('input', { type: 'text', 'aria-label': label,
+                style: { width: '100%', boxSizing: 'border-box', padding: '5px', margin: '3px 0 7px',
+                    border: '1px solid #ccc', borderRadius: '4px', fontSize: '12px' },
+                oninput: () => dirty.add(key) });
+            inputs[key] = input;
+            container.appendChild(el('label', { style: { display: 'block', fontSize: '11px', color: '#666' } }, label, input));
+        }
+        function update(values) {
+            for (const key of Object.keys(inputs)) {
+                if (!dirty.has(key)) inputs[key].value = values[key] || '';
+            }
+        }
+        update(initial);
+        return { update, clearDirty: () => dirty.clear(),
+            values: () => Object.fromEntries(Object.entries(inputs).map(([k, input]) => [k, input.value.trim()])),
+            changes: () => Object.fromEntries([...dirty].map(k => [k, inputs[k].value.trim()])) };
+    }
+
     let suggestChipEl = null;
     async function showSuggestionChips(clipId) {
         hideSuggestionChips();
@@ -1131,16 +1156,16 @@
                 exclude_clip_id: clipId, chosen: [], limit: 12,
             });
         } catch (_) { /* service down / offline: nothing to show */ }
-        if (!suggestions.length) return;
 
-        const applied = [];   // cumulative tags added via this row
+
+        const applied = [];   // initial saved tags are loaded below
         const row = el('div', {
             style: { display: 'flex', flexWrap: 'wrap', gap: '6px', alignItems: 'center' },
         });
         const box = el('div', {
             class: 'clipper-ui',
             style: {
-                position: 'fixed', bottom: '74px', right: '20px', maxWidth: '360px',
+                position: 'fixed', bottom: '74px', right: '20px', width: '360px', maxWidth: '90vw', maxHeight: '80vh', overflowY: 'auto',
                 background: 'white', color: '#222', padding: '10px 12px',
                 borderRadius: '8px', boxShadow: '0 6px 20px rgba(0,0,0,0.25)',
                 font: '13px -apple-system, BlinkMacSystemFont, sans-serif',
@@ -1149,11 +1174,7 @@
         });
         suggestChipEl = box;
 
-        // Auto-dismiss, but pause while the pointer is over the box so the user
-        // has time to read and click several chips.
-        let timer = setTimeout(hideSuggestionChips, 12000);
-        box.addEventListener('mouseenter', () => clearTimeout(timer));
-        box.addEventListener('mouseleave', () => { timer = setTimeout(hideSuggestionChips, 4000); });
+        // Keep saved metadata visible until explicitly dismissed.
 
         const header = el('div', {
             style: {
@@ -1162,13 +1183,51 @@
             },
         },
             el('span', { style: { fontSize: '11px', color: '#666', fontWeight: '600' } },
-               `Tag clip #${clipId}`),
+               `Edit clip #${clipId}`),
             el('span', {
                 title: 'Dismiss',
                 style: { cursor: 'pointer', color: '#999', fontSize: '15px', lineHeight: '1', padding: '0 2px' },
                 onclick: hideSuggestionChips,
             }, '×'));
-        box.append(header, row);
+        const editorHost = el('div', { style: { marginTop: '10px' } });
+        const editor = createMetadataEditor(editorHost);
+        const saveStatus = el('div', { role: 'status' });
+        const metadata = el('pre', { style: { whiteSpace: 'pre-wrap', maxHeight: '220px', overflow: 'auto', fontSize: '12px' } });
+        async function refreshMetadata() {
+            try {
+                const r = await gmFetch({ method: 'GET', url: `${SERVICE}/api/clips/${clipId}`, timeout: 8000 });
+                if (r.status !== 200) throw new Error('Unable to load saved metadata');
+                const saved = JSON.parse(r.responseText);
+                editor.update({ ...saved.meta, title: saved.title, url: saved.url });
+                applied.splice(0, applied.length, ...(saved.tags || []));
+                metadata.textContent = JSON.stringify({ ...saved.meta, title: saved.title, url: saved.url, tags: saved.tags }, null, 2);
+            } catch (e) { metadata.textContent = e.message; }
+        }
+        const saveMetadata = el('button', { onclick: async () => {
+            const changed = editor.changes();
+            if (!Object.keys(changed).length) return;
+            saveMetadata.disabled = true;
+            saveStatus.textContent = 'Saving…';
+            try {
+                const { title, ...meta } = changed;
+                const payload = { meta };
+                if (title !== undefined) payload.title = title || 'Untitled';
+                const r = await gmFetch({ method: 'PATCH', url: `${SERVICE}/api/clips/${clipId}`,
+                    headers: { 'Content-Type': 'application/json' }, data: JSON.stringify(payload), timeout: 8000 });
+                if (r.status !== 200) throw new Error('Save failed. Your edits are retained; retry.');
+                editor.clearDirty();
+                await refreshMetadata();
+                saveStatus.textContent = 'Metadata saved';
+            } catch (e) { saveStatus.textContent = e.message; }
+            finally { saveMetadata.disabled = false; }
+        } }, 'Save metadata');
+        box.append(header, editorHost, saveMetadata, saveStatus, el('a', { href: `${SERVICE}/clip/${clipId}`, target: '_blank' }, 'Edit saved metadata'),
+            el('button', { onclick: refreshMetadata }, 'Refresh metadata'), metadata, row);
+        await refreshMetadata();
+        const refreshTimer = setInterval(() => {
+            if (!box.isConnected) { clearInterval(refreshTimer); return; }
+            refreshMetadata();
+        }, 3000);
 
         for (const s of suggestions) {
             const isBoth = s.why === 'both';
@@ -1351,7 +1410,8 @@
         const parts = [];
         const push = (name, value) =>
             parts.push(enc.encode(`--${boundary}\r\nContent-Disposition: form-data; name="${name}"\r\n\r\n${value}\r\n`));
-        push('title', filename);
+        const pdfMeta = metaJson ? JSON.parse(metaJson) : {};
+        push('title', pdfMeta.title || filename);
         push('url', url);
         push('tags', tagsCsv);
         if (metaJson) push('meta', metaJson);
@@ -1735,7 +1795,7 @@
             style: {
                 position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
                 width: '400px', background: 'white', color: '#222',
-                borderRadius: '8px', padding: '20px',
+                borderRadius: '8px', padding: '20px', maxHeight: '85vh', overflowY: 'auto',
                 boxShadow: '0 12px 48px rgba(0,0,0,0.3)', zIndex: '2147483647',
             },
         });
@@ -1776,6 +1836,13 @@
             panel.appendChild(modeSel);
         }
 
+        let initialMeta = {};
+        try { initialMeta = extractMetadata(); } catch (_) { /* editable manual fallback */ }
+        const metadataHost = el('div');
+        const captureMetadata = createMetadataEditor(metadataHost, {
+            ...initialMeta, title: initialMeta.title || document.title || '', url: initialMeta.url || location.href,
+        });
+        panel.appendChild(metadataHost);
         panel.appendChild(fieldLabel('Tags'));
 
         // Chip-style tag widget (suggestion chips + chip input + autocomplete).
@@ -1893,7 +1960,8 @@
                     let pdfMeta = {};
                     try { pdfMeta = extractMetadata(); }
                     catch (e) { console.warn('clipper: metadata extraction failed (PDF)', e); }
-                    const r = await postPdfDedup(bytes, filename, tags.join(','), location.href,
+                    pdfMeta = { ...pdfMeta, ...captureMetadata.values() };
+                    const r = await postPdfDedup(bytes, filename, tags.join(','), pdfMeta.url,
                                                  JSON.stringify(pdfMeta), noteInput.value.trim());
                     if (!r) { status.textContent = ''; closePanel(); toast('Skipped (duplicate)'); return; }
                     closePanel();
@@ -1920,7 +1988,7 @@
                     catch (e) { console.warn('clipper: metadata extraction failed', e); }
 
                     const r = await postClipDedup({
-                        html, title: cap.title, url: location.href,
+                        html, title: captureMetadata.values().title || cap.title, url: captureMetadata.values().url,
                         source: 'userscript-' + mode, tags,
                         note: noteInput.value.trim(),
                         meta: {
@@ -1930,6 +1998,7 @@
                             links_removed: linksRemoved,
                             images_inlined: inlined,
                             ...extractedMeta,
+                            ...captureMetadata.values(),
                         },
                     });
                     if (!r) { status.textContent = ''; closePanel(); toast('Skipped (duplicate)'); return; }

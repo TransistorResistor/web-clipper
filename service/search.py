@@ -411,6 +411,12 @@ def evaluate(node, doc: Doc, haystack_lower: str) -> bool:
 def _field_match(node, doc: Doc) -> bool:
     name, value = node["name"], node["value"]
     v = value.lower()
+    if name in ("has", "missing"):
+        key = {"published": "date_published", "report": "report_number"}.get(v, v)
+        val = doc.tags if key in ("tag", "tags") else (
+            doc.title if key == "title" else doc.url if key == "url" else doc.meta.get(key))
+        present = val is not None and str(val).strip() not in ("", "[]", "{}", "null")
+        return present if name == "has" else not present
     if name == "title":
         return v in doc.title.lower()
     if name == "url":

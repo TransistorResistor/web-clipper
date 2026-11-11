@@ -48,7 +48,7 @@ from typing import Optional
 # Only these names lex as field prefixes. Anything else followed by a colon
 # (https:, C:, foo:bar) stays part of a plain term — otherwise a value like
 # url:https://example.com would tokenize "https:" as a bogus field.
-FIELD_NAMES = ("title", "tag", "source", "url", "added", "published",
+FIELD_NAMES = ("has", "missing", "title", "tag", "source", "url", "added", "published",
                "marking", "caveat", "class", "report_number", "report")
 
 # `&` and `|` lex as operators ONLY when they stand alone as a token - i.e.

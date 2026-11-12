@@ -1,7 +1,7 @@
 """Edit this file to add your own marking normalisation rules.
 
 Called by normalize.normalize_marking for ingestion, metadata edits and
-marking search queries, before the built-in parser and markings.json rules.
+marking search queries, before the built-in parser.
 No database access or schema changes are needed here.
 """
 

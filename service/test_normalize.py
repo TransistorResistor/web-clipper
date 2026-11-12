@@ -172,16 +172,28 @@ def test_separator_joined_abbreviations():
         assert set(m["caveats"]) == {"NO CONTRACTORS", "LEGAL SENSITIVE"}
 
 
-def test_equivalence_rule_overrides_parse():
+import pytest
+
+
+@pytest.fixture
+def curated_rules(monkeypatch):
+    # Test the legacy equivalence API without requiring bundled rule files.
+    rules = [{"match": ["O:S NC-LS", "OS NCLS"],
+              "classification": "OFFICIAL-SENSITIVE",
+              "caveats": ["NO CONTRACTORS", "LEGAL SENSITIVE"]}]
+    monkeypatch.setattr(N, "_EQUIVALENTS", N._build_equivalents(rules))
+
+
+def test_equivalence_rule_overrides_parse(curated_rules):
     # "OS NCLS" can't be decomposed token-by-token (NCLS isn't an alias); it
-    # resolves only via the curated equivalents rule in markings.json.
+    # resolves only via the explicit equivalence fixture.
     m = N.normalize_marking("OS NCLS")
     assert m["classification"] == "OFFICIAL-SENSITIVE"
     assert m["caveats"] == ["NO CONTRACTORS", "LEGAL SENSITIVE"]
     assert m["unknown"] == []
 
 
-def test_equivalence_rule_is_case_and_punctuation_insensitive():
+def test_equivalence_rule_is_case_and_punctuation_insensitive(curated_rules):
     # The same rule matches regardless of case / separator spelling.
     for s in ("O:S NC-LS", "o:s  nc-ls", "OS NCLS", "os/ncls"):
         m = N.normalize_marking(s)
@@ -189,7 +201,7 @@ def test_equivalence_rule_is_case_and_punctuation_insensitive():
         assert m["caveats"] == ["NO CONTRACTORS", "LEGAL SENSITIVE"], s
 
 
-def test_equivalence_after_label_strip():
+def test_equivalence_after_label_strip(curated_rules):
     # A descriptor label is split off and the remainder hits the rule.
     m = N.normalize_marking("Privileged data: OS NCLS")
     assert m["label"] == "Privileged data"
@@ -223,7 +235,7 @@ def test_reload_from_custom_file():
         assert N.normalize_marking("PZ")["caveats"] == ["PROJECT ZEBRA"]  # custom alias
     finally:
         os.remove(path)
-        N.load_markings()                             # restore the real file
+        N.load_markings()                             # restore built-in defaults
 
 
 def test_non_label_colon_not_stripped():

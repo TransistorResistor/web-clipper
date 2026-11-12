@@ -2035,7 +2035,10 @@ def viewer_detail(clip_id):
 
 @app.route("/health")
 def health():
-    return jsonify({"ok": True, "time": datetime.now(timezone.utc).isoformat()})
+    import network_db
+    storage = network_db.status()
+    return jsonify({"ok": storage["state"] != "error" and (storage["state"] == "local" or storage["worker_alive"]),
+                    "time": datetime.now(timezone.utc).isoformat(), "storage": storage})
 
 
 @app.route("/api/embed/status")
@@ -2079,4 +2082,8 @@ def _startup_banner() -> None:
 
 if __name__ == "__main__":
     _startup_banner()
-    app.run(host="127.0.0.1", port=5577, debug=False)
+    try:
+        app.run(host="127.0.0.1", port=5577, debug=False)
+    finally:
+        import network_db
+        network_db.shutdown()

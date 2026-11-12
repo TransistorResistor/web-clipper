@@ -207,11 +207,14 @@ def get_db_path() -> str:
     # CWD-relative default silently opens/creates a different library
     # depending on where the service was launched from.
     default = Path(__file__).resolve().parent.parent / "clipper.db"
-    return os.environ.get("CLIPPER_DB", str(default))
+    import network_db
+    return network_db.working_path(os.environ.get("CLIPPER_DB", str(default)))
 
 
 def connect(db_path: str | None = None) -> sqlite3.Connection:
-    conn = sqlite3.connect(db_path or get_db_path())
+    import network_db
+    path = network_db.working_path(db_path) if db_path else get_db_path()
+    conn = sqlite3.connect(path)
     conn.row_factory = sqlite3.Row
     # Foreign keys must be enabled per-connection.
     conn.execute("PRAGMA foreign_keys = ON")

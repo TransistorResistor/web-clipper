@@ -328,9 +328,25 @@ Custom marking rules
 --------------------
 Edit `service/marking_rules.py`, function `normalize_marking_text(value)`.
 It currently returns the input unchanged. Add your own text transformations
-there; the result is then interpreted by the existing parser and
-`service/markings.json` vocabulary. The hook applies to ingestion, metadata
+there; the result is then interpreted by the existing built-in parser. The hook applies to ingestion, metadata
 edits from either UI and marking queries. Original markings remain preserved.
 Restart the service after changing rules. Existing records are not rewritten;
 re-save their metadata to recompute stored marking/filter columns.
 No database format changes are required.
+
+
+Using a network drive
+---------------------
+Set `$env:CLIPPER_DB = 'E:\ClipperLibrary\clipper.db'` before launching the
+service. For mapped network drives or UNC paths, Clipper automatically works
+on an AppData copy and syncs a snapshot after about one idle minute, with an
+attempt at least every two minutes during continuous edits. The viewer shows
+pending changes and sync errors. Only one Clipper instance may use that network
+library at a time.
+
+A hidden worker attempts final sync and deletes the local copy on normal exit
+or when it detects the service was killed. **Deletion happens even if sync
+fails, so unsynced changes may be lost.** Power loss or killing the whole process
+tree can leave files behind; the next launch discards this library's leftovers.
+Deletion is not secure erasure. See the README for existing-library preparation,
+network error handling, logs and the limitations of this ephemeral policy.

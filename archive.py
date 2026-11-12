@@ -36,15 +36,8 @@ INCLUDE_FILENAMES = {
     'Dockerfile': 'dockerfile_1',
 }
 
-# Exact relative paths to archive even though their extension isn't in
-# TEXT_FILE_EXTENSIONS - config/data files we want captured by name (e.g.
-# markings.json, the marking vocabulary). Compared against each file's path
-# relative to the project root and archived under that same path, so they
-# restore to the right place. Listing the path (not just the basename) avoids
-# sweeping in same-named files elsewhere (model config.json, corpus*.json, ...).
-INCLUDE_PATHS = {
-    os.path.join('service', 'markings.json'),
-}
+# Optional exact relative paths to include beyond TEXT_FILE_EXTENSIONS.
+INCLUDE_PATHS = set()
 
 # Directories to skip entirely.
 #   TestDocs   -- text corpus documents (test fixtures)

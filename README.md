@@ -56,7 +56,7 @@ viewer.
 
 ## What's stored
 
-One SQLite file (`clipper.db` next to the service by default; override
+One SQLite file (`clipper.db` in the repository root by default; override
 with `CLIPPER_DB`). The schema:
 
 - `clips` – id, url, canonical_url, title, captured_at, source,
@@ -710,3 +710,53 @@ pages open in the same browser:
 Web Clipper's original source code is free and open source software under the
 [MIT License](LICENSE). Third-party components retain their own licences;
 see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+
+## Network database locations (Windows)
+
+Set the database location before starting the service:
+
+```powershell
+$env:CLIPPER_DB = 'E:\ClipperLibrary\clipper.db'
+python service/app.py
+```
+
+Create the destination directory first. Mapped network drives and UNC paths
+are detected automatically. SQLite works on a local copy under
+`%LOCALAPPDATA%\WebClipper\network-db\<library-id>\library.db`.
+Local disk paths continue to work directly. For a network mount that cannot
+be auto-detected (for example on Linux), set `CLIPPER_NETWORK_CACHE=1`.
+
+After a committed change, the background worker waits for 60 seconds without
+further changes, then uploads a consistent SQLite backup. During continuous
+editing it attempts a sync after at most 120 seconds. Upload duration and
+network outages can extend that interval. Failed uploads retry after 60
+seconds. These are whole-database snapshots, including attachments, so large
+libraries can take time and bandwidth. The old network snapshot is replaced
+only after copying and verifying a temporary upload. SQLite never opens the
+network snapshot. A sidecar OS lock blocks cooperating Clipper instances from
+using the same library concurrently. Do not open or modify that network DB
+with another tool while Clipper is using it; externally changed snapshots are
+refused rather than overwritten. This is a single-editor library, not multiuser
+synchronisation.
+
+The viewer displays sync status, also available at `/health` under `storage`.
+Worker error logs live beside the cache directory as `<library-id>.log`.
+Normal shutdown attempts a final sync and deletes the local database, its WAL,
+and temporary snapshots. A separate hidden worker monitors the service and
+attempts the same sync and cleanup after the service is forcibly terminated.
+
+**Ephemeral-data policy:** the local copy is deleted even if the final sync
+fails. Unsynced edits can therefore be lost if the network is unavailable.
+There is no guarantee of immediate cleanup after power loss, OS failure,
+termination of the entire process tree, or failure of the worker itself.
+Leftovers for this library are discarded on its next start, including unsynced
+changes. File deletion is ordinary filesystem deletion, not secure erasure.
+
+For an existing WAL-mode library, stop the app and all other database users.
+On a local disk, use SQLite's backup API to make a standalone copy, set that
+copy's `PRAGMA journal_mode=DELETE`, close it, and copy it to the network
+location. Do not copy a live `.db` alone or delete a nonempty WAL/journal.
+Startup refuses a network library with a nonempty WAL or rollback journal.
+An unavailable network location fails startup; it does not silently start a
+new offline library. The existing database schema remains unchanged.

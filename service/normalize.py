@@ -1,47 +1,14 @@
-"""
-Normalisation of the free-form metadata the clippers capture into canonical,
-filterable forms.
+"""Normalise dates and markings into the existing database projection format.
 
-Two messy fields get a canonical projection so clips can be sorted/filtered by
-them regardless of how they were originally written:
-
-  * dates    - many input shapes (ISO-8601, PDF ``D:YYYYMMDD...`` creation
-               stamps, ``14 March 2026``, ``March 14, 2026``, numeric
-               ``03/04/2026``, bare ``2026``) -> an ISO date plus a *precision*
-               marker, so a year-only value doesn't masquerade as 1 January and
-               ambiguous numeric dates are read **day-first** (DD/MM/YYYY, UK
-               convention - see ``DAY_FIRST``).
-
-  * markings - a handling marker, often compound and abbreviated
-               (``Privileged data: LEGAL SENSITIVE NO CONTRACTORS``, or the same
-               written ``LS NC``) -> an optional classification *level* plus a
-               canonical *set* of caveats, so two clips carrying the same
-               handling marker compare equal no matter how it was spelled.
-
-A marking is resolved in two stages (see ``normalize_marking``):
-
-  1. **Curated equivalence rules** - a lookup in ``markings.json`` mapping a set
-     of equivalent whole-marker strings to an agreed decomposition. This is the
-     authoritative path: "if you see ``O:S NC-LS`` it means OFFICIAL-SENSITIVE +
-     {NO CONTRACTORS, LEGAL SENSITIVE}". Checked first, so it always wins.
-  2. **Per-word vocabulary** - for anything not covered by a rule, the
-     classification/caveat alias tables (also in ``markings.json``) are matched
-     token by token, with a leading descriptor label split off.
-
-``apply_normalization(meta)`` is the single entry point every ingest path calls:
-it reads ``meta['date_published']`` / ``meta['marking']`` and writes back the
-structured ``meta['date_norm']`` / ``meta['marking_norm']`` objects (so they ride
-along in meta_json for display). ``columns_from_meta(meta)`` projects those into
-the four dedicated ``clips`` columns the caller indexes for SQL filtering.
-
-The vocabulary and equivalence rules live in ``markings.json`` next to this file
-for easy editing; the dicts below are only a fallback when that file is absent.
+Custom marking transformations belong in marking_rules.normalize_marking_text.
+The built-in parser retains its legacy vocabulary for compatibility. Call
+apply_normalization(meta) for ingestion/edits, and columns_from_meta(meta)
+for the indexed database values. Original marking text is preserved.
 """
 
 from __future__ import annotations
 
 import json
-import os
 import re
 import marking_rules
 from datetime import date
@@ -52,12 +19,9 @@ DAY_FIRST = True
 
 
 # ---------------------------------------------------------------------------
-# Marking vocabulary + equivalence rules (loaded from markings.json)
+# Built-in marking vocabulary retained for backwards compatibility.
+# Custom transformations belong in marking_rules.py.
 # ---------------------------------------------------------------------------
-MARKINGS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                             "markings.json")
-
-# Built-in fallback, used only when markings.json is missing or invalid.
 # canonical form -> accepted spellings; matching treats '-', '/' and ':' as
 # spaces and is case-insensitive. Single-letter abbreviations are omitted on
 # purpose (a stray "S"/"C" would match too eagerly).
@@ -137,17 +101,20 @@ def _build_equivalents(rules):
 
 
 def load_markings(path: str | None = None) -> None:
-    """(Re)load the vocabulary + equivalence rules from markings.json and rebuild
-    the lookup indexes. Falls back to the built-in defaults if the file is
-    missing or unparseable. Call after editing the JSON in a long-running process."""
+    """Reset built-in vocabulary, or load an explicitly supplied legacy file.
+
+    No external configuration is read by default. Custom application rules
+    belong in marking_rules.py; the optional path keeps this API compatible.
+    """
     global CLASSIFICATION_LEVELS, CAVEATS, _ALIAS_INDEX, _ALIAS_SET
     global _LEVEL_PRIORITY, _EQUIVALENTS
     data = {}
-    try:
-        with open(path or MARKINGS_PATH, encoding="utf-8") as f:
-            data = json.load(f)
-    except (OSError, ValueError):
-        data = {}
+    if path is not None:
+        try:
+            with open(path, encoding="utf-8") as f:
+                data = json.load(f)
+        except (OSError, ValueError):
+            data = {}
     CLASSIFICATION_LEVELS = data.get("classifications") or dict(_DEFAULT_CLASSIFICATIONS)
     CAVEATS = data.get("caveats") or dict(_DEFAULT_CAVEATS)
     _ALIAS_INDEX = _build_alias_index()
@@ -216,7 +183,7 @@ def normalize_marking(raw: str) -> dict:
 
     s = interpreted.strip()
 
-    # 1. Curated equivalence rule for the whole marker (markings.json). Highest
+    # 1. Curated equivalence rule for the whole marker. Highest
     #    priority: "if you see THIS, it means exactly THAT".
     eq = _EQUIVALENTS.get(_norm_phrase(s))
     if eq:

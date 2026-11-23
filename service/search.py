@@ -31,6 +31,7 @@ from typing import Optional
 
 from query import parse_query, collect_terms
 import normalize
+import marking_schema
 
 # PyMuPDF is imported lazily so the module loads even when it's absent
 # (e.g. searching a DB with no PDFs). Install: pip install pymupdf
@@ -413,8 +414,12 @@ def _field_match(node, doc: Doc) -> bool:
     v = value.lower()
     if name in ("has", "missing"):
         key = {"published": "date_published", "report": "report_number"}.get(v, v)
+        if key in marking_schema.CONFIG["categories"] or key == "_unmapped":
+            present = bool(marking_schema.values(doc.meta, key))
+            return present if name == "has" else not present
         val = doc.tags if key in ("tag", "tags") else (
-            doc.title if key == "title" else doc.url if key == "url" else doc.meta.get(key))
+            doc.title if key == "title" else doc.url if key == "url" else
+            normalize.marking_display(doc.meta) if key == "marking" else doc.meta.get(key))
         present = val is not None and str(val).strip() not in ("", "[]", "{}", "null")
         return present if name == "has" else not present
     if name == "title":
@@ -456,9 +461,16 @@ def _marking_match(value: str, doc: Doc) -> bool:
     the query through the same vocabulary (marking:ls finds LEGAL SENSITIVE)."""
     mn = doc.meta.get("marking_norm") or {}
     v = value.lower()
-    hay = " ".join([str(doc.meta.get("marking") or ""),
+    hay = " ".join([normalize.marking_display(doc.meta), str(doc.meta.get("marking") or ""),
                     mn.get("normalized") or ""]).lower()
     if v and v in hay:
+        return True
+    adjusted_query = normalize.marking_rules.normalize_marking_text(value).strip().lower()
+    if adjusted_query and adjusted_query in normalize.marking_display(doc.meta).lower():
+        return True
+    query_tokens = marking_schema.categorize(adjusted_query)["tokens"]
+    doc_tokens = (doc.meta.get("marking_norm") or {}).get("tokens", [])
+    if query_tokens and all(any(marking_schema.key(q) == marking_schema.key(t) for t in doc_tokens) for q in query_tokens):
         return True
     q_class, q_caveats = _query_marking(value)
     if q_class and q_class == mn.get("classification"):
@@ -694,6 +706,21 @@ class SearchOptions:
     published_to: Optional[str] = None
     output_format: str = "md"          # 'md' or 'txt'
     max_results: int = 1000
+    marking_filters: dict = field(default_factory=dict)
+
+
+def _requires_text_match(node):
+    """Can FTS safely narrow candidates to those containing a positive term?"""
+    if not node:
+        return False
+    kind = node["type"]
+    if kind == "and":
+        return any(_requires_text_match(child) for child in node["children"])
+    if kind == "or":
+        return all(_requires_text_match(child) for child in node["children"])
+    # Field predicates include metadata and substring matches. A negation can
+    # also succeed without any indexed word, so neither requires an FTS hit.
+    return kind in ("term", "phrase")
 
 
 def _fts_match_expr(terms: Optional[list[str]]) -> Optional[str]:
@@ -730,8 +757,8 @@ def _prefilter_rows(conn, opts: SearchOptions, terms: Optional[list[str]] = None
 
     Published-date lives in JSON and is filtered in Python (it honours partial-
     date precision and un-backfilled clips), so it is not prefiltered here."""
-    base = "SELECT * FROM clips WHERE 1=1"
-    date_sql, date_params = "", []
+    base = "SELECT c.* FROM clips c WHERE 1=1"
+    date_sql, date_params = marking_schema.sql_filters(opts.marking_filters)
     if opts.added_from:
         d = _parse_date(opts.added_from)
         if d:
@@ -761,7 +788,7 @@ def search(conn: sqlite3.Connection, query_str: str, opts: SearchOptions):
     ast = parse_query(query_str, default_op=opts.default_op)
     terms = collect_terms(ast)
 
-    rows = _prefilter_rows(conn, opts, terms)
+    rows = _prefilter_rows(conn, opts, terms if _requires_text_match(ast) else None)
     results = []
     deduper = Deduper()
 
@@ -820,6 +847,8 @@ def render_report(search_result: dict, opts: SearchOptions) -> str:
         lines.append(f"**Query:** `{q}`  ")
         lines.append(f"**Matches:** {n} documents, {total_windows} context blocks  ")
         lines.append(f"**Context:** {opts.context_words} words around each hit  ")
+        if opts.marking_filters:
+            lines.append("**Marking filters:** " + json.dumps(opts.marking_filters, ensure_ascii=False) + "  ")
         if opts.added_from or opts.added_to:
             lines.append(f"**Date added filter:** {opts.added_from or '…'} → {opts.added_to or '…'}  ")
         if opts.published_from or opts.published_to:
@@ -830,6 +859,8 @@ def render_report(search_result: dict, opts: SearchOptions) -> str:
     else:
         lines.append("SEARCH RESULTS")
         lines.append(f"Query: {q}")
+        if opts.marking_filters:
+            lines.append("Marking filters: " + json.dumps(opts.marking_filters, ensure_ascii=False))
         lines.append(f"Matches: {n} documents, {total_windows} context blocks")
         lines.append("=" * 60)
 

@@ -76,15 +76,16 @@
   <select id="presence"><option value="has">Has field</option><option value="missing">Missing field</option></select>
   <input id="presence-field" list="presence-fields" placeholder="Tag or metadata field" aria-label="Tag or metadata field">
   <datalist id="presence-fields"><option value="tags"><option value="marking"><option value="date_published"><option value="report_number"><option value="url"></datalist>
-  <select id="filter-marking" title="Filter by classification marking">
+  <select id="filter-marking" title="Filter by adjusted marking">
     <option value="">Any marking</option>
-    <option value="*">Any classification</option>
+    <option value="*">Any marking present</option>
   </select>
   <input type="date" id="pub-from" title="Published from" style="font-size:13px; padding:6px; border:1px solid #ccc; border-radius:4px;">
   <input type="date" id="pub-to" title="Published to" style="font-size:13px; padding:6px; border:1px solid #ccc; border-radius:4px;">
 </header>
 <main>
   <aside>
+    <h3>Marking categories</h3><div id="category-filters"></div>
     <h3 class="tags-head">Tags <a href="#" id="manage-toggle">manage</a></h3>
     <div class="manage-bar" id="manage-bar" style="display:none;">
       <div id="merge-area" style="display:none;">
@@ -149,9 +150,11 @@
   </section>
 </main>
 
+<script src="/static/marking-filters.js"></script>
 <script src="/static/tags.js"></script>
 <script>
   const $ = sel => document.querySelector(sel);
+  const categoryFilters = ClipperMarkingFilters.create(document.querySelector('#category-filters'), () => load());
   const state = { q: '', tag: '', extra: '', marking: '', pubFrom: '', pubTo: '', manage: false };
 
   function debounce(fn, ms) {
@@ -283,6 +286,7 @@
   async function load(append = false) {
     if (!append) nextOffset = 0;
     const params = new URLSearchParams();
+    categoryFilters.appendParams(params);
     if (state.q)    params.set('q', state.q);
     if (state.tag)  params.set('tag', state.tag);
     if (state.extra) {
@@ -319,6 +323,7 @@
       const when = new Date(c.captured_at * 1000).toLocaleDateString();
       const host = hostOf(c.url);
       const tags = (c.tags || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join(' ');
+      const markingBadge = c.marking_display ? `<span class="badge">${escapeHtml(c.marking_display)}</span>` : '';
       const pdfBadge = c.has_pdf ? '<span class="badge">PDF</span>' : '';
       // Escape the snippet but keep the FTS <mark> highlight tags.
       const snippet = c.snippet
@@ -329,7 +334,7 @@
       return `<div class="clip">
         <label class="sel"><input type="checkbox" class="sel-box" data-id="${c.id}"${checked}></label>
         <div class="clip-body">
-          <h2><a href="/clip/${c.id}">${escapeHtml(c.title)}</a>${pdfBadge}</h2>
+          <h2><a href="/clip/${c.id}">${escapeHtml(c.title)}</a>${pdfBadge}${markingBadge}</h2>
           <div class="meta">${when} · ${host} · ${c.word_count || 0} words · ${c.reading_minutes || 0} min ${tags}</div>
           ${snippet}
         </div>
@@ -391,7 +396,7 @@
   $('#pub-to').addEventListener('change', e => { state.pubTo = e.target.value; load(); });
   $('#load-more').addEventListener('click', () => load(true));
 
-  // Populate the marking filter from the library's actual classifications.
+  // Populate the marking filter from the library's adjusted markings.
   async function loadMarkings() {
     let markings = [];
     try { markings = (await (await fetch('/api/markings')).json()).markings || []; }

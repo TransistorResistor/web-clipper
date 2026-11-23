@@ -37,7 +37,7 @@ INCLUDE_FILENAMES = {
 }
 
 # Optional exact relative paths to include beyond TEXT_FILE_EXTENSIONS.
-INCLUDE_PATHS = set()
+INCLUDE_PATHS = {os.path.join('service', 'markings.json')}
 
 # Directories to skip entirely.
 #   TestDocs   -- text corpus documents (test fixtures)

@@ -203,7 +203,7 @@
           <div class="marking-row">
             <input data-f="marking" value="${esc(f.marking)}" style="flex:1">
           </div>
-          <div class="cands">Candidates: ${candBits}</div>
+          ${p.kind === 'pdf' ? '' : '<div class="cands">Candidates: ' + candBits + '</div>'}
         </div>
         <div class="field">
           <label>Tags</label>

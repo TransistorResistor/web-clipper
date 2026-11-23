@@ -326,13 +326,14 @@ PDF ingestion ignores remembered corrections. No database format change is requi
 
 Custom marking rules
 --------------------
-Edit `service/marking_rules.py`, function `normalize_marking_text(value)`.
-It currently returns the input unchanged. Add your own text transformations
-there; the result is then interpreted by the existing built-in parser. The hook applies to ingestion, metadata
-edits from either UI and marking queries. Original markings remain preserved.
-Restart the service after changing rules. Existing records are not rewritten;
-re-save their metadata to recompute stored marking/filter columns.
-No database format changes are required.
+Configure delimiters, categories and aliases in `service/markings.json`.
+Optional cleanup before tokenisation lives in `service/marking_rules.py`.
+The [marking configuration guide](MARKINGS.md) explains the format and how to
+update existing records. Metadata editors in the web UI and userscript expose
+Raw marking and Adjusted marking. Automatic mode derives the adjusted value
+from raw; uncheck it to override, and recheck it to reset on save. Raw edits
+leave an existing manual override active. An empty manual override deliberately
+clears the effective marking. The category filters follow the effective value.
 
 
 Using a network drive
@@ -350,3 +351,23 @@ fails, so unsynced changes may be lost.** Power loss or killing the whole proces
 tree can leave files behind; the next launch discards this library's leftovers.
 Deletion is not secure erasure. See the README for existing-library preparation,
 network error handling, logs and the limitations of this ephemeral policy.
+
+
+Applying custom marking rules
+----------------------------
+After changing the JSON or Python hook, stop Clipper and run these commands
+from the service directory with the same CLIPPER_DB setting used by the app:
+
+```powershell
+python backfill_norm.py --dry-run
+python backfill_norm.py
+python app.py
+```
+
+This recalculates categories and aliases for existing clips, preserving raw
+text and manual overrides. New captures and edits use the rules automatically
+after restart. Both search pages provide category filters: any selected value
+within a category, all selected categories together. Each category also supports
+Present and Missing. Advanced search accepts `marking:"Client C"` (also matches
+Client 3), `has:projects` and `missing:cost_centres`. The simple text box searches
+title/body/tags/notes; category filters can be combined with it.

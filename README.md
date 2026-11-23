@@ -321,7 +321,10 @@ The default implementation picks the first non-empty candidate in priority
 order; replace its body with your own selection logic. See the extractor
 source for supported selectors and candidate keys.
 
-For server-side normalisation, edit `normalize_marking_text(value)` in
+For delimiters, categories, aliases and raw/adjusted overrides, see
+[Configuring markings](MARKINGS.md). `service/markings.json` is loaded automatically.
+
+For optional server-side cleanup, edit `normalize_marking_text(value)` in
 `service/marking_rules.py`. This pass-through stub runs before the built-in
 parser for ingestion, metadata edits and marking queries. Keep the return value
 a string. Original markings and the existing database format are preserved.
@@ -401,7 +404,10 @@ marking metadata, banners and headings, body-scan for handling markers).
 
 **PDF handling.** Text is extracted with PyMuPDF; metadata comes from the
 PDF info dict (title, author, creation date, page count) plus a scan of
-the document head for a handling marker and a "Report No." style label.
+the document head for a "Report No." style label. The PDF marking hook receives
+the title, the first 1,500 characters of extracted text, and the filename
+without its directory path. See
+[PDF marking extraction](MARKINGS.md#pdf-marking-extraction).
 The PDF is stored as a `pdf-primary` attachment, so it renders in the
 viewer and its text is searchable.
 

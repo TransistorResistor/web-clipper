@@ -69,6 +69,7 @@
       <select id="format"><option value="md">Markdown</option><option value="txt">Plain text</option></select></div>
   </div>
 
+  <details><summary>Marking category filters</summary><div id="category-filters"></div></details>
   <div class="help">
     Presence: <code>has:tags</code>, <code>missing:report_number</code>, <code>has:marking AND NOT tag:draft</code>. Any metadata key works.
 
@@ -90,13 +91,17 @@
   <div id="out"></div>
 </main>
 
+<script src="/static/marking-filters.js"></script>
 <script>
   const $ = s => document.querySelector(s);
   let lastReport = '';
   let rawView = false;
 
+  const categoryFilters = ClipperMarkingFilters.create(document.querySelector('#category-filters'), () => { if ($('#q').value.trim()) run(); });
+
   function params(forDownload) {
     const p = new URLSearchParams();
+    categoryFilters.appendParams(p);
     p.set('q', $('#q').value);
     p.set('default_op', $('#default_op').value);
     p.set('context', $('#context').value);

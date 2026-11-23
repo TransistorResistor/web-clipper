@@ -11,6 +11,7 @@ from __future__ import annotations
 import json
 import re
 import marking_rules
+import marking_schema
 from datetime import date
 
 # Read ambiguous all-numeric dates (03/04/2026) day-first. Flip to False for
@@ -156,7 +157,7 @@ def _match_tokens(words):
     return levels, caveats, unknown
 
 
-def normalize_marking(raw: str) -> dict:
+def normalize_marking(raw: str, adjusted: str | None = None) -> dict:
     """Parse a handling-marker string into structured components.
 
     Returns a dict (always, even for empty input)::
@@ -175,9 +176,11 @@ def normalize_marking(raw: str) -> dict:
     # Custom rules live in their own small module. Preserve the source in
     # out['raw'] while interpreting the transformed text consistently for
     # ingestion, web/userscript edits and marking queries.
-    interpreted = marking_rules.normalize_marking_text(raw or "")
+    interpreted = adjusted if adjusted is not None else marking_rules.normalize_marking_text(raw or "")
     if not isinstance(interpreted, str):
         raise TypeError("marking_rules.normalize_marking_text must return a string")
+    if raw or interpreted:
+        out["adjusted"] = interpreted.strip()
     if not interpreted.strip():
         return out
 
@@ -218,6 +221,24 @@ def normalize_marking(raw: str) -> dict:
     out["unknown"] = unknown
     out["normalized"] = _join_norm(out["classification"], caveats)
     return out
+
+
+def marking_display(meta: dict) -> str:
+    """Hook output is authoritative, including an intentionally empty value."""
+    norm = meta.get("marking_norm") or {}
+    if "adjusted" in norm:
+        return norm["adjusted"]
+    return norm.get("normalized") or meta.get("marking") or ""
+
+
+def marking_sql(alias="c") -> str:
+    """SQLite expression matching marking_display, without new DB columns."""
+    prefix = alias + "." if alias else ""
+    meta = f"(CASE WHEN json_valid({prefix}meta_json) THEN {prefix}meta_json ELSE '{{}}' END)"
+    return (f"CASE WHEN json_type({meta}, '$.marking_norm.adjusted') = 'text' "
+            f"THEN TRIM(json_extract({meta}, '$.marking_norm.adjusted')) ELSE "
+            f"COALESCE(NULLIF(json_extract({meta}, '$.marking_norm.normalized'), ''), "
+            f"json_extract({meta}, '$.marking'), '') END")
 
 
 def _join_norm(classification, caveats):
@@ -353,7 +374,15 @@ def apply_normalization(meta: dict) -> dict:
     ``creationDate`` are handled too."""
     raw_date = meta.get("date_published") or meta.get("creationDate") or ""
     meta["date_norm"] = normalize_date(raw_date) or {}
-    meta["marking_norm"] = normalize_marking(meta.get("marking") or "")
+    raw = meta.get("marking") or ""
+    effective = meta.get("marking_adjusted")
+    manual = isinstance(effective, str)
+    norm = normalize_marking(raw, effective if manual else None)
+    # Overrides bypass the hook; canonicalisation/binning still applies.
+    parsed = marking_schema.categorize(effective if manual else norm.get("adjusted", ""))
+    norm.update(parsed)
+    norm["manual"] = manual
+    meta["marking_norm"] = norm
     return meta
 
 

@@ -278,23 +278,6 @@ def test_columns_empty_when_nothing():
                     "marking_class": None, "marking_caveats": None}
 
 
-if __name__ == "__main__":
-    import traceback
-    passed = failed = 0
-    for name, fn in sorted(globals().items()):
-        if name.startswith("test_") and callable(fn):
-            try:
-                fn()
-                passed += 1
-                print("  ok  -", name)
-            except Exception:
-                failed += 1
-                print("  FAIL-", name)
-                traceback.print_exc()
-    print(f"\n{passed} passed, {failed} failed")
-    raise SystemExit(1 if failed else 0)
-
-
 def test_custom_marking_rules_preserve_source(monkeypatch):
     import marking_rules
     monkeypatch.setattr(marking_rules, "normalize_marking_text",
@@ -306,3 +289,7 @@ def test_custom_marking_rules_preserve_source(monkeypatch):
     assert meta["marking_norm"]["classification"] == "OFFICIAL"
     assert N.columns_from_meta(meta)["marking_class"] == "OFFICIAL"
     assert N.normalize_marking("MY LOCAL MARKING")["normalized"] == "OFFICIAL"
+
+
+if __name__ == "__main__":
+    raise SystemExit(pytest.main([__file__]))

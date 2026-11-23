@@ -321,16 +321,18 @@ _manager_lock = threading.Lock()
 
 def working_path(configured):
     global _manager
-    if not (is_network_path(configured) or os.environ.get('CLIPPER_NETWORK_CACHE') == '1'):
-        return configured
+    configured = os.fspath(configured)
     with _manager_lock:
+        active = _manager and os.path.normcase(os.path.abspath(configured)) == os.path.normcase(_manager.remote)
+        if not active and not (is_network_path(configured) or os.environ.get('CLIPPER_NETWORK_CACHE') == '1'):
+            return configured
         if _manager is None:
             candidate = NetworkDatabase(configured)
             candidate.start()
             _manager = candidate
         if os.path.normcase(os.path.abspath(configured)) != os.path.normcase(_manager.remote):
             raise RuntimeError('Restart the app to change the network database location')
-        if not _manager.status()['worker_alive']:
+        if _manager.process.poll() is not None:
             raise RuntimeError('Network DB worker stopped; stop and restart Clipper')
         return _manager.local
 

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Local Clipper
 // @namespace    https://local.tim.clipper
-// @version      0.14.0
+// @version      0.15.0
 // @description  Clip web pages and PDFs into a local SQLite-backed knowledge base.
 // @match        *://*/*
 // @match        file:///*.pdf
@@ -1127,8 +1127,11 @@
     function createMetadataEditor(container, initial = {}) {
         const inputs = {};
         const dirty = new Set();
+        const automatic = el('input', { type: 'checkbox' });
+        automatic.checked = true;
         for (const [key, label] of Object.entries({ title: 'Title', url: 'Original URL',
-            report_number: 'Report number', date_published: 'Published', marking: 'Marking' })) {
+            report_number: 'Report number', date_published: 'Published', marking: 'Raw marking',
+            marking_adjusted: 'Adjusted marking' })) {
             const input = el('input', { type: 'text', 'aria-label': label,
                 style: { width: '100%', boxSizing: 'border-box', padding: '5px', margin: '3px 0 7px',
                     border: '1px solid #ccc', borderRadius: '4px', fontSize: '12px' },
@@ -1136,15 +1139,27 @@
             inputs[key] = input;
             container.appendChild(el('label', { style: { display: 'block', fontSize: '11px', color: '#666' } }, label, input));
         }
+        automatic.addEventListener('change', () => {
+            dirty.add('marking_adjusted');
+            inputs.marking_adjusted.disabled = automatic.checked;
+        });
+        container.appendChild(el('label', {}, automatic, ' Automatic adjusted marking (uncheck to override; recheck to reset)'));
         function update(values) {
             for (const key of Object.keys(inputs)) {
-                if (!dirty.has(key)) inputs[key].value = values[key] || '';
+                if (!dirty.has(key)) inputs[key].value = values[key] || (key === 'marking_adjusted' ? values.marking_preview || '' : '');
             }
+            if (!dirty.has('marking_adjusted')) {
+                automatic.checked = typeof values.marking_adjusted !== 'string';
+                inputs.marking_adjusted.disabled = automatic.checked;
+            }
+        }
+        function value(key) {
+            return key === 'marking_adjusted' && automatic.checked ? null : inputs[key].value.trim();
         }
         update(initial);
         return { update, clearDirty: () => dirty.clear(),
-            values: () => Object.fromEntries(Object.entries(inputs).map(([k, input]) => [k, input.value.trim()])),
-            changes: () => Object.fromEntries([...dirty].map(k => [k, inputs[k].value.trim()])) };
+            values: () => Object.fromEntries(Object.keys(inputs).map(k => [k, value(k)])),
+            changes: () => Object.fromEntries([...dirty].map(k => [k, value(k)])) };
     }
 
     let suggestChipEl = null;
@@ -1198,9 +1213,9 @@
                 const r = await gmFetch({ method: 'GET', url: `${SERVICE}/api/clips/${clipId}`, timeout: 8000 });
                 if (r.status !== 200) throw new Error('Unable to load saved metadata');
                 const saved = JSON.parse(r.responseText);
-                editor.update({ ...saved.meta, title: saved.title, url: saved.url });
+                editor.update({ ...saved.meta, marking_preview: saved.marking_display, title: saved.title, url: saved.url });
                 applied.splice(0, applied.length, ...(saved.tags || []));
-                metadata.textContent = JSON.stringify({ ...saved.meta, title: saved.title, url: saved.url, tags: saved.tags }, null, 2);
+                metadata.textContent = JSON.stringify({ ...saved.meta, adjusted_marking: saved.marking_display, title: saved.title, url: saved.url, tags: saved.tags }, null, 2);
             } catch (e) { metadata.textContent = e.message; }
         }
         const saveMetadata = el('button', { onclick: async () => {
@@ -1952,20 +1967,17 @@
             // actually used, so an untagged save doesn't wipe the list.
             if (tags.length) GM_setValue(LS_LAST_TAGS, tags.join(', '));
             try {
+                const meta = { ...initialMeta, ...captureMetadata.values() };
                 if (isPdf) {
                     status.textContent = 'Fetching PDF…';
                     const bytes = await fetchPdfBytes();
                     status.textContent = `Uploading ${(bytes.length / 1024).toFixed(0)} KB…`;
                     const filename = location.pathname.split('/').pop() || 'document.pdf';
-                    let pdfMeta = {};
-                    try { pdfMeta = extractMetadata(); }
-                    catch (e) { console.warn('clipper: metadata extraction failed (PDF)', e); }
-                    pdfMeta = { ...pdfMeta, ...captureMetadata.values() };
-                    const r = await postPdfDedup(bytes, filename, tags.join(','), pdfMeta.url,
-                                                 JSON.stringify(pdfMeta), noteInput.value.trim());
+                    const r = await postPdfDedup(bytes, filename, tags.join(','), meta.url,
+                                                 JSON.stringify(meta), noteInput.value.trim());
                     if (!r) { status.textContent = ''; closePanel(); toast('Skipped (duplicate)'); return; }
                     closePanel();
-                    const markStr = pdfMeta.marking ? ` [${pdfMeta.marking}]` : '';
+                    const markStr = meta.marking ? ` [${meta.marking}]` : '';
                     toast(`Saved as clip #${r.id}${markStr} (click to open library)`);
                 } else {
                     const mode = modeSel.value;
@@ -1981,14 +1993,8 @@
                     status.textContent =
                         `Inlined ${inlined}/${total} images, stripped ${linksRemoved} links. Sending…`;
 
-                    // Run metadata extraction against the live page (not the
-                    // cloned content node) so it sees the whole document.
-                    let extractedMeta = {};
-                    try { extractedMeta = extractMetadata(); }
-                    catch (e) { console.warn('clipper: metadata extraction failed', e); }
-
                     const r = await postClipDedup({
-                        html, title: captureMetadata.values().title || cap.title, url: captureMetadata.values().url,
+                        html, title: meta.title || cap.title, url: meta.url,
                         source: 'userscript-' + mode, tags,
                         note: noteInput.value.trim(),
                         meta: {
@@ -1997,13 +2003,12 @@
                             extractor: cap.extractor || null,
                             links_removed: linksRemoved,
                             images_inlined: inlined,
-                            ...extractedMeta,
-                            ...captureMetadata.values(),
+                            ...meta,
                         },
                     });
                     if (!r) { status.textContent = ''; closePanel(); toast('Skipped (duplicate)'); return; }
                     closePanel();
-                    const markStr = extractedMeta.marking ? ` [${extractedMeta.marking}]` : '';
+                    const markStr = meta.marking ? ` [${meta.marking}]` : '';
                     toast(`Saved as clip #${r.id}${markStr}` +
                           (cap.extractor ? ` via ${cap.extractor}` : ''));
                 }

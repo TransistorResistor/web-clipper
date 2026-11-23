@@ -1,0 +1,17 @@
+{
+  "delimiters": ["|", ";"],
+  "categories": {
+    "projects": {
+      "label": "Projects",
+      "values": {"Project A": [], "Project B": [], "Project C": []}
+    },
+    "cost_centres": {
+      "label": "Cost centres",
+      "values": {"123": [], "456": [], "789": []}
+    },
+    "clients": {
+      "label": "Clients",
+      "values": {"Client 1": [], "Client 2": [], "Client 3": ["Client C"]}
+    }
+  }
+}

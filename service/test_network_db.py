@@ -202,3 +202,16 @@ def test_second_manager_cannot_delete_active_cache(tmp_path, monkeypatch):
     finally:
         first.stop()
         second.stop()
+
+def test_cache_stays_active_when_mapped_drive_disconnects(monkeypatch, tmp_path):
+    from types import SimpleNamespace
+    remote = tmp_path / 'share.db'
+    manager = N.NetworkDatabase(remote)
+    manager.process = SimpleNamespace(poll=lambda: None)
+    monkeypatch.setattr(N, '_manager', manager)
+    monkeypatch.setattr(N, 'is_network_path', lambda path: False)
+    monkeypatch.delenv('CLIPPER_NETWORK_CACHE', raising=False)
+    assert N.working_path(remote) == manager.local
+    manager.process = SimpleNamespace(poll=lambda: 1)
+    with pytest.raises(RuntimeError, match='worker stopped'):
+        N.working_path(remote)

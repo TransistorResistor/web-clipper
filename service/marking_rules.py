@@ -15,8 +15,12 @@ def normalize_marking_text(value: str) -> str:
     normalize.normalize_marking here: that would recurse into this hook.
 
     The original input remains in meta['marking'] and marking_norm['raw'];
-    this return value only affects the parsed marking components and
-    normalized display string. Existing rows are not rewritten automatically.
+    the returned text is saved as marking_norm['adjusted'] and used for UI
+    display, marking search and filtering, even for custom vocabulary. It also
+    feeds the legacy parser for structured components. The JSON schema then
+    splits the text using its configured delimiters and canonicalises aliases
+    into categories. A manual marking_adjusted override bypasses this hook
+    but is still split, canonicalised and categorised. Existing rows are not rewritten automatically.
     Restart the service after changing this file, then re-save a clip's
     metadata to recompute its stored marking/filter columns with your new rules.
     """

@@ -79,13 +79,17 @@
     <div id="marking-banner" style="display:none; padding:6px 10px; border-radius:4px;
          font-weight:600; font-size:13px; margin-bottom:8px;
          background:#fde68a; color:#7c2d12; border:1px solid #d97706;"></div>
+    <div id="marking-categories"></div>
     <table id="key-meta" style="width:100%; font-size:12px; border-collapse:collapse;"></table>
     <details id="edit-meta" style="margin-top:8px;">
       <summary style="font-size:12px; cursor:pointer; color:#06c;">Edit metadata</summary>
       <div class="em-form">
         <label>Title<input id="em-title" type="text"></label>
         <label>Original URL<input id="em-url" type="text" placeholder="https://…"></label>
-        <label>Marking<input id="em-marking" type="text" placeholder="e.g. OFFICIAL-SENSITIVE NO CONTRACTORS"></label>
+        <label>Raw marking<input id="em-marking" type="text" placeholder="e.g. Internal / Project Alpha"></label>
+        <label>Adjusted marking<input id="em-adjusted" type="text"></label>
+        <label style="display:block"><input id="em-auto-marking" type="checkbox"> Automatic adjusted marking</label>
+        <p>Uncheck automatic to override. Recheck to reset from raw marking on save.</p>
         <label>Published<input id="em-date" type="text" placeholder="2024-03-14, March 2024, 14 Mar 2026…"></label>
         <label>Report number<input id="em-report" type="text"></label>
         <button id="em-save">Save metadata</button>
@@ -123,16 +127,17 @@
 
   function renderKeyMetadata(meta) {
     // Show marking prominently if present.
-    if (meta.marking) {
+    const displayMarking = clip.marking_display || '';
+    if (displayMarking) {
       $('#marking-banner').style.display = '';
-      $('#marking-banner').textContent = meta.marking;
+      $('#marking-banner').textContent = displayMarking;
     } else {
       $('#marking-banner').style.display = 'none';
     }
     // Render selected high-value fields as a compact table. Anything not
     // shown here is still available in the raw metadata expander.
     const ordered = ['title', 'url', 'report_number', 'date_published',
-                     'metadata_extractor'];
+                     'marking', 'metadata_extractor'];
     const rows = [];
     for (const k of ordered) {
       const v = meta[k];
@@ -175,6 +180,21 @@
     $('#em-title').value = clip.title || '';
     $('#em-url').value = clip.url || m.url || '';
     $('#em-marking').value = m.marking || '';
+    $('#em-adjusted').value = clip.marking_display || '';
+    $('#em-auto-marking').checked = typeof m.marking_adjusted !== 'string';
+    $('#em-adjusted').disabled = $('#em-auto-marking').checked;
+    const categoryHost = $('#marking-categories');
+    categoryHost.replaceChildren();
+    let schema = { categories: [] };
+    try { schema = await (await fetch('/api/marking-schema')).json(); } catch (_) {}
+    const groups = { ...(m.marking_norm || {}).categories, _unmapped: (m.marking_norm || {}).unmapped || [] };
+    for (const [key, values] of Object.entries(groups)) {
+      if (!values.length) continue;
+      const line = document.createElement('p');
+      const label = ((schema.categories || []).find(c => c.key === key) || {}).label || key;
+      line.textContent = label + ': ' + values.join(', ');
+      categoryHost.appendChild(line);
+    }
     $('#em-date').value = m.date_published || '';
     $('#em-report').value = m.report_number || '';
     $('#em-status').textContent = '';
@@ -295,6 +315,7 @@
       meta: {
         url: $('#em-url').value.trim(),
         marking: $('#em-marking').value.trim(),
+        marking_adjusted: $('#em-auto-marking').checked ? null : $('#em-adjusted').value.trim(),
         date_published: $('#em-date').value.trim(),
         report_number: $('#em-report').value.trim(),
       },
@@ -317,6 +338,7 @@
     window.location.href = '/';
   });
 
+  $('#em-auto-marking').onchange = () => { $('#em-adjusted').disabled = $('#em-auto-marking').checked; };
   load();
 </script>
 <script src="/static/storage.js"></script>

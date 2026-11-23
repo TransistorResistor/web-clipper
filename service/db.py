@@ -14,14 +14,13 @@ Design notes:
   with sqlite-vec for semantic search.
 """
 
-import json
 import os
 import re
 import sqlite3
 import time
 from contextlib import contextmanager
 from pathlib import Path
-from typing import Any, Iterable, Optional
+from typing import Iterable, Optional
 
 SCHEMA = r"""
 PRAGMA journal_mode = WAL;
@@ -644,13 +643,6 @@ def set_setting(conn: sqlite3.Connection, key: str, value: str) -> None:
         "INSERT INTO app_settings(key, value) VALUES (?, ?) "
         "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
         (key, str(value)))
-
-
-def meta_get(row: sqlite3.Row, key: str, default: Any = None) -> Any:
-    try:
-        return json.loads(row["meta_json"] or "{}").get(key, default)
-    except (json.JSONDecodeError, TypeError):
-        return default
 
 
 if __name__ == "__main__":

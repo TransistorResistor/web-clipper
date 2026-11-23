@@ -48,12 +48,13 @@ from io import BytesIO
 from db import (
     add_blocked_keyword, connect, delete_tags, find_duplicate, gc_orphan_tags,
     get_db_path, get_setting, init_db, list_blocked_keywords, merge_tags, now_ts,
-    refresh_fts_tags, remove_blocked_keyword, rename_tag, set_setting,
+    remove_blocked_keyword, rename_tag, set_setting,
     transaction, upsert_tags, write_norm_columns,
 )
 import search as search_engine
 import ingest as ingest_mod
 import normalize as normalize_mod
+import marking_schema
 import suggest as suggest_mod
 import tagcleanup as tagcleanup_mod
 
@@ -495,6 +496,18 @@ def api_attach_pdf():
 # Read / search / edit
 # ---------------------------------------------------------------------------
 
+def _clip_response(row):
+    clip = dict(row)
+    clip.pop("embedding", None)
+    try:
+        meta = json.loads(clip.pop("meta_json") or "{}")
+    except (ValueError, TypeError):
+        meta = {}
+    clip["meta"] = meta if isinstance(meta, dict) else {}
+    clip["marking_display"] = normalize_mod.marking_display(clip["meta"])
+    return clip
+
+
 @app.route("/api/clips")
 def api_clips():
     """Query params: q=, tag=, limit=, offset=, has_pdf=1"""
@@ -509,6 +522,10 @@ def api_clips():
     published_from = (request.args.get("published_from") or "").strip()
     published_to = (request.args.get("published_to") or "").strip()
 
+    try:
+        category_filters = marking_schema.filters(request.args.get("marking_filters"))
+    except (ValueError, TypeError) as e:
+        return jsonify({"error": str(e)}), 400
     conn = connect()
     try:
         params: list = []
@@ -531,6 +548,9 @@ def api_clips():
         else:
             sql = f"SELECT {cols}, NULL AS rank, NULL AS snippet FROM clips c WHERE 1=1"
 
+        extra_sql, extra_params = marking_schema.sql_filters(category_filters)
+        sql += extra_sql
+        params.extend(extra_params)
         if tag:
             sql += " AND c.id IN (SELECT clip_id FROM clip_tags ct JOIN tags t ON t.id = ct.tag_id WHERE t.name = ? COLLATE NOCASE)"
             params.append(tag)
@@ -538,6 +558,12 @@ def api_clips():
             for field in request.args.getlist(key):
                 if field in ("tag", "tags"):
                     expr = "EXISTS (SELECT 1 FROM clip_tags ct WHERE ct.clip_id = c.id)"
+                elif field in marking_schema.CONFIG["categories"] or field == "_unmapped":
+                    category_sql, category_params = marking_schema.sql_filters({field: ["@present"]})
+                    expr = category_sql.removeprefix(" AND ")
+                    params.extend(category_params)
+                elif field == "marking":
+                    expr = f"({normalize_mod.marking_sql()}) != ''"
                 elif field in ("title", "url"):
                     expr = f"TRIM(COALESCE(c.{field}, '')) != ''"
                 else:
@@ -551,10 +577,10 @@ def api_clips():
             sql += " AND c.id IN (SELECT clip_id FROM clip_assets WHERE role = 'pdf-primary')"
         if marking:
             if marking == "*":
-                sql += " AND c.marking_class IS NOT NULL"
+                sql += f" AND ({normalize_mod.marking_sql()}) != ''"
             else:
-                sql += " AND c.marking_class = ? COLLATE NOCASE"
-                params.append(marking)
+                sql += f" AND (({normalize_mod.marking_sql()}) = ? COLLATE NOCASE OR c.marking_class = ? COLLATE NOCASE)"
+                params.extend([marking, marking])
         # date_published_norm is a sortable ISO date, so string comparison is a
         # correct range test (day precision for the inclusive upper bound).
         if published_from:
@@ -595,11 +621,7 @@ def api_clips():
 
         results = []
         for r in rows:
-            d = dict(r)
-            try:
-                d["meta"] = json.loads(d.pop("meta_json") or "{}")
-            except Exception:
-                d["meta"] = {}
+            d = _clip_response(r)
             d["tags"] = tags_by_clip.get(r["id"], [])
             d["has_pdf"] = r["id"] in pdf_ids
             results.append(d)
@@ -615,12 +637,7 @@ def api_clip_detail(clip_id):
         r = conn.execute("SELECT * FROM clips WHERE id = ?", (clip_id,)).fetchone()
         if not r:
             abort(404)
-        d = dict(r)
-        d.pop("embedding", None)
-        try:
-            d["meta"] = json.loads(d.pop("meta_json") or "{}")
-        except Exception:
-            d["meta"] = {}
+        d = _clip_response(r)
         d["tags"] = [
             row["name"] for row in conn.execute(
                 "SELECT t.name FROM clip_tags ct JOIN tags t ON t.id = ct.tag_id "
@@ -678,9 +695,6 @@ def api_clip_update(clip_id):
                 )
                 params.append(clip_id)
                 conn.execute(f"UPDATE clips SET {', '.join(updates)} WHERE id = ?", params)
-                # The AFTER UPDATE trigger handles title/content_text in FTS,
-                # but we lose the tags column - refresh manually.
-                refresh_fts_tags(conn, clip_id)
             if "title" in body:
                 row = conn.execute("SELECT meta_json FROM clips WHERE id = ?", (clip_id,)).fetchone()
                 meta = json.loads(row["meta_json"] or "{}")
@@ -688,14 +702,9 @@ def api_clip_update(clip_id):
                 conn.execute("UPDATE clips SET meta_json = ? WHERE id = ?", (json.dumps(meta), clip_id))
             if "tags" in body:
                 upsert_tags(conn, clip_id, body["tags"])
-            # The user note edits in place like tags (no revision row): it's a
-            # margin comment on the clip, not part of its versioned content. The
-            # AFTER UPDATE trigger reindexes FTS but blanks the tags column, so
-            # refresh to restore tags (and write the new note) into clips_fts.
             if "note" in body:
                 conn.execute("UPDATE clips SET user_note = ? WHERE id = ?",
                              ((body.get("note") or "").strip() or None, clip_id))
-                refresh_fts_tags(conn, clip_id)
             # Editable metadata (marking, date_published, report_number, url).
             # Merge onto stored meta_json, re-normalise so the structured
             # date/marking projections + filter columns stay in lock-step, and
@@ -716,6 +725,14 @@ def api_clip_update(clip_id):
                         meta[k] = v
                     else:
                         meta.pop(k, None)   # blank clears the field
+                if "marking_adjusted" in incoming:
+                    override = incoming["marking_adjusted"]
+                    if override is None:
+                        meta.pop("marking_adjusted", None)
+                    elif isinstance(override, str):
+                        meta["marking_adjusted"] = override.strip()
+                    else:
+                        abort(400, "marking_adjusted must be a string or null")
                 normalize_mod.apply_normalization(meta)
                 write_norm_columns(conn, clip_id,
                                    normalize_mod.columns_from_meta(meta),
@@ -725,8 +742,6 @@ def api_clip_update(clip_id):
                     conn.execute(
                         "UPDATE clips SET url = ?, canonical_url = ? WHERE id = ?",
                         (newurl, newurl, clip_id))
-        refresh_fts_tags(conn, clip_id)
-        conn.commit()
         return jsonify({"ok": True})
     finally:
         conn.close()
@@ -822,16 +837,33 @@ def api_tags():
         conn.close()
 
 
-@app.route("/api/markings")
-def api_markings():
-    """Distinct classification levels in the library, with clip counts, for the
-    library filter dropdown. Drawn from the indexed marking_class column."""
+@app.route("/api/marking-schema")
+def api_marking_schema():
     conn = connect()
     try:
+        unmapped = set()
+        for row in conn.execute("SELECT meta_json FROM clips"):
+            try:
+                unmapped.update(marking_schema.values(json.loads(row["meta_json"] or "{}"), "_unmapped"))
+            except (ValueError, TypeError):
+                continue
+        categories = [{"key": key, "label": spec.get("label", key), "values": list(spec["values"])}
+                      for key, spec in marking_schema.CONFIG["categories"].items()]
+        categories.append({"key":"_unmapped", "label":"Unmapped", "values":sorted(unmapped)})
+        return jsonify({"delimiters":marking_schema.CONFIG["delimiters"], "categories":categories})
+    finally:
+        conn.close()
+
+
+@app.route("/api/markings")
+def api_markings():
+    """Distinct adjusted markings, including custom values unknown to the parser."""
+    conn = connect()
+    try:
+        expression = normalize_mod.marking_sql()
         rows = conn.execute(
-            "SELECT marking_class AS name, COUNT(*) AS n FROM clips "
-            "WHERE marking_class IS NOT NULL AND marking_class != '' "
-            "GROUP BY marking_class ORDER BY n DESC, name").fetchall()
+            f"SELECT ({expression}) AS name, COUNT(*) AS n FROM clips c "
+            f"WHERE ({expression}) != '' GROUP BY name ORDER BY n DESC, name").fetchall()
         return jsonify({"markings": [dict(r) for r in rows]})
     finally:
         conn.close()
@@ -1146,7 +1178,7 @@ def _import_pdf_attachment(conn, att: dict, item: dict, force: bool,
         if dup:
             return {**base, "status": "duplicate", "duplicate": dup}
     pdf_text = search_engine.pdf_to_text(raw)
-    meta = ingest_mod.extract_pdf_metadata(raw, pdf_text)
+    meta = ingest_mod.extract_pdf_metadata(raw, pdf_text, filename=att.get("filename") or "")
     meta.update(_outlook_meta(item))
     if review:
         meta["review_pending"] = True
@@ -1521,6 +1553,7 @@ def asset(sha):
 
 def _opts_from_request(args) -> "search_engine.SearchOptions":
     return search_engine.SearchOptions(
+        marking_filters=marking_schema.filters(args.get("marking_filters")),
         context_words=int_arg(args, "context", 30, lo=0, hi=500),
         default_op=(args.get("default_op", "OR") or "OR").upper(),
         added_from=args.get("added_from") or None,
@@ -1544,7 +1577,10 @@ def api_search():
     q = (request.args.get("q") or "").strip()
     if not q:
         return jsonify({"error": "q required"}), 400
-    opts = _opts_from_request(request.args)
+    try:
+        opts = _opts_from_request(request.args)
+    except (ValueError, TypeError) as e:
+        return jsonify({"error": str(e)}), 400
     conn = connect()
     try:
         try:
@@ -1707,7 +1743,7 @@ def api_upload_preview():
 
         if is_pdf:
             pdf_text = search_engine.pdf_to_text(raw)
-            meta = ingest_mod.extract_pdf_metadata(raw, pdf_text)
+            meta = ingest_mod.extract_pdf_metadata(raw, pdf_text, filename=fname)
             kind = "pdf"
             body_html = None
             body_text = pdf_text
@@ -1836,17 +1872,9 @@ def api_upload_commit():
     kind = staged["kind"]
     raw = staged["bytes"]
     meta = dict(staged["meta"])
-    auto_editable = {
-        "title": staged["meta"].get("title") or "",
-        "url": staged["meta"].get("url") or "",
-        "report_number": staged["meta"].get("report_number") or "",
-        "date_published": staged["meta"].get("date_published") or "",
-        "marking": staged["meta"].get("marking") or "",
-    }
-
     # Merge the (possibly edited) fields back into meta, then re-normalise so a
     # user-corrected date/marking is reflected in the structured projections.
-    for k in ("title", "url", "report_number", "date_published", "marking"):
+    for k in ("title", *_EDITABLE_META_FIELDS):
         if k in fields:
             meta[k] = fields[k]
     normalize_mod.apply_normalization(meta)
@@ -1905,17 +1933,16 @@ def api_upload_commit():
             if tags:
                 upsert_tags(conn, clip_id, tags)
 
-            # Remember any field the user changed from the auto value.
-            scope = staged["scope"]
-            for k in (() if kind == "pdf" else ("title", "url", "report_number", "date_published", "marking")):
-                new_val = (fields.get(k) or "").strip()
-                if new_val and new_val != (auto_editable.get(k) or "").strip():
-                    conn.execute(
-                        "INSERT INTO metadata_corrections(scope, field, value, updated_at) "
-                        "VALUES (?, ?, ?, ?) "
-                        "ON CONFLICT(scope, field) DO UPDATE SET value=excluded.value, "
-                        "updated_at=excluded.updated_at",
-                        (scope, k, new_val, now_ts()))
+            if kind == "mhtml":
+                for k in ("title", *_EDITABLE_META_FIELDS):
+                    new_val = (fields.get(k) or "").strip()
+                    if new_val and new_val != (staged["meta"].get(k) or "").strip():
+                        conn.execute(
+                            "INSERT INTO metadata_corrections(scope, field, value, updated_at) "
+                            "VALUES (?, ?, ?, ?) "
+                            "ON CONFLICT(scope, field) DO UPDATE SET value=excluded.value, "
+                            "updated_at=excluded.updated_at",
+                            (staged["scope"], k, new_val, now_ts()))
         _STAGE.pop(token, None)
         return jsonify({"ok": True, "id": clip_id})
     except Exception as e:
@@ -1938,7 +1965,6 @@ def api_upload_bulk():
     No preview round-trip: the file is parsed, deduped (by the PDF bytes'
     sha256, like attach-pdf) and committed in one shot, with the same metadata
     extraction + keyword auto-tagging an uploaded or emailed PDF gets.
-    Remembered ext:pdf corrections pre-fill fields the extractor left blank.
     Duplicates report the existing clip and are skipped - there is no force,
     so re-running a folder after adding files imports only the new ones.
     Malformed requests (missing/empty/non-PDF file) are 400; everything else
@@ -1965,18 +1991,13 @@ def api_upload_bulk():
             return jsonify({"ok": True, "status": "duplicate", "duplicate": dup,
                             "relpath": relpath})
         pdf_text = search_engine.pdf_to_text(raw)
-        meta = ingest_mod.extract_pdf_metadata(raw, pdf_text)
+        meta = ingest_mod.extract_pdf_metadata(raw, pdf_text, filename=fname)
         meta["filename"] = fname
         meta["is_pdf"] = True
         if relpath and relpath != fname:
             meta["relative_path"] = relpath   # where it sat under the root
         if review:
             meta["review_pending"] = True
-        # Remembered PDF corrections fill fields the extractor left blank
-        # (same rule as the upload preview).
-        for field, val in _corrections_for_scope(conn, "ext:pdf").items():
-            if not meta.get(field):
-                meta[field] = val
         normalize_mod.apply_normalization(meta)
         # A blank/boilerplate metadata title falls back to the filename - for
         # a PDF the filename is usually the most descriptive thing about it.

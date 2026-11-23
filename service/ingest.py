@@ -3,7 +3,7 @@ File ingestion helpers for the drag-and-drop uploader.
 
 Handles two upload types:
   - PDF  : text via PyMuPDF (reused from search.py), metadata from the PDF
-           document info dict + a scan of the text for handling markings.
+           document info dict and a customizable marking hook.
   - MHTML: MIME-multipart (.mht / .mhtml) - we locate the root HTML part,
            re-inline the embedded resource parts (images) as data URIs so
            the stored body is self-contained, then run HTML metadata
@@ -27,6 +27,8 @@ from email import policy
 from html import unescape
 from typing import Optional
 from urllib.parse import urljoin
+
+import pdf_marking_rules
 
 
 # ---------------------------------------------------------------------------
@@ -344,8 +346,8 @@ def _looks_like_stock_keywords(kws: list[str]) -> bool:
     return hits >= _STOCK_CLUSTER_MIN
 
 
-def extract_pdf_metadata(raw: bytes, pdf_text: str = "") -> dict:
-    """Pull metadata from a PDF's info dict + a marking scan of its text."""
+def extract_pdf_metadata(raw: bytes, pdf_text: str = "", *, filename: str = "") -> dict:
+    """Read PDF metadata and get the initial marking from the custom hook."""
     info = {}
     xmp = ""
     try:
@@ -359,15 +361,10 @@ def extract_pdf_metadata(raw: bytes, pdf_text: str = "") -> dict:
         n_pages = None
 
     title = (info.get("title") or "").strip()
-    # Marking: scan the first chunk of extracted text for known tokens.
-    cands = {"pdfInfoSubject": (info.get("subject") or "").strip(),
-             "bodyScan": "", "fallback": ""}
-    if pdf_text:
-        head = pdf_text[:1500].upper()
-        for tok in _MARKING_TOKENS:
-            if tok in head:
-                cands["bodyScan"] = tok
-                break
+    filename = filename.replace("\\", "/").rsplit("/", 1)[-1]
+    marking = pdf_marking_rules.extract_pdf_marking(title or filename, pdf_text[:1500], filename)
+    if not isinstance(marking, str):
+        raise TypeError("extract_pdf_marking must return a string")
     # Report number: look for "Report No." style label in the text head.
     report_number = ""
     if pdf_text:
@@ -392,9 +389,7 @@ def extract_pdf_metadata(raw: bytes, pdf_text: str = "") -> dict:
         "report_number": report_number,
         "date_published": (info.get("creationDate") or "").strip(),
         "page_count": n_pages,
-        "marking_candidates": cands,
-        "marking": select_marking({**cands, "metaSecurity": "", "classBanner": "",
-                                    "metaClassification": "", "firstHeading": ""}),
+        "marking": marking.strip(),
         "metadata_extractor": "server-pdf",
         "pdf_author": (info.get("author") or "").strip(),
         # The PDF's authored abstract/description (Info /Subject). Not a tag in
